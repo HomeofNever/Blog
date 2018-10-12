@@ -33,11 +33,11 @@ date: 2018-06-20 11:57:00
 
 有点意思，看了一下这里：https://www.digitalocean.com/community/questions/is-it-safe-to-remove-rpcbind
 
-![](media/rpcbind_ddos/digitalocean.jpg)
+![](/images/media/rpcbind_ddos/digitalocean.jpg)
 
 OK，似乎可以删除。**但是已删除会连着Proxmox整个一起被干掉**，还好有一层确认（感谢）
 
-![](media/rpcbind_ddos/confirm.jpg)
+![](/images/media/rpcbind_ddos/confirm.jpg)
 
 
 解决方案在这里：https://forum.proxmox.com/threads/is-it-possible-to-disable-rpcbind-port-111-and-how-to-do-it.33590/
