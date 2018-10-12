@@ -76,7 +76,7 @@ frontend 80
 
 
 #### 关于Capture
-1. `IPCountry` 需要自己设定在 Cloudflare 设置 `Page Rule`，不过呢，Logstash 本身也有这个功能：![](media/rancher_loadbalancer/logstash.jpg)
+1. `IPCountry` 需要自己设定在 Cloudflare 设置 `Page Rule`，不过呢，Logstash 本身也有这个功能：![](/images/media/rancher_loadbalancer/logstash.jpg)
 2. 因为 Haproxy 本身呢……如果你要记录 Header 你必须要自己现在 Frontend 里面加上。这个的话就是看自己需要什么了。
 
 
