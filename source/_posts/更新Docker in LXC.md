@@ -5,6 +5,7 @@ tags:
 categories:
     - 随笔
 date: 2018-11-09 19:00:00
+updated_at: 2018-11-09 19:40:00
 ---
 
 由于业务迁移，刚刚重新开了一台小鸡给同学用，发现 Docker 在 LXC 里面怎么都起不来。
@@ -40,4 +41,6 @@ WantedBy=multi-user.target
 ```
 
 容器里面做这个肯定失败啊，删掉以后果然好了。
+
+Update: https://github.com/containerd/containerd/issues/2772
 XD
