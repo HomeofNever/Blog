@@ -6,12 +6,12 @@ description: WOW, these ARE my friends
 
 # 友情链接
 
-这里应该是一些一起玩的小伙伴们，他们都超级棒的！11
+这里应该是一些一起玩的小伙伴们，他们都超级棒的!!1
 
 不妨也去溜达溜达 XD
 
 |Avatar|Site|Slogan|
-|:-|:-:|:-:|
+|:-|:----:|:--------:|
 |![](/images/avatar/friends/genteure.png)|[Genteure](https://www.genteure.com)|Genteure|
 |![](/images/avatar/friends/nimaqu.jpg)|[Nimaqu](https://blog.nimaqu.com/)|除了水群啥都不会
 |![](/images/avatar/friends/huihui.jpg)|[灰灰](https://huihui.moe)|好诶，是 huihui
