@@ -12,11 +12,11 @@ description: WOW, these ARE my friends
 
 |Avatar|Site|Slogan|
 |:-|:----:|:--------:|
-|![](/images/avatar/friends/genteure.png)|[Genteure](https://www.genteure.com)|Genteure|
-|![](/images/avatar/friends/nimaqu.jpg)|[Nimaqu](https://blog.nimaqu.com/)|除了水群啥都不会
-|![](/images/avatar/friends/huihui.jpg)|[灰灰](https://huihui.moe)|好诶，是 huihui
-|![](/images/avatar/friends/lwl12.jpg)|[LWL 的自由天空](https://blog.lwl12.com)|something
-|![](/images/avatar/friends/neofelhz.png)|[neoFelhz's Blog](https://blog.nfz.moe)|Nothing can be done without paranoia.
-|![](/images/avatar/friends/indexyz.png)|[Indexyz Blog](https://blog.indexyz.me)|Sharing light, even in death.
-|![](/images/avatar/friends/milkice.jpg)|[奶冰の冷藏室](https://milkice.me)|Maybe a way to explore the world?
-|![](/images/avatar/friends/anankke.jpg)|[Anankke's Blog](http://an.ank.moe)|Into The Abyss.
+|<img src="/images/avatar/friends/genteure.png" width="200"/>|[Genteure](https://www.genteure.com)|Genteure|
+|<img src="/images/avatar/friends/nimaqu.jpg" width="200"/>|[Nimaqu](https://blog.nimaqu.com/)|除了水群啥都不会
+|<img src="/images/avatar/friends/huihui.jpg" width="200"/>|[灰灰](https://huihui.moe)|好诶，是 huihui
+|<img src="/images/avatar/friends/lwl12.jpg" width="200"/>|[LWL 的自由天空](https://blog.lwl12.com)|Hi, LWL12
+|<img src="/images/avatar/friends/neofelhz.png" width="200"/>|[neoFelhz's Blog](https://blog.nfz.moe)|Nothing can be done without paranoia.
+|<img src="/images/avatar/friends/indexyz.png" width="200"/>|[Indexyz Blog](https://blog.indexyz.me)|Sharing light, even in death.
+|<img src="/images/avatar/friends/milkice.jpg" width="200"/>|[奶冰の冷藏室](https://milkice.me)|Maybe a way to explore the world?
+|<img src="/images/avatar/friends/anankke.jpg" width="200"/>|[Anankke's Blog](http://an.ank.moe)|Into The Abyss.
