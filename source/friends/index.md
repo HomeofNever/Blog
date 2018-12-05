@@ -23,3 +23,14 @@ description: WOW, these ARE my friends
 |<img src="/images/avatar/friends/mokejay.jpg" width="200"/>|[超能小紫 mokejay](https://www.mokeyjay.com/)|PHP初学者 // ACG爱好者 // 专业学渣 // 余业萝莉控
 |<img width="200px" src="/images/avatar/friends/1a23.png"/>|[1A23 Studio](https://1a23.com/)|We Create.
 |<img src="/images/avatar/friends/dcc.png" width="200"/>|[DCC 的小窝](https://www.dcc.cat)|长夜才开始，黑暗中请记得太阳的模样，沉默中不要为魔鬼歌唱。
+
+# 交换友链
+
+如果你想要加我的话，这里是一些基本信息你可以直接拿走：
+- 名字：NEVER迷の小窝
+- 简介：没有简介的迷の生物
+- 头像：avatar@never.pet 的 [Gravatar](https://www.gravatar.com/avatar/8f253ca9681abc8072a3a1fc6dde8f8f)
+  - [使用说明](https://en.gravatar.com/site/implement/images/)
+- 背景图：可以使用一下图片：
+  - [neko](/images/avatar/bg/neko.jpg)
+  - [EVA](/images/avatar/bg/EVA.jpg)
