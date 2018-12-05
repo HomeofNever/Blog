@@ -27,10 +27,11 @@ description: WOW, these ARE my friends
 # 交换友链
 
 如果你想要加我的话，这里是一些基本信息你可以直接拿走：
+
 - 名字：NEVER迷の小窝
 - 简介：没有简介的迷の生物
 - 头像：avatar@never.pet 的 [Gravatar](https://www.gravatar.com/avatar/8f253ca9681abc8072a3a1fc6dde8f8f)
   - [使用说明](https://en.gravatar.com/site/implement/images/)
-- 背景图：可以使用一下图片：
+- 背景图：可以使用以下图片：
   - [neko](/images/avatar/bg/neko.jpg)
   - [EVA](/images/avatar/bg/EVA.jpg)
