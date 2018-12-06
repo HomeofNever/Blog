@@ -11,7 +11,7 @@ description: WOW, these ARE my friends
 不妨也去溜达溜达 XD
 
 |Avatar|Site|Slogan|
-|:-|:----:|:--------:|
+|:-:|:-:|:-:|
 |<img src="/images/avatar/friends/genteure.png" width="200"/>|[Genteure](https://www.genteure.com)|宅急送队长随便说|
 |<img src="/images/avatar/friends/nimaqu.jpg" width="200"/>|[Nimaqu](https://blog.nimaqu.com/)|除了水群啥都不会
 |<img src="/images/avatar/friends/huihui.jpg" width="200"/>|[灰灰](https://huihui.moe)|好诶，是 huihui
@@ -24,6 +24,7 @@ description: WOW, these ARE my friends
 |<img width="200px" src="/images/avatar/friends/1a23.png"/>|[1A23 Studio](https://1a23.com/)|We Create.
 |<img src="/images/avatar/friends/dcc.png" width="200"/>|[DCC 的小窝](https://www.dcc.cat)|长夜才开始，黑暗中请记得太阳的模样，沉默中不要为魔鬼歌唱。
 |<img src="/images/avatar/friends/kookxiang.jpg" width="200"/>|[KK 的博客](https://ikk.me)|code just like a piece of shit.|
+|<img src="/images/avatar/friends/vigorous.png" width="200"/>|[Vigorous Pro](Vigorous Pro)|这是一个从零开始的世界|
 
 # 交换友链
 
