@@ -23,6 +23,7 @@ description: WOW, these ARE my friends
 |<img src="/images/avatar/friends/mokejay.jpg" width="200"/>|[超能小紫 mokejay](https://www.mokeyjay.com/)|PHP初学者 // ACG爱好者 // 专业学渣 // 余业萝莉控
 |<img width="200px" src="/images/avatar/friends/1a23.png"/>|[1A23 Studio](https://1a23.com/)|We Create.
 |<img src="/images/avatar/friends/dcc.png" width="200"/>|[DCC 的小窝](https://www.dcc.cat)|长夜才开始，黑暗中请记得太阳的模样，沉默中不要为魔鬼歌唱。
+|<img src="/images/avatar/friends/kookxiang.jpg" width="200"/>|[KK 的博客](https://ikk.me)|code just like a piece of shit.|
 
 # 交换友链
 
