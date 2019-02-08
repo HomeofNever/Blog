@@ -90,8 +90,12 @@ WVDEVID
 
 ## 这就没了？
 
-其实是没有了
+其实是有的：
+
+<script async src="https://telegram.org/js/telegram-widget.js?5" data-telegram-post="ButNothingHappened/2823" data-width="100%"></script>
+
+研究了一下`SIM`模块，发现……真的贵：至少国外的
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5NzMxOTg0OSwtMTgyMzk2NjQ5MiwyMD
-g2NjkxMTExXX0=
+eyJoaXN0b3J5IjpbMzY4MjI2ODQ5LC0xODIzOTY2NDkyLDIwOD
+Y2OTExMTFdfQ==
 -->
