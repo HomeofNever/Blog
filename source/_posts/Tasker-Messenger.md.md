@@ -23,6 +23,8 @@ https://www.amazon.com/gp/product/B06Y12XQ1X/
 
 ### 解锁
 
+TL;DR，**结论看末尾加粗**
+
 首先，这台机器（`EVA-TL00`）是移动机，我联通的卡进去直接GG。然而我发现实际上他是连得上TMO的3G网（联通卡），看来就是硬编码了一下系统（实际上也是）
 
 这个机器在老母用的时候就一直没有升级，拿过来以后本来打算解锁BL，结果刚好过了#¥%…的时间。然后还手贱升级了，含泪找了老半天的包降级回去，拿到了ROOT，照着[吾爱破解的教程](https://www.52pojie.cn/thread-816065-1-1.html)，结果已经失效了，拿到了是
@@ -44,7 +46,11 @@ WVDEVID
 
 还有一个专门卖解锁码软件的QQ，稍微逆向了一下发现这些（或者说这种软件）似乎最后都是要把结果发回服务器计算结果的，emmmmmm很明显了（所以都这样了华为你还关通道NM$L）
 
+反正，**淘宝花了20块钱买到了解锁码，我在这**
+
+### 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MjM5NjY0OTIsMjA4NjY5MTExMV19
+eyJoaXN0b3J5IjpbMTA4NDkwMzk0MywtMTgyMzk2NjQ5MiwyMD
+g2NjkxMTExXX0=
 -->
