@@ -7,8 +7,6 @@ categories:
 date: 2019-2-08 12:28:00
 ---
 
-> Related: https://github.com/NeverBehave/Tasker-Messenger
-
 ## 剧情前提
 
 到国外以后，国内带来的两张手机卡突然有一张没地方放了。刚好老母过来的时候让她赶紧把手里的华为P9给换了水果，顺便还注册了美区ID。既然有台这个机器……这就折腾一下吧
@@ -48,7 +46,7 @@ WVDEVID
 
 反正，**淘宝花了20块钱买到了解锁码**
 
-### 刷！
+#### 刷！
 
 接下来就是刷机了，虽然说已经有准备了，但是我还是没有想到能有这么恶心
 
@@ -65,8 +63,11 @@ WVDEVID
 
 ## 2nd
 
-zhi q
+> Related: https://github.com/NeverBehave/Tasker-Messenger
+
+之前 Google Pay 新用户激活送了 20 刀一直没有用，直接先拿来买了一个[Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm)，类似于水果的捷径，但是更强大
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI4MDY1MDA3MSwtMTgyMzk2NjQ5MiwyMD
+eyJoaXN0b3J5IjpbLTU5NTI4OTA3NiwtMTgyMzk2NjQ5MiwyMD
 g2NjkxMTExXX0=
 -->
