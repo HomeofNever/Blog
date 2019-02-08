@@ -23,7 +23,7 @@ https://www.amazon.com/gp/product/B06Y12XQ1X/
 
 TL;DR，**结论看末尾加粗**
 
-首先，这台机器（`EVA-TL00`）是移动机，我联通的卡进去直接GG。然而我发现实际上他是连得上TMO的3G网（联通卡），看来就是硬编码了一下系统（实际上也是）
+首先，这台机器（`EVA-TL00`）是移动机，我联通的卡进去直接GG。然而我发现实际上他是连得上TMO的3G网（联通卡），看来就是硬编码了一下系统（实际上也是）。如果要全网的话就要解锁拿权限
 
 这个机器在老母用的时候就一直没有升级，拿过来以后本来打算解锁BL，结果刚好过了#¥%…的时间。然后还手贱升级了，含泪找了老半天的包降级回去，拿到了ROOT，照着[吾爱破解的教程](https://www.52pojie.cn/thread-816065-1-1.html)，结果已经失效了，拿到了是
 
@@ -32,7 +32,7 @@ TL;DR，**结论看末尾加粗**
 >UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUDDDDDDDDDDDDDDDD  
 WVDEVID
 
-也就是已经加密后的应该，（我…#¥）
+这个状态应该是已经加密后的，（我…#¥）
 
 然后直接找淘宝，他们用`USB Redirector`这种东西直接远程到手机（我本来还为此准备了虚拟机，不喜欢别人直接远程，然后在国外……迅雷用不了还是找 @帮忙下的win7镜像），结果……我在国外网太慢，第一家直接给我退款了（😊）
 
@@ -84,12 +84,14 @@ WVDEVID
 - 只有他的语音助手可以唤醒屏幕，其他的都不行
 - 设置了锁屏密码以后不能还原到没有密码的状态（……）， 然后谷歌还不能解锁手机
 
-于是乎，有种操作就是用`tasker`监控`HiVoice`（华为语音zhu s
+于是乎，有种操作就是用`tasker`监控`HiVoice`（华为语音助手）的窗口，弹出的时候唤醒谷歌助手：https://www.xda-developers.com/enable-ok-google-always-on-hotword-detection-on-huawei-honor-phones-no-root/
+
+但是我后面不小心设置了锁屏密码，于是谷歌又炸了
 
 ## 这就没了？
 
 其实是没有了
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg1MDgzMDc1MiwtMTgyMzk2NjQ5MiwyMD
+eyJoaXN0b3J5IjpbLTc5NzMxOTg0OSwtMTgyMzk2NjQ5MiwyMD
 g2NjkxMTExXX0=
 -->
