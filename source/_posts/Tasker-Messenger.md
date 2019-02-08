@@ -34,7 +34,7 @@ WVDEVID
 
 这个状态应该是已经加密后的，（我…#¥）
 
-然后直接找淘宝，他们用`USB Redirector`这种东西直接远程到手机（我本来还为此准备了虚拟机，不喜欢别人直接远程，然后在国外……迅雷用不了还是找 @帮忙下的win7镜像），结果……我在国外网太慢，第一家直接给我退款了（😊）
+然后直接找淘宝，他们用`USB Redirector`这种东西直接远程到手机（我本来还为此准备了虚拟机，不喜欢别人直接远程，然后在国外……迅雷用不了还是找 [@Elepover](https://daily.elepover.com/) 帮忙下的win7镜像），结果……我在国外网太慢，第一家直接给我退款了（😊）
 
 第二家弄了一会弄好了，但是第一家走之前留下了一些没有删掉的文件，其中一个是一个很罕见的驱动：`ASC-Driver_Handset WinDriver 2.01.00.00.exe`
 
@@ -96,5 +96,5 @@ WVDEVID
 
 研究了一下`SIM`模块，发现……真的贵：至少国外的价格不便宜，~~想要找人从国内带开发板~~，于是就先这样了
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc5ODUxODEwXX0=
+eyJoaXN0b3J5IjpbMTM3MTQ2NTE3LDE3OTg1MTgxMF19
 -->
