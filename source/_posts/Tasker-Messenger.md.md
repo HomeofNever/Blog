@@ -75,14 +75,18 @@ WVDEVID
 	- `global()`获得变量
 	- 声明的变量在后续操作里面使用`%{VAR}`可以获取到
 
-至于说摄像头的话：
+至于说摄像头的话：https://alfred.camera
 
-alfred.camera
+### 小插曲
+
+一开始没刷系统的时候我是想用`Google Assistant`替换掉华为的语音助手，但是华为有两个问题：
+
+- 只有他的语音助手可以唤醒屏幕，
 
 ## 这就没了？
 
-
+其实是没有了
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDAxNzI1MDEyLC0xODIzOTY2NDkyLDIwOD
-Y2OTExMTFdfQ==
+eyJoaXN0b3J5IjpbLTI4MjA3OTA2MCwtMTgyMzk2NjQ5MiwyMD
+g2NjkxMTExXX0=
 -->
