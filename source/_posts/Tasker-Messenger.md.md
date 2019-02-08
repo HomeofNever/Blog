@@ -50,7 +50,7 @@ WVDEVID
 
 接下来就是刷机了，虽然说已经有准备了，但是我还是没有想到能有这么恶心
 
-因为华为本身自己的东西太多，在(Treble)[https://source.android.com/devices/architecture]项目之前，每个自定义的ROM都有一个底包要求，**也就是说我要重新把我辛辛苦苦降级的系统再升级回去**（我……）
+因为华为本身自己的东西太多，在[Treble](https://source.android.com/devices/architecture]项目之前，每个自定义的ROM都有一个底包要求，**也就是说我要重新把我辛辛苦苦降级的系统再升级回去**（我……）
 
 我升到`EMUI5`以后直接`XDA`找了一个Android 7的包刷了，明显的，这破东西文件系统还有各种坑，就不吐槽了
 
@@ -61,7 +61,7 @@ WVDEVID
 
 反正刷机后电池续航之类的我不指望了，一直插着电。相机也能用，`Vendor`其实还是华为的，~~真的是自我安慰呢~~
 
-**这辈子再碰华为我吃屎**
+**这辈子再碰华为我吃屎（~~不会真香的~~）**
 
 ## 2nd
 
@@ -70,6 +70,6 @@ WVDEVID
 之前 Google Pay 新用户激活送了 20 刀一直没有用，直接先拿来买了一个[Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm)，类似于水果的捷径，但是更强大
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1NjIxMTAwLC0xODIzOTY2NDkyLDIwOD
-Y2OTExMTFdfQ==
+eyJoaXN0b3J5IjpbMjA2NDUyMTgwOCwtMTgyMzk2NjQ5MiwyMD
+g2NjkxMTExXX0=
 -->
