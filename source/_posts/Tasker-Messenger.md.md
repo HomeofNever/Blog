@@ -58,9 +58,12 @@ WVDEVID
 
 最主要是，我一开始一直进不去`TWRP`
 
-一般来说，系统会有`Recovery` 和 `Bootloader/fastboot`，然而华为还有一个`Emergency Recovery`：这个东西会在启动的时候在OEM解锁警告界面按下键进入。**也就是你要在解锁警告界面过后按才可以进去`Recovery`**然而这个时间不是很好把握，进了
+一般来说，系统会有`Recovery` 和 `Bootloader/fastboot`，然而华为还有一个`Emergency Recovery`：这个东西会在启动的时候在OEM解锁警告界面按下键进入。**也就是你要在解锁警告界面过后按才可以进去`Recovery`**然而这个时间不是很好把握，正常进系统会把TWRP抹掉替换为原来的`Recovery`
+我真是%…&*，反正试了几次以后总算进去了。~~抄水果的网络系统还原也不用这样吧草~~
+
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzU0MjE0MzE1LC0xODIzOTY2NDkyLDIwOD
-Y2OTExMTFdfQ==
+eyJoaXN0b3J5IjpbMTAzNjAyNDAzNiwtMTgyMzk2NjQ5MiwyMD
+g2NjkxMTExXX0=
 -->
