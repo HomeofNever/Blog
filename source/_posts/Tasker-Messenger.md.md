@@ -27,12 +27,14 @@ https://www.amazon.com/gp/product/B06Y12XQ1X/
 
 这个机器在老母用的时候就一直没有升级，拿过来以后本来打算解锁BL，结果刚好过了#¥%…的时间。然后还手贱升级了，含泪找了老半天的包降级回去，拿到了ROOT，照着[吾爱破解的教程](https://www.52pojie.cn/thread-816065-1-1.html)，结果已经失效了，拿到了是
 
+![](![](/images/media/tasker-messenger/unlock_1.jpg)
+
 >UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUDDDDDDDDDDDDDDDD  
 WVDEVID
 
 也就是已经加密后的应该，（我…#¥）
 
-然后直接找淘宝，他们用`USB Redirector`这种东西直接远程到手机（我本来还为此准备了虚拟机，不喜欢别人直接远程），结果……我在国外网太慢，第一家直接给我退款了（😊）
+然后直接找淘宝，他们用`USB Redirector`这种东西直接远程到手机（我本来还为此准备了虚拟机，不喜欢别人直接远程，然后在国外……迅雷用不了还是找 @帮忙下的win7镜像），结果……我在国外网太慢，第一家直接给我退款了（😊）
 
 第二家弄了一会弄好了，但是第一家走之前留下了一些没有删掉的文件，其中一个是一个很罕见的驱动：`ASC-Driver_Handset WinDriver 2.01.00.00.exe`
 
@@ -44,5 +46,5 @@ WVDEVID
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA4NjY5MTExMV19
+eyJoaXN0b3J5IjpbLTE4MjM5NjY0OTIsMjA4NjY5MTExMV19
 -->
