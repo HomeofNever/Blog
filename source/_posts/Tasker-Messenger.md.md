@@ -42,7 +42,7 @@ WVDEVID
 
 ![](![](/images/media/tasker-messenger/pan_1.jpg)
 
-还有一个专门卖解锁码软件的QQ，稍微逆向了一下发现这些（或者说这种软件）似乎最后都是要把结果发回服务器计算结果的，emmmmmm很明显了（所以都这样了华为你还关通道NM$L）
+还有一个专门卖解锁码软件的QQ，稍微逆向了一下发现这些（或者说这种软件）似乎最后都是要把结果发回服务器计算结果的，emmmmmm很明显算法被搞了~~内部搞事情~~（所以都这样了华为你还关解锁通道NM$L）
 
 反正，**淘宝花了20块钱买到了解锁码**
 
@@ -61,6 +61,8 @@ WVDEVID
 
 反正刷机后电池续航之类的我不指望了，一直插着电。相机也能用，`Vendor`其实还是华为的，~~真的是自我安慰呢~~
 
+**这辈子再碰华为我吃屎**
+
 ## 2nd
 
 > Related: https://github.com/NeverBehave/Tasker-Messenger
@@ -68,6 +70,6 @@ WVDEVID
 之前 Google Pay 新用户激活送了 20 刀一直没有用，直接先拿来买了一个[Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm)，类似于水果的捷径，但是更强大
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU5NTI4OTA3NiwtMTgyMzk2NjQ5MiwyMD
-g2NjkxMTExXX0=
+eyJoaXN0b3J5IjpbMTM1NjIxMTAwLC0xODIzOTY2NDkyLDIwOD
+Y2OTExMTFdfQ==
 -->
