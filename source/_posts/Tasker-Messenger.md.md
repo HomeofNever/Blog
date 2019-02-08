@@ -46,11 +46,15 @@ WVDEVID
 
 还有一个专门卖解锁码软件的QQ，稍微逆向了一下发现这些（或者说这种软件）似乎最后都是要把结果发回服务器计算结果的，emmmmmm很明显了（所以都这样了华为你还关通道NM$L）
 
-反正，**淘宝花了20块钱买到了解锁码，我在这**
+反正，**淘宝花了20块钱买到了解锁码**
 
-### 
+### 刷！
+
+接下来就是刷机了，虽然说已经有准备了，但是我还是没有想到能有这么恶心
+
+因为华为本身自己的东西太多，在`Treble`项目之前，每个自定义的ROM都有一个底包要求
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4NDkwMzk0MywtMTgyMzk2NjQ5MiwyMD
+eyJoaXN0b3J5IjpbLTI1NTAxMzY5MiwtMTgyMzk2NjQ5MiwyMD
 g2NjkxMTExXX0=
 -->
