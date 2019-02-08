@@ -74,7 +74,15 @@ WVDEVID
 - 建议使用`Javascript let`在提交数据前`encode`一下数据（`JSON`, `URLENCODE`），这样子方便很多
 	- `global()`获得变量
 	- 声明的变量在后续操作里面使用`%{VAR}`可以获取到
+
+至于说摄像头的话：
+
+alfred.camera
+
+## 这就没了？
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQyMzMwMTQxOCwtMTgyMzk2NjQ5MiwyMD
-g2NjkxMTExXX0=
+eyJoaXN0b3J5IjpbNDAxNzI1MDEyLC0xODIzOTY2NDkyLDIwOD
+Y2OTExMTFdfQ==
 -->
