@@ -23,7 +23,9 @@ https://www.amazon.com/gp/product/B06Y12XQ1X/
 
 ### 解锁
 
-首先，这台机器（`EVA-TL00`）是移动机，我联通的卡进去z
+首先，这台机器（`EVA-TL00`）是移动机，我联通的卡进去直接GG。然而我发现实际上他是连得上TMO的3G网（联通卡），看来就是硬编码了一下系统（实际上也是）
+
+这个机器在老母用的时候就一直没有升级，拿过来以后本来打算解锁B
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM5ODk5NTQyMl19
+eyJoaXN0b3J5IjpbMTA2MjgyOTc0MV19
 -->
