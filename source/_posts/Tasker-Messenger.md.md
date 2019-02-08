@@ -40,7 +40,9 @@ WVDEVID
 
 ![](![](/images/media/tasker-messenger/pan_1.jpg)
 
+还有一个专门卖解锁码软件的QQ，稍微逆向了一下发现这些（或者说这种软件）似乎最后都是要把结果发回服务器计算结果的，emmmmmm很明显了（所以都这样了华为你还关通道NM$L）
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk1Nzc5NDU4M119
+eyJoaXN0b3J5IjpbMjA4NjY5MTExMV19
 -->
