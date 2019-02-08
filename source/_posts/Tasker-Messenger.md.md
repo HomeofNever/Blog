@@ -29,6 +29,12 @@ https://www.amazon.com/gp/product/B06Y12XQ1X/
 
 >UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUDDDDDDDDDDDDDDDD  
 WVDEVID
+
+也就是已经加密后的应该，（我…#¥）
+
+然后直接找淘宝，他们用`USB Redirector`这种东西直接远程到手机，结果……我在国外网太慢，第一家直接给我退款了（😊）
+
+第二家弄了一会弄好了，但是第一家走之前留下了一些mei you shan di a
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDM2NzUwMDQ1XX0=
+eyJoaXN0b3J5IjpbLTE4NDU4ODcwNTVdfQ==
 -->
