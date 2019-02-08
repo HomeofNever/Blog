@@ -69,8 +69,12 @@ WVDEVID
 
 项目配置：https://github.com/NeverBehave/Tasker-Messenger
 
-具体怎么用wo jiu bu shu
+具体怎么用我就不说了，但是有一点东西可以注意一下：
+
+- 建议使用`Javascript let`在提交数据前`encode`一下数据（`JSON`, `URLENCODE`），这样子方便很多
+	- `global()`获得变量
+	- 声明的变量在后续操作里面使用`%{VAR}`可以获取到
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzM1MTUyNTkwLC0xODIzOTY2NDkyLDIwOD
-Y2OTExMTFdfQ==
+eyJoaXN0b3J5IjpbMTQyMzMwMTQxOCwtMTgyMzk2NjQ5MiwyMD
+g2NjkxMTExXX0=
 -->
