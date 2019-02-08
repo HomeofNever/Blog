@@ -81,12 +81,15 @@ WVDEVID
 
 一开始没刷系统的时候我是想用`Google Assistant`替换掉华为的语音助手，但是华为有两个问题：
 
-- 只有他的语音助手可以唤醒屏幕，
+- 只有他的语音助手可以唤醒屏幕，其他的都不行
+- 设置了锁屏密码以后不能还原到没有密码的状态（……）， 然后谷歌还不能解锁手机
+
+于是乎，有种操作就是用`tasker`监控`HiVoice`（华为语音zhu s
 
 ## 这就没了？
 
 其实是没有了
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI4MjA3OTA2MCwtMTgyMzk2NjQ5MiwyMD
+eyJoaXN0b3J5IjpbMTg1MDgzMDc1MiwtMTgyMzk2NjQ5MiwyMD
 g2NjkxMTExXX0=
 -->
