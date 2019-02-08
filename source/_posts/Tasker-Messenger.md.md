@@ -34,9 +34,11 @@ WVDEVID
 
 然后直接找淘宝，他们用`USB Redirector`这种东西直接远程到手机（我本来还为此准备了虚拟机，不喜欢别人直接远程），结果……我在国外网太慢，第一家直接给我退款了（😊）
 
-第二家弄了一会弄好了，但是第一家走之前留下了一些没有删掉的文件，其中一个是：
+第二家弄了一会弄好了，但是第一家走之前留下了一些没有删掉的文件，其中一个是一个很罕见的驱动：
+
+
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjcyNzU4MDcyXX0=
+eyJoaXN0b3J5IjpbLTE2MTEzMjAzNzldfQ==
 -->
