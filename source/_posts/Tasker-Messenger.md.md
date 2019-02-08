@@ -54,9 +54,13 @@ WVDEVID
 
 因为华为本身自己的东西太多，在(Treble)[https://source.android.com/devices/architecture]项目之前，每个自定义的ROM都有一个底包要求，**也就是说我要重新把我辛辛苦苦降级的系统再升级回去**（我……）
 
-我升到5以后直接XDA找了一个7的包刷了，明显的，这破东西文件系统还有ge zhong
+我升到`EMUI5`以后直接`XDA`找了一个Android 7的包刷了，明显的，这破东西文件系统还有各种坑，就不吐槽了
+
+最主要是，我一开始一直进不去`TWRP`
+
+一般来说，系统会有`Recovery` 和 `Bootloader/fastboot`，然而华为还有一个`Emergency Recovery`：这个东西会在启动的时候按ying li
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NDUwMjYxMTMsLTE4MjM5NjY0OTIsMj
-A4NjY5MTExMV19
+eyJoaXN0b3J5IjpbLTI1NzkxNjkwNSwtMTgyMzk2NjQ5MiwyMD
+g2NjkxMTExXX0=
 -->
