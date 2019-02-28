@@ -25,6 +25,7 @@ description: WOW, these ARE my friends
 |<img src="/images/avatar/friends/dcc.png" width="200"/>|[DCC 的小窝](https://www.dcc.cat)|长夜才开始，黑暗中请记得太阳的模样，沉默中不要为魔鬼歌唱。
 |<img src="/images/avatar/friends/kookxiang.jpg" width="200"/>|[KK 的博客](https://ikk.me)|code just like a piece of shit.|
 |<img src="/images/avatar/friends/vigorous.png" width="200"/>|[Vigorous Pro](https://www.wevg.org)|这是一个从零开始的世界|
+|<img src="https://www.gravatar.com/avatar/5ced8192dabc55806ee8bbccc9a16cce?s=200" width="200"/>|[德裕隨想](https://zhoudeyu.com)|探索新的生活方式|
 
 # 交换友链
 
