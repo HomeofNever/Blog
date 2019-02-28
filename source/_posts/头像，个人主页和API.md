@@ -9,7 +9,9 @@ date: 2019-02-28 00:31:52
 
 最近在折腾自己的[个人首页](https://never.pet)，顺便还收到了新的[友情链接](https://blog.never.pet/friends)请求。其中头像的储存确实让人头疼：这种东西本来就有点算是跟随心情/时间变化的，然而每次更换都要通知别人就真的有点麻烦emmm
 
-我一开始想到的是Gravatar，留一个专门用于给头像的邮箱，一次更新全部更新。顺便还了解到其实Gravatar算是有一个自己的Profile页面：也就是这个产品一开始的野心蛮大的；支持API的个人主页，可以上传多张背景图，订阅更新……
+我一开始想到的是Gravatar，留一个专门用于给头像的邮箱，一次更新全部更新。顺便还了解到其实Gravatar算是有一个[自己的Profile页面](https://en.gravatar.com/support/about-profiles/)：也就是这个产品一开始的野心蛮大的；支持API的个人主页，可以上传多张背景图，订阅更新……
+
+![](https://en.gravatar.com/images/support-matts-profile.png)
 
 同类产品似乎……目前据我的了解基本没有的样子
 
@@ -17,5 +19,5 @@ date: 2019-02-28 00:31:52
 
 我最后的话，觉得这种需求在国内也许可以推出一个产品概念吧……感觉可以玩玩：头像，个人首页整合 API，这个入口做起来了的话（比如Gravatar），感觉会很有意思呢
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ1MzU3OTA3N119
+eyJoaXN0b3J5IjpbLTE5NDQwODAyNDhdfQ==
 -->
