@@ -14,7 +14,11 @@ date: 2019-03-08 02:10:00
 
 然而，想要做这个东西的镜像，却没有那么简单
 
-## 
+# Howto
+
+## 仓库检查
+
+### 更改地址
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYzODg2NDA1OF19
+eyJoaXN0b3J5IjpbLTE3NDE4Mjg2MDNdfQ==
 -->
