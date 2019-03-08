@@ -54,15 +54,19 @@ Telegram的登陆设计很奇怪（狗屎）：他有5个数据中心，分别�
 
 目前客户端还没有合并中文进去，这有点不能忍啊……
 
-由于客户端是用Angular2开发的，语言文件需要在几个地方注册。最开始仓库给的是已经默认设置为中文的客户端。当然还是会检测浏览器的语言切换到其他的去
+由于客户端是用Angular2开发的，语言文件需要在几个地方注册。仓库给的是已经默认设置为中文的客户端。当然还是会检测浏览器的语言切换到其他的去
 
 具体步骤可以看[这里](https://github.com/zhukov/webogram/tree/master/app/js/locales)
 
+文章开头提供的仓库内置了中文汉化并设置为了默认
+
 **注意**：你最后还需要更改`package.json`让你的语言生效，这一步似乎没有在官方的说明里出现
 
-（当时我
+（当时我调了老半天就是没有用，全局搜索语言`en-us`偶然发现`package.json`里面还要设置emmmm）
+
+
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMjgzODMwMjNdfQ==
+eyJoaXN0b3J5IjpbLTE3MDQyMzU5MDZdfQ==
 -->
