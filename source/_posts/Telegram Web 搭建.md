@@ -18,7 +18,7 @@ date: 2019-03-08 02:10:00
 
 首先，我要说一句：你的APPID和Hash已经是不可避免的暴露了。毕竟是要在客户端里面给到的
 
-比如说，[官方的ID](https://web.telegram.org/js/app.js)
+比如说，[官方客户端的ID](https://web.telegram.org/js/app.js)
 ```
 id:2496
 hash:8da85b0d5bfe62527e5b244c209159c3
@@ -42,7 +42,7 @@ Telegram的登陆设计很奇怪（狗屎）：他有5个数据中心，分别�
 
 在你填写手机号以后，应用需要**一个一个请求这五个中心**才能知道哪个中心是你的账号所在的位置。
 
-所以，也就是说，你需要10个子域名（每个名字还有一个`subdomain-1`的（备用？）域名
+所以，也就是说，你需要10个子域名（每个名字还有一个`subdomain-1`的（备用？）域名）
 
 我比较懒，懒得搞wildcard（因为用来做代理的机器是临时小鸡，不想放DNS Key上去），就直接用了Caddy 
 
@@ -70,5 +70,5 @@ Telegram的登陆设计很奇怪（狗屎）：他有5个数据中心，分别�
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcwNzEyNDU0NCwtODk1MDgzNF19
+eyJoaXN0b3J5IjpbLTE5MjY0NTk4NzksLTg5NTA4MzRdfQ==
 -->
