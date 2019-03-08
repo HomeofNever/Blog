@@ -16,17 +16,19 @@ date: 2019-03-08 02:10:00
 
 # Howto
 
-## 仓库检查
-
 首先，我要说一句：你的APPID和Hash已经是不可避免的暴露了。毕竟是要在客户端里面给到的
 
-比如说，官方的ID：(https://web.telegram.org/js/app.js)
+比如说，[官方的ID](view-source:https://web.telegram.org/js/app.js)
 ```
 id:2496
 hash:8da85b0d5bfe62527e5b244c209159c3
 ```
 
-### 更改地址
+本文用到的仓库地址：https://gitlab.com/DogeTeam/webogram-new
+
+## 地址
+
+Telegram的登陆设计很狗屎：
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQxMDA2NjczMl19
+eyJoaXN0b3J5IjpbLTEyNzI0OTIxMDFdfQ==
 -->
