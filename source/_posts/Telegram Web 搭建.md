@@ -31,11 +31,16 @@ hash:8da85b0d5bfe62527e5b244c209159c3
 
 Telegram的登陆设计很奇怪（狗屎）：他有5个数据中心，分别对应的Web接口是：
 
+- pluto
 - venus
+- vesta
+- aurora
 - flora
-- 
 
+格式：
 `https://' + subdomain + '.web.telegram.org/`
+
+在你填写手机号以后，应用需要**一个一个访问这五个中心**才能知道哪个中心
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEyOTE5MzgwMl19
+eyJoaXN0b3J5IjpbMTgwMTEyOTM5MF19
 -->
