@@ -52,9 +52,13 @@ Telegram的登陆设计很奇怪（狗屎）：他有5个数据中心，分别�
 
 ## 语言
 
-目前客户端还没有合并中文进
+目前客户端还没有合并中文进去，这有点不能忍啊……
+
+由于客户端是用Angular2开发的，语言文件需要在几个地方注册。最开始仓库给的是已经默认设置为中文的客户端。当然还是会检测浏览器的语言切换到其他的去
+
+
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MzA4MzkwODNdfQ==
+eyJoaXN0b3J5IjpbMTE3OTkwNDI3NF19
 -->
