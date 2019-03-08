@@ -18,7 +18,15 @@ date: 2019-03-08 02:10:00
 
 ## 仓库检查
 
+首先，我要说一句：你的APPID和Hash已经是不可避免的暴露了。毕竟是要在客户端里面给到的
+
+比如说，官方的ID：(https://web.telegram.org/js/app.js)
+```
+id:2496
+hash:8da85b0d5bfe62527e5b244c209159c3
+```
+
 ### 更改地址
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NDE4Mjg2MDNdfQ==
+eyJoaXN0b3J5IjpbLTQxMDA2NjczMl19
 -->
