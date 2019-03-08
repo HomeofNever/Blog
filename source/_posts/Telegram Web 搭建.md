@@ -25,10 +25,17 @@ hash:8da85b0d5bfe62527e5b244c209159c3
 ```
 
 本文用到的仓库地址：https://gitlab.com/DogeTeam/webogram-new
+你可以通过查阅日志了解每一步的更改
 
 ## 地址
 
-Telegram的登陆设计很狗屎：
+Telegram的登陆设计很奇怪（狗屎）：他有5个数据中心，分别对应的Web接口是：
+
+- venus
+- flora
+- 
+
+`https://' + subdomain + '.web.telegram.org/`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNzI0OTIxMDFdfQ==
+eyJoaXN0b3J5IjpbMjEyOTE5MzgwMl19
 -->
