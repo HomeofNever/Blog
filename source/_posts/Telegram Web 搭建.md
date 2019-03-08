@@ -46,7 +46,7 @@ Telegram的登陆设计很奇怪（狗屎）：他有5个数据中心，分别�
 
 我比较懒，懒得搞wildcard（因为用来做代理的机器是临时小鸡，不想放DNS Key上去），就直接用了Caddy 
 
-还有一点就是最近官方似乎反代理，所以`Host`头在转发的时候记得给官方的
+**注意**：最近官方似乎反代理，所以`Host`头在转发的时候记得给官方的
 
 > [Caddyfile](https://gitlab.com/DogeTeam/webogram-new/snippets/1833207) 例子
 
@@ -66,9 +66,9 @@ Telegram的登陆设计很奇怪（狗屎）：他有5个数据中心，分别�
 
 每次都要重新打包，懒，自从有了CI以后日子变得好多了（gitlab真香，还可以直接上传到pages）
 
-
+**注意**：gitlab pages 如果通过CI上传，最后生成的build文件夹必须命名是`public`，否则失败。（这莫名其妙的错误折腾了好久，因为是`External Service`还没有错误提示……）
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxOTMzMTI5OF19
+eyJoaXN0b3J5IjpbLTg5NTA4MzRdfQ==
 -->
