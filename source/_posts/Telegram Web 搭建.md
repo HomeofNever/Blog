@@ -27,7 +27,7 @@ hash:8da85b0d5bfe62527e5b244c209159c3
 本文用到的仓库地址：https://gitlab.com/DogeTeam/webogram-new
 你可以通过查阅日志了解每一步的更改
 
-## 地址
+## API
 
 Telegram的登陆设计很奇怪（狗屎）：他有5个数据中心，分别对应的Web接口是：
 
@@ -40,7 +40,9 @@ Telegram的登陆设计很奇怪（狗屎）：他有5个数据中心，分别�
 格式：
 `https://' + subdomain + '.web.telegram.org/`
 
-在你填写手机号以后，应用需要**一个一个访问这五个中心**才能知道哪个中心
+在你填写手机号以后，应用需要**一个一个请求这五个中心**才能知道哪个中心是你的账号所在的位置。
+
+所以，也就是说，你需要10个子域名（每个还有一个`subdomain-1`的（备用？）域名
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgwMTEyOTM5MF19
+eyJoaXN0b3J5IjpbLTE5MDAzMTEwODhdfQ==
 -->
