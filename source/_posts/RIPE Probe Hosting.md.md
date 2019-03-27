@@ -61,6 +61,8 @@ A和C之间没有通路，但是A区用户可以走B区到C
 
 ~~如果已经有了的话应该是不会通过了~~但是你可以试试看
 
+P.S. 申请时间较长所以请稍安勿躁
+
 ---
 #### Probe vs Anchor
 
@@ -74,15 +76,14 @@ Probe 如果申请通过了会发邮件告诉你，以前是一台TP-Link的路�
 
 插上路由器，注册设备需要设备背后的ID和Mac地址，然后就等待启动就好了~
 
-申请时间较长所以
-
 ### 等等，我所在的ASN有设备了，有什么办法保证我可以通过申请吗？
 
+当然！你自己注册一个ASN就好了（被打死
 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTI2NjE0ODkwLC0xMzMyNjQ2MTc3LDEwNj
-UwMTU4XX0=
+eyJoaXN0b3J5IjpbLTQxODAyMDUxMCwtMTMzMjY0NjE3NywxMD
+Y1MDE1OF19
 -->
