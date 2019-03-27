@@ -55,12 +55,12 @@ A和C之间没有通路，但是A区用户可以走B区到C
 
 ### 你的ASN
 
-一般来说，一个ASN有一个探针就差不多了。所以你可以现在
+一般来说，一个ASN有一个探针就差不多了。所以你可以用上方说明查看ASN的网址看一下自己网络所处的ASN是多少，然后在[查找]
 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA1MjQ2NjgzMywtMTMzMjY0NjE3NywxMD
+eyJoaXN0b3J5IjpbMTM2MTU5MTEwMiwtMTMzMjY0NjE3NywxMD
 Y1MDE1OF19
 -->
