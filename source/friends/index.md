@@ -26,6 +26,12 @@ description: WOW, these ARE my friends
 |<img src="/images/avatar/friends/kookxiang.jpg" width="200"/>|[KK 的博客](https://ikk.me)|code just like a piece of shit.|
 |<img src="/images/avatar/friends/vigorous.png" width="200"/>|[Vigorous Pro](https://www.wevg.org)|这是一个从零开始的世界|
 |<img src="https://www.gravatar.com/avatar/5ced8192dabc55806ee8bbccc9a16cce?s=200" width="200"/>|[德裕隨想](https://zhoudeyu.com)|探索新的生活方式|
+|<img src="https://static.yecdn.com/static/blog/page/about/avatar.png" width="200"/>|[Zohar's Blog](https://www.iwch.me/)|The Most Important Thing in My Life is Freedom|
+|<img src="https://cdn.jsdelivr.net/npm/skx@0.0.6/img/avatar.png" width="200"/>|[Sukka's Blog](https://skk.moe)|童话只美在真实却从不续写|
+|头|[青空之蓝](https://ixk.me)|站在时光一端，回忆过往记忆|
+|<img src="https://liyin.date/myfiles/images/logo.png" width="200"/>|[天空之边](https://liyin.date)|用心探知天空的边界|
+|头|[无垠](https://flyhigher.top)|飞翔的天空无限大|
+|<img src="/images/avatar/friends/huangfeng.png" width="200"/>|[黄蜂说](https://www.sjy.im/)|一名互联网从业者的自留地，分享自己的所见所得，自认为过程比结果重要。|
 
 # 交换友链
 
