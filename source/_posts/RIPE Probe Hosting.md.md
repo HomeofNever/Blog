@@ -17,9 +17,9 @@ date: 2019-03-27 11:47:00
 
 简单提及几个概念：
 
-AS：
+首先，我们目前使用的互联网可以理解为是由几十个超大的“”
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNjE0NTgxNTFdfQ==
+eyJoaXN0b3J5IjpbMTk3MzkwNzYwMF19
 -->
