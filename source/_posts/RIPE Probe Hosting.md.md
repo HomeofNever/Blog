@@ -46,6 +46,8 @@ A和C之间没有通路，但是A区用户可以走B区到C
 
 [视频说明](https://atlas.ripe.net/about/)
 
+~~你似乎还可以通过部署Probe获得RIPE积分，暂时不知道是干啥的~~
+
 ## 如何申请
 
 > [本探针](https://atlas.ripe.net/probes/50812/)的数据收集地址
@@ -55,12 +57,16 @@ A和C之间没有通路，但是A区用户可以走B区到C
 
 ### 你的ASN
 
-一般来说，一个ASN有一个探针就差不多了。所以你可以用上方说明查看ASN的网址看一下自己网络所处的ASN是多少，然后在[查找]
+一般来说，一个ASN有一个探针就差不多了。所以你可以用上方说明查看ASN的网址看一下自己网络所处的ASN是多少，然后在这个[查找页面](https://atlas.ripe.net/probes/)看一下自己所在的ASN有没有Probe了
+
+~~如果已经有了的话应该是不会通过了~~但是你可以试试看
+
+
 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM2MTU5MTEwMiwtMTMzMjY0NjE3NywxMD
-Y1MDE1OF19
+eyJoaXN0b3J5IjpbLTE3NzYyMDYxMzMsLTEzMzI2NDYxNzcsMT
+A2NTAxNThdfQ==
 -->
