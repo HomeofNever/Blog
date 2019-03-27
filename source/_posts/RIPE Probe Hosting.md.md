@@ -38,9 +38,11 @@ A和C之间没有通路，但是A区用户可以走B区到C
 
 国内某些小型的运营商做法还要稍微“隐蔽一点”：由于自己的资源部署不多，国内电信对于企业价格是个人/小企的几十倍（防止二次分销），就自己进行组网并从全国各地省级购买的共享宽带出口，变相实现互联。这种做法速度只会更慢（为了降低价格而将流量导向各个出口）
 
+[Traceroute](https://zh.wikipedia.org/wiki/Traceroute)可以显示出你的流量走过了哪些路
+
 ### 说了这么多，和这破东西有什么关系？
 
-各个ISP的接了什么
+各个ISP的接了什么线很多时候并不是那么的清楚，为了
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMTY0MTY5MDQsMTA2NTAxNThdfQ==
+eyJoaXN0b3J5IjpbLTM3MDIzNDcyLDEwNjUwMTU4XX0=
 -->
