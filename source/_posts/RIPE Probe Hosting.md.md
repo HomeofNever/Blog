@@ -9,7 +9,7 @@ date: 2019-03-27 11:47:00
 
 先上图（低清警告）
 
-![](/images/media/ripe_probe.jpg)
+![](/images/media/ripe_probe/device.jpg)
 
 ## 这是什么
 
@@ -84,6 +84,6 @@ Probe 如果申请通过了会发邮件告诉你，以前是一台TP-Link的路�
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQxODAyMDUxMCwtMTMzMjY0NjE3NywxMD
-Y1MDE1OF19
+eyJoaXN0b3J5IjpbMTczODE2NDkxNSwtNDE4MDIwNTEwLC0xMz
+MyNjQ2MTc3LDEwNjUwMTU4XX0=
 -->
