@@ -61,12 +61,18 @@ A和C之间没有通路，但是A区用户可以走B区到C
 
 ~~如果已经有了的话应该是不会通过了~~但是你可以试试看
 
+#### Probe vs Anchor
+
+你可能还会看到一个叫做`Anchor`的东西，简单来说这是Probe 传回数据的地方。对于部分
+
+Probe 如果申请通过了会发邮件告诉你，以前是一台TP-Link的路由器配一个小U盘装着需要运行的程序，现在的架构是NanoPi
+
 
 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NzYyMDYxMzMsLTEzMzI2NDYxNzcsMT
-A2NTAxNThdfQ==
+eyJoaXN0b3J5IjpbMjAxMDU5MDk4MywtMTMzMjY0NjE3NywxMD
+Y1MDE1OF19
 -->
