@@ -24,6 +24,8 @@ date: 2019-03-27 11:47:00
 > 你可以通过访问[这个网站](https://ipip.net)查看自己目前网络所属的ASN和对应的组织
 
 ### 为什么要互联？
+
+，ISP 做的是事情就像是把一个小村庄互相通了路，但是村庄之间的路打通起来就要靠ISP之间的协商，而且
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTExMTYyODAzNl19
+eyJoaXN0b3J5IjpbMTM4MjUzODk0Nl19
 -->
