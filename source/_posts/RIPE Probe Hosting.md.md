@@ -40,7 +40,7 @@ A和C之间没有通路，但是A区用户可以走B区到C
 
 ### 说了这么多，和这破东西有什么关系？
 
-很多时候，各个
+各个ISP的接了什么
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3Mzg3MzU3OTAsMTA2NTAxNThdfQ==
+eyJoaXN0b3J5IjpbLTEwMTY0MTY5MDQsMTA2NTAxNThdfQ==
 -->
