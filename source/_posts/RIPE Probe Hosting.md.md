@@ -51,10 +51,16 @@ A和C之间没有通路，但是A区用户可以走B区到C
 > [本探针](https://atlas.ripe.net/probes/50812/)的数据收集地址
 > [官方申请指南](https://atlas.ripe.net/landing/get-involved/)
 
-首先，
+首先，你需要一个RIPE账号（略过过程，注册就好）
+
+### 你的ASN
+
+一般来说，一个ASN有一个探针就差不多了。所以你可以现在
+
+
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NzE1MTY0NCwtMTMzMjY0NjE3NywxMD
+eyJoaXN0b3J5IjpbMTA1MjQ2NjgzMywtMTMzMjY0NjE3NywxMD
 Y1MDE1OF19
 -->
