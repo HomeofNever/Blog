@@ -63,7 +63,9 @@ A和C之间没有通路，但是A区用户可以走B区到C
 
 #### Probe vs Anchor
 
-你可能还会看到一个叫做`Anchor`的东西，简单来说这是Probe 传回数据的地方。对于部分
+你可能还会看到一个叫做`Anchor`的东西，简单来说这是Probe 传回数据的地方。对于部分连通性不佳的网络，可能 Probe 怎么都链接不上一个有效的服务器传回自己的遥感数据，那这样其实和没有不是一样吗emmm
+
+相比于Probe，Anchor要自己掏钱买专门配置好的刀片服务器，毕竟是要接收大量的遥感数据。成本相对
 
 Probe 如果申请通过了会发邮件告诉你，以前是一台TP-Link的路由器配一个小U盘装着需要运行的程序，现在的架构是NanoPi
 
@@ -73,6 +75,6 @@ Probe 如果申请通过了会发邮件告诉你，以前是一台TP-Link的路�
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAxMDU5MDk4MywtMTMzMjY0NjE3NywxMD
+eyJoaXN0b3J5IjpbLTI0NTA3OTA1MiwtMTMzMjY0NjE3NywxMD
 Y1MDE1OF19
 -->
