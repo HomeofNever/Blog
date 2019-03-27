@@ -42,7 +42,12 @@ A和C之间没有通路，但是A区用户可以走B区到C
 
 ### 说了这么多，和这破东西有什么关系？
 
-各个ASN的接了什么线流量怎么走的很多时候并不是那么的清楚，为了监控各个ASN到各地的流量走向，稳定性，etc. 一般情况最简单的办法就是在这个ASN里面部署一个Probe（探针），用它来测试到各地的连通性，延迟，以及路径
+各个ASN的接了什么线流量怎么走的很多时候并不是那么的清楚，为了监控各个ASN到各地的流量走向，稳定性，etc. 一般情况最简单的办法就是在这个ASN里面部署一个Probe（探针），用它来测试到各地的连通性（墙？），延迟，以及路径
+
+## 如何申请
+
+> 本探针的
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzI2NDYxNzcsMTA2NTAxNThdfQ==
+eyJoaXN0b3J5IjpbLTU2NzAzOTk5NSwtMTMzMjY0NjE3NywxMD
+Y1MDE1OF19
 -->
