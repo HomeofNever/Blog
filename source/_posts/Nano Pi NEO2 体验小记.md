@@ -4,8 +4,11 @@ tags:
     - 项目
     - nanopi
     - arm
-categories:
     - 折腾
+    - 监控
+    - zerotier
+categories:
+    - 坑
 date: 2019-05-31 11:42:00
 ---
 
