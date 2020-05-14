@@ -1,0 +1,26 @@
+theme: minima
+
+siteConfig:
+  url: https://blog.never.pet
+  author: NeverBehave
+  email: i@never.pet
+  description: 迷の生物的迷の小窝
+
+themeConfig:
+  nav:
+    - text: Home
+      link: /
+    - text: About
+      link: /about
+    - text: Friends
+      link: /friends
+  social:
+    twitter: _NeverBehave_
+    github: NeverBehave
+    rss: true
+
+plugins:
+  - resolve: saber-plugin-query-posts
+  - resolve: saber-plugin-feed
+    options:
+      atomFeed: true
