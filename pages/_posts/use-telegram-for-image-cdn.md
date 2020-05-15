@@ -5,6 +5,7 @@ tags:
     - 图床
 categories:
     - 折腾
+layout: post
 date: 2018-09-11 13:28:00
 ---
 

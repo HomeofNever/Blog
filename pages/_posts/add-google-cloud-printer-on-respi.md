@@ -4,6 +4,7 @@ tags:
     - 折腾
 categories:
     - 随笔
+layout: post
 date: 2018-11-25 21:10:00
 ---
 

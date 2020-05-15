@@ -6,6 +6,7 @@ tags:
     - 学校
 categories:
     - 项目
+layout: post
 date: 2018-01-31 19:52:00
 ---
 

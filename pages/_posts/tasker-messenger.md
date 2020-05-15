@@ -4,6 +4,7 @@ tags:
     - 折腾
 categories:
     - 坑
+layout: post
 date: 2019-2-08 12:28:00
 ---
 
@@ -92,10 +93,6 @@ WVDEVID
 
 其实是有的：
 
-<script async src="https://telegram.org/js/telegram-widget.js?5" data-telegram-post="ButNothingHappened/2823" data-width="100%"></script>
+<!-- <script async src="https://telegram.org/js/telegram-widget.js?5" data-telegram-post="ButNothingHappened/2823" data-width="100%"></script> -->
 
 研究了一下`SIM`模块，发现……真的贵：至少国外的价格不便宜，~~想要找人从国内带开发板~~，于是就先这样了
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMwMDcxOTEzNyw1ODE2OTE0MDMsMTc5OD
-UxODEwXX0=
--->

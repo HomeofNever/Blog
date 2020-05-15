@@ -4,6 +4,7 @@ tags:
     - 折腾
 categories:
     - 坑
+layout: post
 date: 2018-06-15 10:19:00
 ---
 

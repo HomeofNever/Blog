@@ -7,6 +7,7 @@ tags:
     - string
 categories:
     - 坑
+layout: post
 date: 2019-03-27 14:08:00
 ---
 
@@ -53,7 +54,7 @@ _注：本文不会过多描述编码，直接切入话题。如果不了解相�
 str.split('').join(' ')
 ```
 
-<script async src="https://telegram.org/js/telegram-widget.js?6" data-telegram-post="ButNothingHappened/3010" data-width="100%"></script>
+<!-- <script async src="https://telegram.org/js/telegram-widget.js?6" data-telegram-post="ButNothingHappened/3010" data-width="100%"></script> -->
 
 这个问题是啥呢？我们来看看[MDN - Split](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split#Syntax)的文档:
 

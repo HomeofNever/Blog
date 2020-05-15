@@ -1,19 +1,21 @@
-theme: minima
+theme: './theme'
 
 siteConfig:
   url: https://blog.never.pet
+  title: Never迷の小窝
   author: NeverBehave
   email: i@never.pet
   description: 迷の生物的迷の小窝
 
 themeConfig:
+  disqus: neverbehave
   nav:
     - text: Home
       link: /
     - text: About
-      link: /about
+      link: /about.html
     - text: Friends
-      link: /friends
+      link: /friends.html
   social:
     twitter: _NeverBehave_
     github: NeverBehave

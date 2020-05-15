@@ -5,6 +5,8 @@ tags:
 categories:
     - 其他
 date: 2018-06-12 09:31:00
+permalink: /keybase.txt
+layout: page
 ---
 
 ```

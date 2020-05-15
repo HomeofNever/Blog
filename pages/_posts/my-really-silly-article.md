@@ -5,6 +5,7 @@ tags:
     - 总结
 categories:
     - 随笔
+layout: post
 date: 2018-05-21 10:08:00
 ---
 

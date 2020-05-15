@@ -5,6 +5,7 @@ tags:
     - 迁移
 categories:
     - 折腾
+layout: post
 date: 2018-10-11 17:21:40
 ---
 

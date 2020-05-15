@@ -2,6 +2,7 @@
 title: 友情链接 | links
 layout: page
 description: WOW, these ARE my friends
+permalink: /friends
 ---
 
 # 友情链接

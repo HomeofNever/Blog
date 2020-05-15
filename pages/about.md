@@ -2,6 +2,7 @@
 title: 关于我
 layout: page
 date: 2018-10-11 16:40:31
+permalink: /about
 ---
 
 我还没有想好怎么写呢……简单说一下吧
@@ -19,14 +20,17 @@ date: 2018-10-11 16:40:31
 - 2018.05.23   
 突然有点迷上了Furry，逐渐的在做一部分翻译。
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
 - 2019.09.01
 设定图做出来了
-<blockquote class="twitter-tweet"><p lang="zh" dir="ltr"><a href="https://twitter.com/hashtag/%E5%85%BD%E8%AE%BE?src=hash&amp;ref_src=twsrc%5Etfw">#兽设</a> 完成啦<br>咕喵，是只人造猫，制造时被赋予了掌控的力量 <a href="https://t.co/3mIHcH9RPh">pic.twitter.com/3mIHcH9RPh</a></p>&mdash; NeverBehave (@_NeverBehave_) <a href="https://twitter.com/_NeverBehave_/status/1162786240371937280?ref_src=twsrc%5Etfw">August 17, 2019</a></blockquote> 
+
+<Tweet id="1162786240371937280"/>
 
 - 2020.01.20 
 毛装做出来了
-<blockquote class="twitter-tweet"><p lang="zh" dir="ltr">突然发现好像可以解锁 <a href="https://twitter.com/hashtag/FursuitFriday?src=hash&amp;ref_src=twsrc%5Etfw">#FursuitFriday</a> 这个标签了👀 <a href="https://t.co/B8VzT3Z6oe">pic.twitter.com/B8VzT3Z6oe</a></p>&mdash; NeverBehave (@_NeverBehave_) <a href="https://twitter.com/_NeverBehave_/status/1218216503138451457?ref_src=twsrc%5Etfw">January 17, 2020</a></blockquote>
+
+<Tweet id="1218216503138451457"/>
+
 
 ---
 
@@ -60,3 +64,12 @@ date: 2018-10-11 16:40:31
 
 有博客相关的话题（友链，etc.)可以在下面留言
 
+<script>
+import { Tweet } from 'vue-tweet-embed'
+
+export default {
+    components: {
+        Tweet
+    }
+}
+</script>

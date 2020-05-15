@@ -3,6 +3,7 @@ title: 关于文章的说明
 tags: 
 categories:
     - 说明
+layout: post
 date: 2018-05-23 01:46:00
 ---
 
