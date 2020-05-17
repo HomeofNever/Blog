@@ -4,7 +4,7 @@ tags:
     - Telegram
     - 图床
 categories:
-    - 折腾
+    - 技术
 layout: post
 date: 2018-09-11 13:28:00
 ---

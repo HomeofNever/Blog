@@ -3,7 +3,7 @@ title: GDGDOCS 项目自建
 tags: 
     - 折腾
 categories:
-    - 随笔
+    - 技术
 layout: post
 date: 2018-07-26 11:59:00
 ---

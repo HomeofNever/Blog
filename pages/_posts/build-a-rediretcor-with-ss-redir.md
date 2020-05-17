@@ -5,7 +5,7 @@ tags:
     - 中转
     - 教程
 categories:
-    - 折腾
+    - 技术
 layout: post
 date: 2018-09-11 01:15:00
 ---

@@ -1,4 +1,8 @@
-theme: './theme'
+theme: "./theme"
+
+permalinks:
+  post: /:year/:month/:day/:slug
+  page: /:slug
 
 siteConfig:
   url: https://blog.never.pet
@@ -8,21 +12,48 @@ siteConfig:
   description: 迷の生物的迷の小窝
 
 themeConfig:
+  footer: 
+    since: 2017
+    to: 2020
   disqus: neverbehave
   nav:
     - text: Home
       link: /
     - text: About
-      link: /about.html
+      link: /about
+    - text: Social
+      link: https://never.pet
     - text: Friends
-      link: /friends.html
-  social:
-    twitter: _NeverBehave_
-    github: NeverBehave
-    rss: true
+      link: /friends
 
 plugins:
   - resolve: saber-plugin-query-posts
+    options:
+      perPage: 12
+      permalinks:
+        category: "/blog/category/:name"
+        tag: "/blog/tag/:name"
+      categoriesMap:
+        "数码": "digital"
+        "技术": "technology"
+        "随笔": "uncategorized"
+        "事项": "announcement"
   - resolve: saber-plugin-feed
     options:
-      atomFeed: true
+      atomFeed: "/feed/atom.xml"
+      jsonFeed: "/feed/index.json"
+  - resolve: saber-plugin-prismjs
+  - resolve: saber-plugin-image
+    options:
+      sizes: 
+        - 1200
+        - 720
+        - 480
+      placeholder: true
+      blendIn: false
+  - resolve: saber-plugin-sitemap
+    options:
+      template: "./sitemap.xml"
+  - resolve: saber-plugin-ga-lite
+    options:
+      trackId: 'UA-85513844-3'

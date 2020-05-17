@@ -3,14 +3,14 @@ title: RIPE Probe Hosting
 tags: 
     - 玩具
 categories:
-    - 折腾
+    - 数码
 layout: post
 date: 2019-03-27 11:47:00
 ---
 
 先上图（低清警告）
 
-![](/images/media/ripe_probe/device.jpg)
+![](../_assets/media/ripe-probe-hosting/device.jpg)
 
 ## 这是什么
 
@@ -80,10 +80,3 @@ Probe 如果申请通过了会发邮件告诉你，以前是一台TP-Link的路�
 ### 等等，我所在的ASN有设备了，有什么办法保证我可以通过申请吗？
 
 当然！你自己注册一个ASN就好了（被打死
-
-
-
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTczODE2NDkxNV19
--->

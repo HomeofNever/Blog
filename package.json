@@ -6,11 +6,17 @@
   },
   "devDependencies": {
     "saber": "latest",
-    "saber-plugin-feed": "latest",
-    "saber-plugin-query-posts": "latest",
+    "saber-plugin-feed": "^0.4.3",
+    "saber-plugin-query-posts": "^0.4.5",
     "saber-theme-minima": "latest"
   },
   "dependencies": {
+    "prismjs": "^1.20.0",
+    "saber-plugin-ga-lite": "^0.2.0",
+    "saber-plugin-image": "^0.2.2",
+    "saber-plugin-prismjs": "^0.2.4",
+    "saber-plugin-sitemap": "^0.4.1",
+    "vue-telegram-embed": "^1.0.1",
     "vue-tweet-embed": "^2.4.0"
   }
 }

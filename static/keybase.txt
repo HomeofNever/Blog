@@ -1,15 +1,3 @@
----
-title: Keybase Prove
-tags: 
-    - Keybase
-categories:
-    - 其他
-date: 2018-06-12 09:31:00
-permalink: /keybase.txt
-layout: page
----
-
-```
 ==================================================================
 https://keybase.io/neverbehave
 --------------------------------------------------------------------
@@ -85,6 +73,3 @@ appending to this document.
 View my publicly-auditable identity here: https://keybase.io/neverbehave
 
 ==================================================================
-
-```
-

@@ -5,7 +5,7 @@ tags:
     - Telegram
     - 总结
 categories:
-    - 项目
+    - 随笔
 layout: post
 date: 2018-06-18 07:38:00
 ---

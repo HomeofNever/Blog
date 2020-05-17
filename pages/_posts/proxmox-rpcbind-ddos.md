@@ -3,7 +3,7 @@ title: Proxmox rpcbind 的小问题
 tags: 
     - 折腾
 categories:
-    - 随笔
+    - 技术
 layout: post
 date: 2018-06-20 11:57:00
 ---
@@ -34,18 +34,18 @@ date: 2018-06-20 11:57:00
 
 有点意思，看了一下这里：https://www.digitalocean.com/community/questions/is-it-safe-to-remove-rpcbind
 
-![](/images/media/rpcbind_ddos/digitalocean.jpg)
+![](../_assets/media/proxmox-rpcbind-ddos/digitalocean.jpg)
 
 OK，似乎可以删除。**但是已删除会连着Proxmox整个一起被干掉**，还好有一层确认（感谢）
 
-![](/images/media/rpcbind_ddos/confirm.jpg)
+![](../_assets/media/proxmox-rpcbind-ddos/confirm.jpg)
 
 
 解决方案在这里：https://forum.proxmox.com/threads/is-it-possible-to-disable-rpcbind-port-111-and-how-to-do-it.33590/
 
 防火墙干掉111，或者是停用服务就好了。我选择了后者：
 
-```
+```bash
 systemctl stop rpcbind 
 systemctl disable rpcbind
 ```

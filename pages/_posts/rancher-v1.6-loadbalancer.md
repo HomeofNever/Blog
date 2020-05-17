@@ -8,7 +8,7 @@ tags:
     - Docker
     - 负载均衡
 categories:
-    - 坑
+    - 技术
 layout: post
 date: 2018-07-27 07:28:00
 ---
@@ -25,7 +25,7 @@ date: 2018-07-27 07:28:00
 
 我一直以为他的自定义cfg文件只能合并进`defaults`直到我看到了重新[这里](https://rancher.com/docs/rancher/v1.6/zh/cattle/adding-load-balancers/)~~！！下次看文档仔细一点啊喂！！~~:
 
-![](/images/media/rancher_loadbalancer/config.jpg)
+![](../_assets/media/rancher-v1.6-loadbalancer/config.jpg)
 
 
 原来是可以分块添加的，完美。
@@ -77,7 +77,7 @@ frontend 80
 
 
 #### 关于Capture
-1. `IPCountry` 需要自己设定在 Cloudflare 设置 `Page Rule`，不过呢，Logstash 本身也有这个功能：![](/images/media/rancher_loadbalancer/logstash.jpg)
+1. `IPCountry` 需要自己设定在 Cloudflare 设置 `Page Rule`，不过呢，Logstash 本身也有这个功能：![](../_assets/media/rancher-v1.6-loadbalancer/logstash.jpg)
 2. 因为 Haproxy 本身呢……如果你要记录 Header 你必须要自己现在 Frontend 里面加上。这个的话就是看自己需要什么了。
 
 
@@ -167,8 +167,8 @@ output {
 
 这样子出来以后的效果如图：
 
-![](/images/media/rancher_loadbalancer/result_1.jpg)
-![](/images/media/rancher_loadbalancer/result_2.jpg)
+![](../_assets/media/rancher-v1.6-loadbalancer/result_1.jpg)
+![](../_assets/media/rancher-v1.6-loadbalancer/result_2.jpg)
 
 更多的话就让大家自己去摸索啦
 
@@ -195,7 +195,7 @@ Bind 指令是Rancher自己生成的！如果你要启动 http2 必须要在 Bin
 在查资料的时候发现 Rancher v1.6 默认使用的 Load Balancer 镜像使用的 Haproxy 是有漏洞的（1.8.x)。还是一个`Crit`级别（需要开启h2，所以没有推送更新？）。虽然官方已经有更新版本了但是默认 Rancher 会锁死版本号（GG）所以不会更新
 
 这个时候就要自己去`系统管理->系统设置->高级设置`里面改使用的版本
-![](/images/media/rancher_loadbalancer/haproxy.jpg)
+![](../_assets/media/rancher-v1.6-loadbalancer/haproxy.jpg)
 
 最新的 Rancher-lb 版本截至目前是`0.9.4`
 可以在这里查看[最新地址](https://hub.docker.com/r/rancher/lb-service-haproxy/tags/)

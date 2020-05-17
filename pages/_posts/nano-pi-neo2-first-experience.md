@@ -8,7 +8,7 @@ tags:
     - 监控
     - zerotier
 categories:
-    - 坑
+    - 技术
 layout: post
 date: 2019-05-31 11:42:00
 ---
@@ -49,7 +49,7 @@ date: 2019-05-31 11:42:00
 
 淘宝店铺最低的是99，当我看上了准备买的时候，发现商家是广州的，一问是不是在岗顶的新赛格，还真的是，于是直接上门买了，省下10块钱邮费，嘻嘻
 
-<!-- <script async src="https://telegram.org/js/telegram-widget.js?6" data-telegram-post="ButNothingHappened/2956" data-width="100%"></script> -->
+<TelegramEmbed link="ButNothingHappened/2956" />
 
 ## 跑！
 
@@ -72,8 +72,8 @@ NanoPI的卡槽是有弹簧的，这个比树莓派体验好上不少
 我在windows做的就是用的`Win32DiskImager`，一开始觉得还是一个盗版玩意结果不是（
 
 ### 开机
-<!-- 
-<script async src="https://telegram.org/js/telegram-widget.js?6" data-telegram-post="ButNothingHappened/2958" data-width="100%"></script> -->
+
+<TelegramEmbed link="ButNothingHappened/2958" />
 
 （见上图）开机直接飙到46度，是有点小难受，早知道就配上散热片了，开久了亚克力板还是有点烫的。因为是监控机要求长时间开着，这个算是有点失策。
 
@@ -117,3 +117,14 @@ NanoPI的卡槽是有弹簧的，这个比树莓派体验好上不少
 
 后续还有更多玩法的话，就在更新好了
 一直没用上针脚的功能呢……
+
+
+<script>
+import TelegramEmbed from 'vue-telegram-embed'
+
+export default {
+    components: {
+        TelegramEmbed
+    }
+}
+</script>

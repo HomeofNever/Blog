@@ -3,7 +3,7 @@ title: 华为短信机.jpg
 tags: 
     - 折腾
 categories:
-    - 坑
+    - 技术
 layout: post
 date: 2019-2-08 12:28:00
 ---
@@ -28,7 +28,7 @@ TL;DR，**结论看末尾加粗**
 
 这个机器在老母用的时候就一直没有升级，拿过来以后本来打算解锁BL，结果刚好过了#¥%…的时间。然后还手贱升级了，含泪找了老半天的包降级回去，拿到了ROOT，照着[吾爱破解的教程](https://www.52pojie.cn/thread-816065-1-1.html)，结果已经失效了，拿到了是
 
-![](/images/media/tasker-messenger/unlock_1.jpg)
+![](../_assets/media/tasker-messenger/unlock_1.jpg)
 
 >UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUDDDDDDDDDDDDDDDD  
 WVDEVID
@@ -41,7 +41,7 @@ WVDEVID
 
 按照这个名字找到一堆“这类商家“分享的网盘链接：
 
-![](/images/media/tasker-messenger/pan_1.jpg)
+![](../_assets/media/tasker-messenger/pan_1.jpg)
 
 还有一个专门卖解锁码软件的QQ，稍微逆向了一下发现这些（或者说这种软件）似乎最后都是要把结果发回服务器计算结果的，emmmmmm很明显算法被搞了~~内部搞事情~~（所以都这样了华为你还关解锁通道NM$L）
 
@@ -93,6 +93,16 @@ WVDEVID
 
 其实是有的：
 
-<!-- <script async src="https://telegram.org/js/telegram-widget.js?5" data-telegram-post="ButNothingHappened/2823" data-width="100%"></script> -->
+<TelegramEmbed link="ButNothingHappened/2823" />
 
 研究了一下`SIM`模块，发现……真的贵：至少国外的价格不便宜，~~想要找人从国内带开发板~~，于是就先这样了
+
+<script>
+import TelegramEmbed from 'vue-telegram-embed'
+
+export default {
+    components: {
+        TelegramEmbed
+    }
+}
+</script>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <% posts.forEach(function (page) { -%>
+  <url>
+    <loc><%- encodeURI(page.url) %></loc>
+    <lastmod><%= page.lastmod.toISOString() %></lastmod>
+    <% if (page.attributes.injectAllPosts) { -%>
+    <priority>1</priority>
+    <% } else if (page.type === 'post' || (page.type === 'page' && !page.attributes.isCategoryPage && !page.attributes.isTagPage)) { -%>
+    <priority>0.6</priority>
+    <% } else if (page.attributes.isCategoryPage || page.attributes.isTagPage) { -%>
+    <priority>0.3</priority>
+    <% } -%>
+    <changefreq>always</changefreq>
+  </url>
+  <% }) -%>
+</urlset>

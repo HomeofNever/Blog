@@ -6,7 +6,7 @@ tags:
     - unicode
     - string
 categories:
-    - 坑
+    - 技术
 layout: post
 date: 2019-03-27 14:08:00
 ---
@@ -54,7 +54,7 @@ _注：本文不会过多描述编码，直接切入话题。如果不了解相�
 str.split('').join(' ')
 ```
 
-<!-- <script async src="https://telegram.org/js/telegram-widget.js?6" data-telegram-post="ButNothingHappened/3010" data-width="100%"></script> -->
+<TelegramEmbed link="ButNothingHappened/3010"/>
 
 这个问题是啥呢？我们来看看[MDN - Split](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split#Syntax)的文档:
 
@@ -88,3 +88,12 @@ _以前上面还没有那个警告，告诉你这样子会导致拆分，现在�
 为什么呢？其实是因为折行的问题：比如，通知栏里面一般会把太长的内容用省略号表示，这个时候就要计算了：中文，英文在同一个屏幕下能装的字符肯定不一样长。
 计算后你就要拆了：比如说取前30个字符，但是你刚好那个地方是一个合并。导致拆完以后字符串所占的像素反而还超限制不少，直接爆炸
 
+<script>
+import TelegramEmbed from 'vue-telegram-embed'
+
+export default {
+    components: {
+        TelegramEmbed
+    }
+}
+</script>

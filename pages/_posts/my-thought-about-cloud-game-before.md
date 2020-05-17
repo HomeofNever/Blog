@@ -3,7 +3,7 @@ title: 云游戏：生不逢时
 tags: 
     - 游戏
 categories:
-    - 考古
+    - 随笔
 layout: post
 date: 2019-03-20 11:42:00
 ---

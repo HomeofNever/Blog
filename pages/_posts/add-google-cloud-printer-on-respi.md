@@ -3,7 +3,7 @@ title: 在树莓派上添加谷歌云打印
 tags: 
     - 折腾
 categories:
-    - 随笔
+    - 技术
 layout: post
 date: 2018-11-25 21:10:00
 ---

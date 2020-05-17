@@ -3,7 +3,7 @@ title: Telegram Web 搭建
 tags: 
     - 折腾
 categories:
-    - 项目
+    - 技术
 layout: post
 date: 2019-03-08 02:10:00
 ---

@@ -3,7 +3,7 @@ title: Proxmox 开 NAT 小鸡
 tags: 
     - 折腾
 categories:
-    - 坑
+    - 技术
 layout: post
 date: 2018-06-15 10:19:00
 ---
