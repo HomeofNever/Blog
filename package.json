@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "saber",
-    "build": "saber build"
+    "build": "saber build && node scripts/index.js"
   },
   "devDependencies": {
     "saber": "latest",
