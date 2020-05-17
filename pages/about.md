@@ -1,6 +1,6 @@
 ---
 title: 关于这个博客
-layout: page
+layout: showcase
 date: 2018-10-11 16:40:31
 permalink: /about
 ---

@@ -1,6 +1,6 @@
 ---
 title: 友情链接
-layout: page
+layout: showcase
 description: WOW, these ARE my friends
 permalink: /friends
 ---
