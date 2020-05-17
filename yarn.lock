@@ -5328,6 +5328,11 @@ saber-plugin-image@^0.2.2:
     lozad "^1.9.0"
     responsive-loader "^1.2.0"
 
+saber-plugin-jsdelivr-cdn@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/saber-plugin-jsdelivr-cdn/-/saber-plugin-jsdelivr-cdn-0.1.0.tgz#cbd3bd8723e6bacfb77cff0f8830533249d000a3"
+  integrity sha512-SrJIEDuOTm90r8+cX6LR+dImMZSMqVPhiGSKwe0aOGJuMM9UiBltfimfJCmB1vVo1ZsxratuHK99u+DqDHwB3Q==
+
 saber-plugin-prismjs@^0.2.4:
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/saber-plugin-prismjs/-/saber-plugin-prismjs-0.2.4.tgz#03d9a866b196c18e97319fb677a41ac1b12a1afd"

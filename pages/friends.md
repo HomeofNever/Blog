@@ -38,11 +38,11 @@ permalink: /friends
 - 名字：NEVER迷の小窝
 - 简介：没有简介的迷の生物
 - 头像：avatar@never.pet 的 [Gravatar](https://www.gravatar.com/avatar/8f253ca9681abc8072a3a1fc6dde8f8f)
-  - <button @click="downloadItem(my, 'neverbehave.png')">Avatar</button>
+  - <a v-bind:href="my">我的头像</a>
   - [使用说明](https://en.gravatar.com/site/implement/images)
-- 背景图：可以使用以下图片：
-  - <button @click="downloadItem(eva, 'neverbehave.png')">eva</button>
-  - <button @click="downloadItem(neko, 'neverbehave.png')">neko</button>
+- 背景图：可以使用以下图片
+  - <a v-bind:href="eva">EVA</a>
+  - <a v-bind:href="neko">Neko</a>
 
 
 你可以到这个博客的仓库pr提交你的信息
@@ -52,21 +52,14 @@ permalink: /friends
 export default {
   computed: {
     my() {
-      return require('./_assets/avatar/me.png')
+      return require('./_assets/avatar/me.png').images[0].path
     },
     neko() {
-      return require('./_assets/avatar/bg/neko.jpg')
+      return require('./_assets/avatar/bg/neko.jpg').images[0].path
     },
     eva() {
-      return require('./_assets/avatar/bg/EVA.jpg')
+      return require('./_assets/avatar/bg/EVA.jpg').images[0].path
     }
-  },
-  methods: {
-    downloadItem (file, filename) {
-        const link = document.createElement('a')
-        link.href = file.images[0].path
-        link.click()
-    }
-}
+  }
 }
 </script>

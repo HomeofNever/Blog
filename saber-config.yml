@@ -12,7 +12,7 @@ siteConfig:
   description: 迷の生物的迷の小窝
 
 themeConfig:
-  footer: 
+  footer:
     since: 2017
     to: 2020
   disqus: neverbehave
@@ -45,7 +45,7 @@ plugins:
   - resolve: saber-plugin-prismjs
   - resolve: saber-plugin-image
     options:
-      sizes: 
+      sizes:
         - 1200
         - 720
         - 480
@@ -56,4 +56,7 @@ plugins:
       template: "./sitemap.xml"
   - resolve: saber-plugin-ga-lite
     options:
-      trackId: 'UA-85513844-3'
+      trackId: "UA-85513844-3"
+  - resolve: "saber-plugin-jsdelivr-cdn"
+    options:
+      prefix: https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages
