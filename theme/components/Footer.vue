@@ -17,7 +17,6 @@
         </div>
   
         <div class="social-links">
-          <Social />
         </div>
       </div>
     </div>
@@ -25,11 +24,7 @@
 </template>
 
 <script>
-import Social from './Social.vue';
 export default {
-  components: {
-    Social: Social
-  },
   props: {
     siteTitle: {
       type: String,

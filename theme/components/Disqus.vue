@@ -1,4 +1,4 @@
-<template>  
+<template>
   <div id="disqus_thread"></div>
 </template>
 
@@ -18,20 +18,65 @@ export default {
       required: true
     }
   },
-  mounted: function mounted() {
-    var permalink = this.permalink,
-        url = this.url;
+  computed: {
+    disqus_url() {
+      return "".concat(this.url).concat(this.permalink);
+    },
+    identifier() {
+      return this.permalink;
+    }
+  },
+  mounted() {
+    if (window.DISQUS) {
+      this.reset(window.DISQUS);
+      return;
+    }
+    this.init();
+  },
+  methods: {
+    reset(dsq) {
+      const self = this;
+      dsq.reset({
+        reload: true,
+        config: function() {
+          self.setBaseConfig(this);
+        }
+      });
+    },
+    init() {
+      const self = this;
+      window.disqus_config = function() {
+        self.setBaseConfig(this);
+      };
+      setTimeout(() => {
+        let d = document,
+          s = d.createElement("script");
+        s.setAttribute("id", "embed-disqus");
+        s.setAttribute("data-timestamp", +new Date());
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = `//${this.shortname}.disqus.com/embed.js`;
+        (d.head || d.body).appendChild(s);
+      }, 0);
+    },
+    setBaseConfig(disqusConfig) {
+      disqusConfig.page.identifier = this.identifier
+      disqusConfig.page.url = this.disqus_url
+      if (this.title) {
+        disqusConfig.page.title = this.title;
+      }
+      disqusConfig.callbacks.onReady = [
+        () => {
+          this.$emit("ready");
+        }
+      ];
 
-    window.disqus_config = function () {
-      this.page.url = "".concat(url).concat(permalink);
-      this.page.identifier = permalink;
-    };
-
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = "https://".concat(this.shortname, ".disqus.com/embed.js");
-    script.setAttribute('data-timestamp', +new Date());
-    document.body.appendChild(script);
+      disqusConfig.callbacks.onNewComment = [
+        comment => {
+          this.$emit("new-comment", comment);
+        }
+      ];
+    }
   }
 };
 </script>

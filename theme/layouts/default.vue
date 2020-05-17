@@ -36,9 +36,7 @@
       </div>
 
       <p class="feed-subscribe" v-if="feedLink">
-        <svg class="svg-icon orange">
-          <use :xlink:href="getSvg('rss')" />
-        </svg>
+        <svg  class="svg-icon organge" enable-background="new 0 0 24 24" height="512" viewBox="0 0 24 24" width="512" xmlns="http://www.w3.org/2000/svg"><circle cx="3.429" cy="20.571" r="3.429"/><path d="m11.429 24h4.57c0-8.821-7.178-15.999-15.999-16v4.572c6.302.001 11.429 5.126 11.429 11.428z"/><path d="m24 24c0-13.234-10.766-24-24-24v4.571c10.714 0 19.43 8.714 19.43 19.429z"/></svg>
         <a :href="feedLink">Subscribe</a>
       </p>
     </div>
@@ -48,7 +46,6 @@
 <script>
 import formatDate from "../utils/formatDate";
 import Wrap from "../components/Wrap.vue";
-import getSvg from "../utils/getSvg";
 import head from "../utils/head";
 
 export default {
@@ -63,7 +60,6 @@ export default {
   },
   methods: {
     formatDate: formatDate,
-    getSvg: getSvg,
     head() {
       return head(this);
     }
