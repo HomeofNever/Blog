@@ -1,0 +1,35 @@
+name: gh pages deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: Build
+    runs-on: ubuntu-18.04
+    if: "! contains(toJSON(github.event.commits.*.message), '[ci skip]')"
+
+    steps:
+      # correct build machine timezone
+      - run: sudo timedatectl set-timezone Asia/Shanghai
+      # checkout source
+      - name: Checkout
+        uses: actions/checkout@v2
+      # setup node.js
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      # generate artifacts
+      - run: yarn
+      - run: yarn build
+      # deployment
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          # docs: https://developer.github.com/v3/activity/events/types/#commitcommentevent
+          commit_message: Site updated at ${{ github.event.head_commit.timestamp }}
