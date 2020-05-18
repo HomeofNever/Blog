@@ -1,8 +1,8 @@
 theme: "./theme"
 
 permalinks:
-  post: /:year/:month/:day/:slug.html
-  page: /:slug.html
+  post: /:year/:month/:day/:slug
+  page: /:slug
 
 siteConfig:
   url: https://blog.never.pet
