@@ -47,16 +47,6 @@ export default ({ Vue, setHead }) => {
             : "application/json",
       },
       {
-        href: "https://fonts.googleapis.com/",
-        rel: "preconnect",
-        crossorigin: true,
-      },
-      {
-        href: "https://fonts.gstatic.com/",
-        rel: "preconnect",
-        crossorigin: true,
-      },
-      {
         href: "https://cdn.jsdelivr.net/",
         rel: "preconnect",
         crossorigin: true,
