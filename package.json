@@ -11,6 +11,10 @@
     "saber-theme-minima": "latest"
   },
   "dependencies": {
+    "markdown-it-attrs": "^3.0.2",
+    "markdown-it-cjk-breaks": "^1.1.3",
+    "markdown-it-footnote": "^3.0.2",
+    "markdown-it-implicit-figures": "^0.10.0",
     "prismjs": "^1.20.0",
     "saber-plugin-ga-lite": "^0.2.0",
     "saber-plugin-image": "^0.2.2",

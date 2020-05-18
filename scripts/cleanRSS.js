@@ -10,10 +10,15 @@ const RemoveInvalidXMLChars = (text) => {
     return text.replace(_invalidXMLChars, "");
 }
 
-const xmlPath = path.resolve(__dirname, '..', 'public/feed/atom.xml');
+const feedPath = path.resolve(__dirname, '..', 'public/feed/atom.xml');
+const sitemapPath = path.resolve(__dirname, '..', 'public/sitemap.xml');
+
+const allXML = [feedPath, sitemapPath]
 
 module.exports = async () => {
-        let formatted = await readFile(xmlPath);
+    allXML.forEach(async (e) => {
+        let formatted = await readFile(e);
         formatted = await RemoveInvalidXMLChars(formatted);
-        return writeFile(xmlPath, formatted);
+        return writeFile(e, formatted);
+    })
 }

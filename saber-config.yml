@@ -1,8 +1,12 @@
 theme: "./theme"
 
+build:
+  extractCSS: true
+  lazy: true
+
 permalinks:
-  post: /:year/:month/:day/:slug
-  page: /:slug
+  post: /:year/:month/:day/:slug.html
+  page: /:slug.html
 
 siteConfig:
   url: https://blog.never.pet
@@ -59,4 +63,11 @@ plugins:
       trackId: "UA-85513844-3"
   - resolve: "saber-plugin-jsdelivr-cdn"
     options:
-      prefix: https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages
+      prefix: https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages 
+
+markdown:
+  plugins:
+      - resolve: markdown-it-implicit-figures
+      - resolve: markdown-it-attrs
+      - resolve: markdown-it-footnote
+      - resolve: markdown-it-cjk-breaks

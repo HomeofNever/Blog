@@ -20,7 +20,7 @@
             <div class="page-tags" v-if="page.tagsInfo">
               <span v-for="(item, index) in page.tagsInfo" :key="index">
                 <span v-if="index > 0">,</span>
-                <saber-link class="tag" :to="item.permalink" v-text="item.name"></saber-link>
+                <span class="tag">{{item.name}}</span>
               </span>
             </div>
           </section>
@@ -47,7 +47,6 @@
 import formatDate from "../utils/formatDate";
 import Wrap from "../components/Wrap.vue";
 import Disqus from "../components/Disqus.vue";
-import TelegramEmbed from 'vue-telegram-embed'
 
 export default {
   components: {

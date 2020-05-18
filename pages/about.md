@@ -2,7 +2,6 @@
 title: 关于这个博客
 layout: showcase
 date: 2018-10-11 16:40:31
-permalink: /about
 ---
 
 这个博客的源码是开放的, 你可以在[这里](github.com/homeofnever/blog)找到

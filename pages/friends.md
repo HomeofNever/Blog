@@ -2,7 +2,6 @@
 title: 友情链接
 layout: showcase
 description: WOW, these ARE my friends
-permalink: /friends
 ---
 
 这里应该是一些一起玩的小伙伴们，他们都超级棒的!!1
