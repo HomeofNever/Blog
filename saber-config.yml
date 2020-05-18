@@ -1,9 +1,5 @@
 theme: "./theme"
 
-build:
-  extractCSS: true
-  lazy: true
-
 permalinks:
   post: /:year/:month/:day/:slug.html
   page: /:slug.html
