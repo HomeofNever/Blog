@@ -37,7 +37,7 @@ description: WOW, these ARE my friends
 - 名字：NEVER迷の小窝
 - 简介：没有简介的迷の生物
 - 头像：avatar@never.pet 的 [Gravatar](https://www.gravatar.com/avatar/8f253ca9681abc8072a3a1fc6dde8f8f)
-  - <a v-bind:href="my">我的头像</a>
+  - <a v-bind:href="my">我的Favicon</a>
   - [使用说明](https://en.gravatar.com/site/implement/images)
 - 背景图：可以使用以下图片
   - <a v-bind:href="eva">EVA</a>

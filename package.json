@@ -16,6 +16,7 @@
     "markdown-it-footnote": "^3.0.2",
     "markdown-it-implicit-figures": "^0.10.0",
     "prismjs": "^1.20.0",
+    "saber-highlight-css": "^0.1.1",
     "saber-plugin-ga-lite": "^0.2.0",
     "saber-plugin-image": "^0.2.2",
     "saber-plugin-jsdelivr-cdn": "^0.1.0",

@@ -1,4 +1,5 @@
 import "./styles/minima.css";
+import 'saber-highlight-css/default.css'
 
 export default ({ Vue, setHead }) => {
   // Manipulating <head>
@@ -50,11 +51,6 @@ export default ({ Vue, setHead }) => {
         href: "https://cdn.jsdelivr.net/",
         rel: "preconnect",
         crossorigin: true,
-      },
-      {
-        href:
-          "https://fonts.googleapis.com/css?family=Inconsolata:400,700|Alegreya:400,400i,700,700i|Noto+Sans+SC:400,700|Noto+Serif+SC:400,700|Open+Sans:400,400i,700,700i&display=swap&subset=chinese-simplified",
-        rel: "stylesheet",
       },
     ],
   }));

@@ -5317,6 +5317,11 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   dependencies:
     aproba "^1.1.1"
 
+saber-highlight-css@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/saber-highlight-css/-/saber-highlight-css-0.1.1.tgz#fbb45ef69066599a4bb846b4f2311105dcf77be8"
+  integrity sha512-VgpcZef+1v6Pi4NORoEoWPysVelRqgxAm72voA/JQ9zPl4wf/bhYoIGgcn2gLe+vu/GMrUmbQwsXtu6PfbL/Ew==
+
 saber-highlighter-prism@^0.3.4:
   version "0.3.4"
   resolved "https://registry.yarnpkg.com/saber-highlighter-prism/-/saber-highlighter-prism-0.3.4.tgz#5a0bb736ba33408cc66a14129603357c0886b1ff"
