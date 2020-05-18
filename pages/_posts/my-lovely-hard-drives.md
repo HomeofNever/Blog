@@ -42,13 +42,13 @@ description: Seagate Expansion, WD mybook, Elements, 12tb, 10tb, 8tb, 我都买�
 
 列一下型号: 
 - Seagate Expansion 
-  -  {{  addDisk(172.79, 10) }}
+  -  172.79/10T => 17.28/T
   - BarraCuda Pro   
   - ST10000DM0004
   - PN: 1ZC101-301
   - FW: DN01
 - Western Digital MyBook
-  - {{  addDisk(145.79, 8) }}
+  - 145.79/8T => 18.22/T
   - WD80EZAZ
   - R/N: US7SAL080
 
@@ -137,7 +137,7 @@ description: Seagate Expansion, WD mybook, Elements, 12tb, 10tb, 8tb, 我都买�
 不说了, 先列一下型号:
 
 - WD Element
-  - {{  addDisk(194.79, 10) }}
+  - 194.79/10T => 19.48/T
   - WD100EMAZ
   - US8SAL100
 
@@ -166,23 +166,22 @@ description: Seagate Expansion, WD mybook, Elements, 12tb, 10tb, 8tb, 我都买�
 
 列一下数据, 后续补充
 - WD Element
-  - {{  addDisk(169.99, 10) }}
+  - 169.99/10T => 17.00/T
 - WD Element
-  - {{  addDisk(199.27, 12) }}
+  - 199.27/12T => 16.61/T
 - WD Mybook
-  - {{  addDisk(178.98, 10) }}
+  - 178.98/10T => 17.90/T
 
 
 ## 总结
 
-总储存: {{ volume_sum }} T
-总花费: {{ price_sum }} USD
+总储存: 60 T 总花费: 1061.61 USD
 
 算上杂七杂八的信用卡返现和返利网站返现, 算整体百分之五
 
-实际花费: {{  real_price_sum }} USD
+实际花费: 1008.53 USD
 
-平均 {{ divide(real_price_sum, volume_sum) }} USD/T
+平均 16.81 USD/T
 
 
 ### 多出来的盘?
