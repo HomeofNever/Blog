@@ -55,7 +55,7 @@ Tasker 是我当时为了挂国内短信卡而购入的一款自动化软件, �
 
 完整配置文件可以查阅<https://github.com/NeverBehave/tasker-config#readme>
 
-一言语料: <https://gist.github.com/NeverBehave/606d7e14436187b4d45e8657fafd40ab>
+一言语料: [gist](https://gist.github.com/NeverBehave/606d7e14436187b4d45e8657fafd40ab)
 
 ## 效果
 
