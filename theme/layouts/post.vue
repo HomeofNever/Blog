@@ -3,11 +3,12 @@
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
       <header class="post-header">
         <h1 class="post-title p-name" itemprop="name headline">{{ page.title }}</h1>
-        <div class="post-meta">
+        <div class="post-meta" align="left">
           <time
             class="dt-published"
             :datetime="page.createdAt"
             itemprop="datePublished"
+            style="display: inline-block"
           >{{ formatDate(page.createdAt) }}</time>
           <section class="page-categories" v-if="page.categoriesInfo">
             <span v-for="(item, index) in page.categoriesInfo" :key="index">

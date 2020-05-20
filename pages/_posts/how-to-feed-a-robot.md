@@ -2,6 +2,7 @@
 title: 如何科学的给机器人投食
 tags: 
     - 折腾
+    - 爬虫
 categories:
     - 技术
 layout: post
