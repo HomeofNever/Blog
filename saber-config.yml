@@ -38,6 +38,7 @@ plugins:
         "技术": "technology"
         "随笔": "uncategorized"
         "事项": "announcement"
+        "记录": "record"
   - resolve: saber-plugin-feed
     options:
       atomFeed: "/feed/atom.xml"
@@ -57,6 +58,7 @@ plugins:
   - resolve: saber-plugin-ga-lite
     options:
       trackId: "UA-85513844-3"
+      galiteUrl: "https://cdn.jsdelivr.net/gh/neverbehave/ga-lite@master/dist/ga-lite.min.js"
   - resolve: "saber-plugin-jsdelivr-cdn"
     options:
       prefix: https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages 
