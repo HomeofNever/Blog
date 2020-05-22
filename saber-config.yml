@@ -58,7 +58,7 @@ plugins:
   - resolve: saber-plugin-ga-lite
     options:
       trackId: "UA-85513844-3"
-      galiteUrl: "https://cdn.jsdelivr.net/gh/neverbehave/ga-lite@master/dist/ga-lite.min.js"
+      galiteUrl: "https://cdn.jsdelivr.net/gh/neverbehave/ga-lite@2.1.0/dist/optimize.min.js"
   - resolve: "saber-plugin-jsdelivr-cdn"
     options:
       prefix: https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages 
