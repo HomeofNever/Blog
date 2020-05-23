@@ -32,6 +32,8 @@
         <slot name="default" />
       </div>
 
+      <div class="post-end">The end is not the end; Je vous laisse.</div>
+
       <Disqus
         v-if="page.comments !== false && $themeConfig.disqus"
         :url="$siteConfig.url"
@@ -60,3 +62,12 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.post-end {
+ position:relative;
+ margin:3rem 0;
+ color:#ddd;
+ border-bottom:.2em dashed #ddd
+}
+</style>

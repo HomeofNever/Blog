@@ -11,6 +11,7 @@
     "saber-theme-minima": "latest"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "global": "^4.4.0",
     "markdown-it-attrs": "^3.0.2",
     "markdown-it-cjk-breaks": "^1.1.3",

@@ -1,5 +1,7 @@
 <template>
-  <div id="disqus_thread"></div>
+  <section>
+    <div id="disqus_thread"></div>
+  </section>
 </template>
 
 <script>
