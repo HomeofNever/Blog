@@ -5375,10 +5375,10 @@ saber-plugin-feed@^0.4.3:
   dependencies:
     feed "^4.0.0"
 
-saber-plugin-ga-lite@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/saber-plugin-ga-lite/-/saber-plugin-ga-lite-0.2.0.tgz#f4ed97de9f600fcafa233420e3381e142a60c9eb"
-  integrity sha512-0HMGOKIxAz/6XLXMYTNWdtQokjP5Gs9n7weCqLMDksYce/aKlmVA1HLcgR0+6FlvwB86zHcD1C67KdrUwWXYNA==
+saber-plugin-ga-lite@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/saber-plugin-ga-lite/-/saber-plugin-ga-lite-0.3.0.tgz#a0d01d9299742cf7a714fe9b22b626d93ee01c99"
+  integrity sha512-k81nLB4fp2DR4cjAhM0Dy3s24blKhbMJkIv9f63mi2kIEhdClETp5mMKVZKcFG7rF5fhlCRup4dgzOY0M6uceg==
 
 saber-plugin-image@^0.2.2:
   version "0.2.2"
