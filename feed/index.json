@@ -11,11 +11,11 @@
     "items": [
         {
             "id": "https://blog.never.pet/2020/05/23/bye-dbd",
-            "content_html": "<p>在清理Google Analysis的时候, 发现了这个帐号的记录</p> <object data=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/DBD_Overview_20170516-20200522.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700px\"><embed src=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/DBD_Overview_20170516-20200522.pdf\"> <p>您的浏览器暂时不支持直接浏览pdf, 请 <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/DBD_Overview_20170516-20200522.pdf\">下载</a>.</p></object> <p>黎明杀机百科当时的主要来源是台湾, 确实有一批人当时很在意百科的发展<br>\n只可惜当时我还是高中生, 确实没有那么多精力和时间打理<br>\n资料当时都是从 gamepedia 上面英文版要到授权的</p> <p>有兴趣的可以去这里看看: <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://deadbydaylight-zh.gamepedia.com/\">https://deadbydaylight-zh.gamepedia.com/</a></p> <hr> <p>目前也有活跃的维护者了, <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://deadbydaylight-zh.gamepedia.com/UserProfile:LeCgHn_Jason\">https://deadbydaylight-zh.gamepedia.com/UserProfile:LeCgHn_Jason</a></p> <p>总之, 祝好</p>",
+            "content_html": "<p>在清理Google Analysis的时候, 发现了这个帐号的记录</p> <object data=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/DBD_Overview_20170516-20200522.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700px\"><embed src=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/DBD_Overview_20170516-20200522.pdf\"> <p>您的浏览器暂时不支持直接浏览pdf, 请 <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/DBD_Overview_20170516-20200522.pdf\">下载</a>.</p></object> <p>这个是当时<code>deadbydaylight.wiki</code>黎明杀机百科的分析数据, 高峰的时候日PV有几万的样子, 同时在线访客<code>&gt;1k</code>, 主要来源是台湾, 确实有一批人当时很在意百科的发展</p> <p>这个算是我第一次大规模的做百科, 一开始在 <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://translate.wiki\">https://translate.wiki</a> 做过一小段时间</p> <p>高中的时候不算是爱学习的, 因为学习好的人太多了emmm. 然后突然黎明杀机这个游戏火了起来, 玩法也很新奇: 不公平1v4这个模式也有很多主播在进行</p> <p>我当时只有一台<code>macbook air 2015</code>也硬是打了几十个小时</p> <p>在后来, 偶然和&quot;中国区代表&quot;一起, 还有<code>Kazama Sion</code>一起做起了百科, 经历了这个游戏在国内被封杀的阶段, 也见证了网易的&quot;第五人格&quot;的事故</p> <p>只可惜当时我还是高中生, 确实没有那么多精力和时间打理, 也没有那么多规划</p> <p>资料当时都是从 gamepedia 上面英文版要到授权的, 也很感谢当时所有参与过这个百科的志愿者</p> <p>到现在这件事情也算告一段落了, 可能会继续梳理一下思绪补充一些内容</p> <p>有兴趣的可以去这里看看: <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://deadbydaylight-zh.gamepedia.com/\">https://deadbydaylight-zh.gamepedia.com/</a></p> <hr> <p>目前也有活跃的维护者了, <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://deadbydaylight-zh.gamepedia.com/UserProfile:LeCgHn_Jason\">https://deadbydaylight-zh.gamepedia.com/UserProfile:LeCgHn_Jason</a></p> <p>总之, 祝好</p>",
             "url": "https://blog.never.pet/2020/05/23/bye-dbd",
             "title": "Bye, deadbydaylight.wiki",
             "summary": "在清理Google Analysis的时候, 发现了这个帐号的记录\n",
-            "date_modified": "2020-05-23T22:50:28.595Z",
+            "date_modified": "2020-05-23T22:58:17.734Z",
             "date_published": "2020-05-23T00:00:00.000Z"
         },
         {
@@ -24,7 +24,7 @@
             "url": "https://blog.never.pet/2020/05/21/keep-your-google-voice-with-sao",
             "title": "Google Voice 自动应答和保号",
             "summary": "偶然打开某个骚群, 发现有人抱怨自己的 Google Voice 被回收了, 并讨论如何保号\n",
-            "date_modified": "2020-05-23T22:50:28.595Z",
+            "date_modified": "2020-05-23T22:58:17.734Z",
             "date_published": "2020-05-21T00:00:00.000Z"
         },
         {
@@ -33,7 +33,7 @@
             "url": "https://blog.never.pet/2020/05/21/switch-from-lambda-to-fission",
             "title": "从AWS lambda迁移到Fission",
             "summary": "我开始用aws lambda的时间大约是它还只有node v8运行时的时候, 主要其免费的额度确实相当的诱人, 加上学生赠与的免费credit, 香的一批\n",
-            "date_modified": "2020-05-23T22:50:28.595Z",
+            "date_modified": "2020-05-23T22:58:17.734Z",
             "date_published": "2020-05-21T00:00:00.000Z"
         },
         {
@@ -42,7 +42,7 @@
             "url": "https://blog.never.pet/2020/05/18/my-lovely-hard-drives",
             "title": "发车啦! 硬盘便宜买",
             "summary": "在大约两年前暑假回国上夏校的时候, 有个矿难带来了一个很火的系列----蜗牛星际\n",
-            "date_modified": "2020-05-23T22:50:28.595Z",
+            "date_modified": "2020-05-23T22:58:17.734Z",
             "date_published": "2020-05-18T00:00:00.000Z"
         },
         {
@@ -51,7 +51,7 @@
             "url": "https://blog.never.pet/2020/05/17/moving-my-blog-2",
             "title": "还是再迁移了博客",
             "summary": "过了这么久, 还是迁移了博客...\n",
-            "date_modified": "2020-05-23T22:50:28.595Z",
+            "date_modified": "2020-05-23T22:58:17.734Z",
             "date_published": "2020-05-17T00:00:00.000Z"
         },
         {
@@ -60,7 +60,7 @@
             "url": "https://blog.never.pet/2019/05/31/nano-pi-neo2-first-experience",
             "title": "Nano Pi NEO2 体验小记",
             "summary": "之前给几家店铺做了监控方案的设计，用的是POE供电摄像头配NVR。采用的是大华的方案，但是是自己直接去公司拿货自配帮忙布线，顺便把路由部分也包了。\n",
-            "date_modified": "2020-05-23T22:50:28.595Z",
+            "date_modified": "2020-05-23T22:58:17.734Z",
             "date_published": "2019-05-31T03:42:00.000Z"
         },
         {
@@ -69,7 +69,7 @@
             "url": "https://blog.never.pet/2019/03/27/space-and-s-p-a-c-e",
             "title": "空格与 空 格",
             "summary": "相关项目：kongebot\n机器人 @kongebot\n",
-            "date_modified": "2020-05-23T22:50:28.595Z",
+            "date_modified": "2020-05-23T22:58:17.734Z",
             "date_published": "2019-03-27T06:08:00.000Z"
         },
         {
@@ -78,7 +78,7 @@
             "url": "https://blog.never.pet/2019/03/27/ripe-probe-hosting",
             "title": "RIPE Probe Hosting",
             "summary": "先上图（低清警告）\n",
-            "date_modified": "2020-05-23T22:50:28.595Z",
+            "date_modified": "2020-05-23T22:58:17.734Z",
             "date_published": "2019-03-27T03:47:00.000Z"
         },
         {
@@ -87,7 +87,7 @@
             "url": "https://blog.never.pet/2019/03/20/my-thought-about-cloud-game-before",
             "title": "云游戏：生不逢时",
             "summary": "谨此文怀念我接触的第一个国内在线串流游戏平台：云游戏\n",
-            "date_modified": "2020-05-23T22:50:28.595Z",
+            "date_modified": "2020-05-23T22:58:17.734Z",
             "date_published": "2019-03-20T03:42:00.000Z"
         },
         {
@@ -96,7 +96,7 @@
             "url": "https://blog.never.pet/2019/03/08/telegram-web-hosting",
             "title": "Telegram Web 搭建",
             "summary": "Telegram 是个好东西，他有个Web客户端，也是个好东西\n",
-            "date_modified": "2020-05-23T22:50:28.595Z",
+            "date_modified": "2020-05-23T22:58:17.734Z",
             "date_published": "2019-03-07T18:10:00.000Z"
         },
         {
@@ -105,7 +105,7 @@
             "url": "https://blog.never.pet/2019/02/08/tasker-messenger",
             "title": "华为短信机.jpg",
             "summary": "到国外以后，国内带来的两张手机卡突然有一张没地方放了。刚好老母过来的时候让她赶紧把手里的华为P9给换了水果，顺便还注册了美区ID。既然有台这个机器……这就折腾一下吧\n",
-            "date_modified": "2020-05-23T22:50:28.595Z",
+            "date_modified": "2020-05-23T22:58:17.734Z",
             "date_published": "2019-02-08T04:28:00.000Z"
         },
         {
@@ -114,7 +114,7 @@
             "url": "https://blog.never.pet/2018/12/31/2018-2019",
             "title": "一张图总结2018",
             "summary": "时区： UTC-4\n",
-            "date_modified": "2020-05-23T22:50:28.595Z",
+            "date_modified": "2020-05-23T22:58:17.734Z",
             "date_published": "2018-12-31T09:47:00.000Z"
         },
         {
@@ -123,7 +123,7 @@
             "url": "https://blog.never.pet/2018/12/15/how-to-feed-a-robot",
             "title": "如何科学的给机器人投食",
             "summary": "机器人在这里特指爬虫，本文特指一些通过扫默认目录尝试窥探 phpmyadmin 一类管理面板的玩意\n",
-            "date_modified": "2020-05-23T22:50:28.595Z",
+            "date_modified": "2020-05-23T22:58:17.734Z",
             "date_published": "2018-12-15T04:54:00.000Z"
         },
         {
@@ -132,7 +132,7 @@
             "url": "https://blog.never.pet/2018/11/25/add-google-cloud-printer-on-respi",
             "title": "在树莓派上添加谷歌云打印",
             "summary": "最近由于电脑突然坏了，退回去修了以后学校租了一台新的机器给到我。然而，我的配置全没了……emmmmm，然而这台电脑到时候又要还回去，而且平时也有同学回来找我借打印机，打算找个办法弄个方便点的共享\n",
-            "date_modified": "2020-05-23T22:50:28.595Z",
+            "date_modified": "2020-05-23T22:58:17.734Z",
             "date_published": "2018-11-25T13:10:00.000Z"
         },
         {
@@ -141,7 +141,7 @@
             "url": "https://blog.never.pet/2018/10/11/moving-my-blog-1",
             "title": "再一次迁移博客",
             "summary": "在考量了typecho，用github issue等一类博客的利弊只有，我换掉了博客目前用[Mweb]的博客并做了重定向\n",
-            "date_modified": "2020-05-23T22:50:28.595Z",
+            "date_modified": "2020-05-23T22:58:17.734Z",
             "date_published": "2018-10-11T09:21:40.000Z"
         },
         {
@@ -150,7 +150,7 @@
             "url": "https://blog.never.pet/2018/09/11/use-telegram-for-image-cdn",
             "title": "Telegram 图床（视频）计划",
             "summary": "那破链接会变，输了\n",
-            "date_modified": "2020-05-23T22:50:28.595Z",
+            "date_modified": "2020-05-23T22:58:17.734Z",
             "date_published": "2018-09-11T05:28:00.000Z"
         },
         {
@@ -159,7 +159,7 @@
             "url": "https://blog.never.pet/2018/09/11/build-a-rediretcor-with-ss-redir",
             "title": "利用ss-redir做国内中转节点",
             "summary": "大部分搬运内容，实测可用\n",
-            "date_modified": "2020-05-23T22:50:28.595Z",
+            "date_modified": "2020-05-23T22:58:17.734Z",
             "date_published": "2018-09-10T17:15:00.000Z"
         },
         {
@@ -168,7 +168,7 @@
             "url": "https://blog.never.pet/2018/07/27/rancher-v1.6-loadbalancer",
             "title": "Rancher v1.6 负载均衡折腾小记",
             "summary": "包含了两个内容，一个是加日志，另外一个是H2\n",
-            "date_modified": "2020-05-23T22:50:28.595Z",
+            "date_modified": "2020-05-23T22:58:17.734Z",
             "date_published": "2018-07-26T23:28:00.000Z"
         },
         {
@@ -177,7 +177,7 @@
             "url": "https://blog.never.pet/2018/07/26/build-your-own-gdgdocs",
             "title": "GDGDOCS 项目自建",
             "summary": "今天做了一份调查问卷，要把结果分享给别人，于是就关联到一个Spreadsheet，结果GDGDOCS不再支持form以外的反代了。那……就自己做一个咯\n",
-            "date_modified": "2020-05-23T22:50:28.595Z",
+            "date_modified": "2020-05-23T22:58:17.734Z",
             "date_published": "2018-07-26T03:59:00.000Z"
         },
         {
@@ -186,7 +186,7 @@
             "url": "https://blog.never.pet/2018/06/20/proxmox-rpcbind-ddos",
             "title": "Proxmox rpcbind 的小问题",
             "summary": "最近收到一封Abuse说机器有被利用DDOS的问题，原文部分内容是这样的：\n",
-            "date_modified": "2020-05-23T22:50:28.595Z",
+            "date_modified": "2020-05-23T22:58:17.734Z",
             "date_published": "2018-06-20T03:57:00.000Z"
         },
         {
@@ -195,7 +195,7 @@
             "url": "https://blog.never.pet/2018/06/18/about-CNBlackListR-project",
             "title": "关于 CNBlackListR 项目的交接",
             "summary": "因为打算逐渐远离一段时间的中文圈，目前就是在清理中文圈的羁绊。毕竟我也耗不起这时间，在各种猜忌周旋的同时处理那些头疼的垃圾死🐎Spammer。高中生也没有生产力，希望能够理解。\n",
-            "date_modified": "2020-05-23T22:50:28.595Z",
+            "date_modified": "2020-05-23T22:58:17.734Z",
             "date_published": "2018-06-17T23:38:00.000Z"
         },
         {
@@ -204,7 +204,7 @@
             "url": "https://blog.never.pet/2018/06/15/proxmox-nat",
             "title": "Proxmox 开 NAT 小鸡",
             "summary": "参考：https://cyberpersons.com/2016/07/27/setup-nat-proxmox/\n",
-            "date_modified": "2020-05-23T22:50:28.595Z",
+            "date_modified": "2020-05-23T22:58:17.734Z",
             "date_published": "2018-06-15T02:19:00.000Z"
         },
         {
@@ -213,7 +213,7 @@
             "url": "https://blog.never.pet/2018/05/21/my-really-silly-article",
             "title": "学生事故 | 学会无知，保持迷茫",
             "summary": "作者按：这个版本相比与公众号发布的版本有所不同。\nhttps://mp.weixin.qq.com/s/gWLiH1XvWYHYBFwWHmis0A\n",
-            "date_modified": "2020-05-23T22:50:28.595Z",
+            "date_modified": "2020-05-23T22:58:17.734Z",
             "date_published": "2018-05-21T02:08:00.000Z"
         },
         {
@@ -222,7 +222,7 @@
             "url": "https://blog.never.pet/2018/01/31/cups-ngrok-and-a-little-machine",
             "title": "折腾了一下CUPS，ngrok，还有一台买了很久的占美小主机",
             "summary": "又到了折腾的时间，这一次是因为学校打印公用电脑总是各种问题。然后又一次论文打印晚了被老师一波late记过来，忍无可忍。\n",
-            "date_modified": "2020-05-23T22:50:28.595Z",
+            "date_modified": "2020-05-23T22:58:17.734Z",
             "date_published": "2018-01-31T11:52:00.000Z"
         }
     ]
