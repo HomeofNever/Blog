@@ -4,7 +4,7 @@ layout: showcase
 date: 2018-10-11 16:40:31
 ---
 
-这个博客的源码是开放的, 你可以在[这里](github.com/homeofnever/blog)找到
+这个博客的源码是开放的, 你可以在[这里](https://github.com/homeofnever/blog)找到
 
 
 ## 日历
