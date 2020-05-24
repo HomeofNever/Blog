@@ -7,8 +7,9 @@ permalinks:
 siteConfig:
   url: https://blog.never.pet
   title: Never迷の小窝
-  icon: "/icons/android-chrome-512x512.png"
+  icon: "https://blog.never.pet/icons/android-chrome-512x512.png"
   author: NeverBehave
+  twitter: "_NeverBehave_"
   email: i@never.pet
   description: 迷の生物的迷の小窝
 

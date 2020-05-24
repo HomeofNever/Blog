@@ -18,12 +18,16 @@ export default ({ Vue, setHead }) => {
         content: "website",
       },
       {
-        name: "og:image",
+        property: "og:image",
         content: vm.$siteConfig.icon,
       },
       {
         name: "twitter:card",
         content: "summary",
+      },
+      {
+        name: "twitter:site",
+        content: vm.$siteConfig.twitter,
       },
       {
         name: "twitter:image",
