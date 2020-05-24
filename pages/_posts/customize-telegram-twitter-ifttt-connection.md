@@ -107,7 +107,7 @@ ifttt 的 webhook 传入 只能有一个`eventname`, 但是传出却可以带所
 - 绑定 ifttt 到你的推特
 
 
-### runkit Script
+### Runkit Script
 
 https://runkit.com/neverbehave/5ecac198b99072001340f3fe
 
