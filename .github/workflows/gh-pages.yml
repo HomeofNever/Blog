@@ -23,19 +23,19 @@ jobs:
         with:
           node-version: '12.x'
       # Cache node_modules, saber cache
-      uses: actions/cache@v2 
-      env:
-        cache-name: yarn-modules
-      with:
-        path: | 
-          node_modules
-          .saber
-          eject
-        key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('yarn.lock') }}
+      - name: Cache build
+        uses: actions/cache@v2 
+        env:
+          cache-name: yarn-modules
+        with:
+          path: | 
+            node_modules
+            .saber
+            eject
+          key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('yarn.lock') }}
       # generate artifacts
       - run: yarn
       - run: yarn build
-      - name: Cache builds
       # deployment
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
