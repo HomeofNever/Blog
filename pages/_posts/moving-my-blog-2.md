@@ -1,13 +1,13 @@
 ---
 title: 还是再迁移了博客
-tags: 
-    - 博客
-    - 迁移
+tags:
+  - 博客
+  - 迁移
 categories:
-    - 事项
+  - 事项
 layout: post
 date: 2020-05-17
-updated_at: 2020-05-18
+updated: 2020-05-18
 ---
 
 过了这么久, 还是迁移了博客...
@@ -36,12 +36,12 @@ https://www.h404bi.com/blog/2019/04/recent-changes-of-my-site
 
 具体架构可以看 https://github.com/HomeofNever/Blog/#readme
 
-这个过程拖了太久了, 但是总算现在算是基本落地成功. 去给作者打赏以当庆祝 
+这个过程拖了太久了, 但是总算现在算是基本落地成功. 去给作者打赏以当庆祝
 
 ---
 
-![Github Sponsor](../assets/media/../../_assets/media/moving-my-blog-2/sponsor.png) 
+![Github Sponsor](../assets/media/../../_assets/media/moving-my-blog-2/sponsor.png)
 
 整体体验还行, 顺便试试看新开的`Amex`卡
 
-不想管主题先了, 先把最近想写的都写了Orz
+不想管主题先了, 先把最近想写的都写了 Orz

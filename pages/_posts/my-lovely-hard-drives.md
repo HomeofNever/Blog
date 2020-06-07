@@ -9,6 +9,7 @@ categories:
   - 数码
 layout: post
 date: 2020-05-18
+updated: 2020-06-08
 description: Seagate Expansion, WD mybook, Elements, 12tb, 10tb, 8tb, 我都买了一遍
 ---
 
@@ -80,7 +81,7 @@ description: Seagate Expansion, WD mybook, Elements, 12tb, 10tb, 8tb, 我都买�
 
 - <a v-bind:href="mybook_8tb_hdtune">Mybook 8T HDtune</a>
 - <a v-bind:href="expansion_10tb_hdtune">Expansion 10T HDtune</a>
-- <a v-bind:href="mybook_8tb_crystal">Mybook 8T Cyrstal</a>
+- <a v-bind:href="mybook_8tb_crystal">Mybook 8T Crystal</a>
 - <a v-bind:href="expansion_10tb_crystal">Expansion 10T Crystal</a>
 
 #### 拆
@@ -120,7 +121,7 @@ description: Seagate Expansion, WD mybook, Elements, 12tb, 10tb, 8tb, 我都买�
 
 ### 第二波
 
-提前说一下, 这一波亏了, 买的是 10tb 的 WD elements
+提前说一下, 这一波亏了, 买的是 10tb 的 WD easystore
 
 我平时购买会在什么值得买看看历史报价, 预期心理价位目前是:
 
@@ -130,12 +131,12 @@ description: Seagate Expansion, WD mybook, Elements, 12tb, 10tb, 8tb, 我都买�
 
 **这一次在 BestBuy 最骚的就是, 179 刀卖了以后, 过两天 169 刀开卖** (详见第三波)
 
-![](../_assets/media/my-lovely-hard-drives/element_10tb_bestbuy.png)
+![](../_assets/media/my-lovely-hard-drives/easystore_10tb_bestbuy.png)
 
 加上税以后一口老血喷出来......
 不说了, 先列一下型号:
 
-- WD Element
+- WD Easystore
   - 194.79/10T => 19.48/T
   - WD100EMAZ
   - US8SAL100
@@ -145,14 +146,14 @@ description: Seagate Expansion, WD mybook, Elements, 12tb, 10tb, 8tb, 我都买�
 #### 开箱
 
 <Tweet id="1258465154670436353" :options="{conversation: 'none'}" />
-![](../_assets/media/my-lovely-hard-drives/element_10tb_openbox.jpg)
+![](../_assets/media/my-lovely-hard-drives/easystore_10tb_openbox.jpg)
 
 #### 拆
 
 还是一样的好拆
 
-![](../_assets/media/my-lovely-hard-drives/element_10tb_crackbox.jpg)
-![](../_assets/media/my-lovely-hard-drives/element_10tb_crackbox_1.jpg)
+![](../_assets/media/my-lovely-hard-drives/easystore_10tb_crackbox.jpg)
+![](../_assets/media/my-lovely-hard-drives/easystore_10tb_crackbox_1.jpg)
 
 ---
 
@@ -161,16 +162,57 @@ description: Seagate Expansion, WD mybook, Elements, 12tb, 10tb, 8tb, 我都买�
 还在路上, 托人从免税州带过来的, 先晒一下订单:
 
 ![](../_assets/media/my-lovely-hard-drives/newegg_2.png)
-![](../_assets/media/my-lovely-hard-drives/element_10tb_bestbuy_1.png)
+![](../_assets/media/my-lovely-hard-drives/easystore_10tb_bestbuy_1.png)
 
-列一下数据, 后续补充
+列一下数据, 介于部分型号已经被开过了, 我这里主要放一下 Elements 的开箱好了
 
-- WD Element
+- WD Easystore
   - 169.99/10T => 17.00/T
+  - WD100EMAZ
+  - US7SAL100
 - WD Element
   - 199.27/12T => 16.61/T
+  - WD120EMFZ
+  - US7SAP140
 - WD Mybook
   - 178.98/10T => 17.90/T
+  - WD100EZAZ
+  - US7SAL100
+
+![全家福](../_assets/media/my-lovely-hard-drives/third.jpg)
+
+#### 开箱
+
+![](../_assets/media/my-lovely-hard-drives/elements_open_box.jpg)
+
+Elements 的结构和 Easystore 很像, 但是感觉就是有点不成熟
+
+![](../_assets/media/my-lovely-hard-drives/elements_front.jpg)
+
+前面这里和 easystore 一样有个小灯
+
+![](../_assets/media/my-lovely-hard-drives/elements_back.jpg)
+
+背后这里有个电源键, 感觉用处不大 (长按关闭, 但是如果是在系统内弹出设备后还是需要重新插拔 usb)
+
+https://post.smzdm.com/p/adwr0pqk/
+
+#### 拆
+
+![](../_assets/media/my-lovely-hard-drives/elements_drive_1.jpg)
+
+这个结构和 easystore 有点不一样, 他的四个脚是用特殊设计的胶垫做的, 吃硬盘边角形状
+
+![](../_assets/media/my-lovely-hard-drives/elements_drive_2.jpg)
+
+### 测速
+
+顺便补一下测速, USB
+
+- <a v-bind:href="easystore_10tb_hdtune">Easystore 10T HDtune</a>
+- <a v-bind:href="elements_12tb_hdtune">Elements 12T HDtune </a>
+- <a v-bind:href="easystore_10tb_crystal">Easystore 10T Crystal</a>
+- <a v-bind:href="elements_12tb_crystal">Elements 12T Crystal</a>
 
 ## 总结
 
@@ -190,9 +232,17 @@ description: Seagate Expansion, WD mybook, Elements, 12tb, 10tb, 8tb, 我都买�
 
 ~~感觉这辈子都不差盘用了~~
 
----
+### 拆卸难度
 
-未完待续
+拆: Expansion >>> MyBook > Elements ~= Easystore  
+装: Elements >> Mybook ~= Easystore > Expansion
+
+Expansion 是真的很难拆, 而 Elements 特制的胶垫导致装回去的时候确实有点不知所措, 也导致我换下来的硬盘很难放进去
+
+### 板子兼容性
+
+目前只有 Mybook 的板子装入其他硬盘后不能读盘  
+Easystore 和 Elements 似乎都没有这个问题, 直接放进去就可以正常使用
 
 <script>
 import { Tweet } from 'vue-tweet-embed'
@@ -213,7 +263,19 @@ export default {
       },
       expansion_10tb_crystal() {
          return this.getImage(require('../_assets/media/my-lovely-hard-drives/expansion_10tb_crystal.jpg'))
-      }
+      },
+      easystore_10tb_hdtune() {
+         return this.getImage(require('../_assets/media/my-lovely-hard-drives/easystore_10tb_hdtune.jpg'))
+      },
+      easystore_10tb_crystal() {
+         return this.getImage(require('../_assets/media/my-lovely-hard-drives/easystore_10tb_crystal.jpg'))
+      },
+      elements_12tb_hdtune() {
+          return this.getImage(require('../_assets/media/my-lovely-hard-drives/elements_12tb_hdtune.jpg'))
+      },
+      elements_12tb_crystal() {
+          return this.getImage(require('../_assets/media/my-lovely-hard-drives/elements_12tb_crystal.jpg'))
+      },
     }, 
     methods: {
       getImage(img) {

@@ -26,6 +26,7 @@
             </div>
           </section>
         </div>
+        <HumanTime :createdAt="page.date" :updatedAt="page.updated"/>
       </header>
 
       <div class="post-content e-content" itemprop="articleBody">
@@ -47,18 +48,20 @@
 </template>
 
 <script>
-import formatDate from "../utils/formatDate";
+import { formatDate } from "../utils/date";
 import Wrap from "../components/Wrap.vue";
 import Disqus from "../components/Disqus.vue";
+import HumanTime from '../components/HumanTime'
 
 export default {
   components: {
-    Wrap: Wrap,
-    Disqus: Disqus
+    Wrap,
+    Disqus,
+    HumanTime
   },
   props: ["page"],
   methods: {
-    formatDate: formatDate
+    formatDate,
   }
 };
 </script>

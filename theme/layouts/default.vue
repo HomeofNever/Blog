@@ -57,12 +57,12 @@
 </template>
 
 <script>
-import formatDate from "../utils/formatDate";
+import { formatDate } from "../utils/date";
 import Wrap from "../components/Wrap.vue";
 
 export default {
   components: {
-    Wrap: Wrap
+    Wrap
   },
   props: ["page"],
   computed: {
@@ -71,7 +71,7 @@ export default {
     }
   },
   methods: {
-    formatDate: formatDate
+    formatDate
   }
 };
 </script>
