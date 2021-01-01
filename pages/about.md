@@ -6,12 +6,33 @@ date: 2018-10-11 16:40:31
 
 这个博客的源码是开放的, 你可以在[这里](https://github.com/homeofnever/blog)找到
 
-
-## 日历
-
-<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=America%2FNew_York&amp;src=bHVveGluaGFvNzdAZ21haWwuY29t&amp;src=emguY2hpbmEjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;src=emgtY24udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23039BE5&amp;color=%237986CB&amp;color=%230B8043&amp;title&amp;mode=WEEK" style="border-width:0" width="600" height="600" frameborder="0" scrolling="no"></iframe>
-
 ## 事项
+
+- 2020.12
+
+拿到了ASN!  https://bgp.he.net/AS212243
+
+<Tweet id="1335886440874586113">
+
+还买了新车 Honda CR-V 2021
+
+~~但是还没考完驾照~~
+
+- 2020.08
+
+搬家, 100刀从别人手里拿下了一台 Ender 3, 一通改装效果不错
+
+~~电费也很不错~~
+
+- 2020.03
+
+遇到了 https://buttplug.io/ 
+
+写了一个 [NobraControl](https://github.com/NeverBehave/NobraControlDemo) 的适配  
+
+~~心头痛解决~~
+
+~~不, 你什么都不知道~~
 
 - 2018.12.03
 开了一个新主页，https://never.pet
@@ -35,12 +56,12 @@ date: 2018-10-11 16:40:31
 
 ## （以前的）锅：
 
-> - NoticeBoard <a href="http://hfi.me">http://hfi.me</a>/<a href="http://hfinotice.com">http://hfinotice.com</a> 协作者
-> - <a href="http://doge.me">http://doge.me</a> 管理者
-> - 黎明杀机中文百科站 <a href="https://deadbydaylight.wiki">https://deadbydaylight.wiki</a> 管理者/代理站长
-> - https://telegram.show 参与者
+> - [不再继续] ~~NoticeBoard <a href="http://hfi.me">http://hfi.me</a>/<a href="http://hfinotice.com">http://hfinotice.com</a> 协作者~~
+> - [...] <a href="http://doge.me">http://doge.me</a> 管理者
+> - [已经关闭] ~~黎明杀机中文百科站 <a href="https://deadbydaylight.wiki">https://deadbydaylight.wiki</a> 管理者/代理站长~~
+> - [已经关闭] ~~https://telegram.show 参与者~~
 > - 打算继续去 https://translatewiki.net 做翻译
-- https://v2grad.org ｜ https://github.com/v2grad
+> - https://github.com/v2grad
 
 ## 技术栈
 

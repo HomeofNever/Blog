@@ -7,4 +7,12 @@ exports.chainWebpack = function(chain) {
     .options({
       name: "[name].[ext]",
     });
+    chain.module
+    .rule("cool")
+    .test(/\.cool$/)
+    .use("cool")
+    .loader("raw-loader")
+    .options({
+        esModule: false,
+    })
 };
