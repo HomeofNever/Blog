@@ -5,11 +5,11 @@
     "build": "saber build && node scripts/index.js"
   },
   "devDependencies": {
+    "raw-loader": "^4.0.2",
     "saber": "latest",
     "saber-plugin-feed": "^0.4.3",
     "saber-plugin-query-posts": "^0.4.5",
     "saber-theme-minima": "latest",
-    "raw-loader": "^4.0.2",
     "vue-telegram-embed": "^1.0.1",
     "vue-tweet-embed": "^2.4.0"
   },
