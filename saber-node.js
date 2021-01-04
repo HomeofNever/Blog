@@ -20,10 +20,6 @@ exports.chainWebpack = function(chain) {
 };
 
 exports.getWebpackConfig = function (config, opts) {
-  if (opts !== 'client') {
-    return config
-  }
-
   // Inject state for disqus component
   const dp = new webpack.DefinePlugin({
       'process.env.isProduction': process.env.NODE_ENV === 'production'
