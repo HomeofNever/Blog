@@ -8,42 +8,9 @@ date: 2018-10-11 16:40:31
 
 ## 事项
 
-### 2020.12
+### 2020 年
 
-拿到了ASN!  https://bgp.he.net/AS212243
-
-<div>
-<Tweet id="1335886440874586113">
-</div>
-
-还买了新车 Honda CR-V 2021
-
-
-~~但是还没考完驾照~~
-
-
-### 2020.08
-
-搬家, 100刀从别人手里拿下了一台 Ender 3, 一通改装效果不错
-
-~~电费也很不错~~
-
-### 2020.03
-
-遇到了 https://buttplug.io/ 
-
-写了一个 [NobraControl](https://github.com/NeverBehave/NobraControlDemo) 的适配  
-
-~~心头痛解决~~
-
-~~不, 你什么都不知道~~
-
-## 2020.01.20 
-
-毛装做出来了
-
-<Tweet id="1218216503138451457"/>
-
+可以看 [2020年度总结](./_posts/2020-summary.md)
 
 ### 2019.09.01
 
@@ -95,7 +62,7 @@ date: 2018-10-11 16:40:31
 有博客相关的话题（友链，etc.)可以在下面留言
 
 <script>
-import { Tweet } from 'vue-tweet-embed'
+import Tweet from './_components/Tweet'
 
 export default {
     components: {

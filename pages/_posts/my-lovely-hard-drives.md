@@ -255,7 +255,7 @@ Expansion 是真的很难拆, 而 Elements 特制的胶垫导致装回去的时�
 Easystore 和 Elements 似乎都没有这个问题, 直接放进去就可以正常使用
 
 <script>
-import { Tweet } from 'vue-tweet-embed'
+import Tweet from '../_components/Tweet'
 
 export default {
     components: {
