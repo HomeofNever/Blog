@@ -1,3 +1,5 @@
+const webpack = require('webpack')
+
 exports.chainWebpack = function(chain) {
   chain.module
     .rule("pdf")
@@ -16,3 +18,18 @@ exports.chainWebpack = function(chain) {
         esModule: false,
     })
 };
+
+exports.getWebpackConfig = function (config, opts) {
+  if (opts !== 'client') {
+    return config
+  }
+
+  // Inject state for disqus component
+  const dp = new webpack.DefinePlugin({
+      'process.env.isProduction': process.env.NODE_ENV === 'production'
+  })
+
+  config.plugins.push(dp)
+  
+  return config
+}

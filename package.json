@@ -11,7 +11,8 @@
     "saber-plugin-query-posts": "^0.4.5",
     "saber-theme-minima": "latest",
     "vue-telegram-embed": "^1.0.1",
-    "vue-tweet-embed": "^2.4.0"
+    "vue-tweet-embed": "^2.4.0",
+    "webpack": "^4.42.1"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -22,7 +23,7 @@
     "markdown-it-footnote": "^3.0.2",
     "markdown-it-implicit-figures": "^0.10.0",
     "prismjs": "^1.23.0",
-    "saber-highlight-css": "^0.1.1",
+    "saber-highlight-css": "^0.1.2",
     "saber-plugin-ga-lite": "^0.4.0",
     "saber-plugin-image": "^0.2.2",
     "saber-plugin-jsdelivr-cdn": "^0.1.0",

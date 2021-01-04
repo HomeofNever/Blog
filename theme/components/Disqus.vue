@@ -46,6 +46,10 @@ export default {
       });
     },
     init() {
+      if (!process.env.isProduction) {
+        console.log("not in production mode, disqus load disabled")
+        return
+      }
       const self = this;
       window.disqus_config = function() {
         self.setBaseConfig(this);

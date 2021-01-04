@@ -176,10 +176,10 @@ decrypt(h)
 )
 
 (define (start input)
-    (secondfunc input "9a94" "1974" "4️fc7️" "-" "b7️9️9" "8️a4️c" "d6️0️c" "2️5️e1️" "2️3️7️2️")
+    (secondfunc input "9a94" "1974" "4fc7" "-" "b799" "8a4c" "d60c" "25e1️" "2372")
 )
 
-(start 114514)
+(start 114514) # 啊哈, 这是看穿了吗
 ```
 
 Scheme版本的意思应该一目了然了, 满足条件以后拼接字符串
