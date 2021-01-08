@@ -10,12 +10,21 @@
     },
     "items": [
         {
+            "id": "https://blog.never.pet/2021/01/08/tweet-to-telegram",
+            "content_html": "<blockquote><p>如果你想直接看成品: <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/NeverBehave/Tweet2Telegram\">https://github.com/NeverBehave/Tweet2Telegram</a></p></blockquote> <h2 id=\"剧情前提\">剧情前提</h2> <p>推特上有太多好 <s>(毛毛)(色)(不你什么都不知道)</s> 图/视频了, 然而每次想找点回来的时候却...翻起来好麻烦啊</p> <p>然而每次保存下来好麻烦, 要是点赞了以后可以自动保存下来就好了</p> <p>于是我又动起了IFTTT的念头...因为IFTTT也有推特点赞转发啊! 我之前还做过一期<a href=\"/2020/05/25/customize-telegram-twitter-ifttt-connection\">如何用IFTTT配合推特转发到个人频道</a>；甚至还买了Pro</p> <p>但是如果是这样的话, 文章标题怎么感觉有点不对呢...?</p> <h3 id=\"ifttt的困境\">IFTTT的困境</h3> <p>IFTTT这个东西嘛, 简单点的就算了, 这回我们的需求是:</p> <ol><li>获取点赞的推文</li> <li>解析其中所有的视频/图片/链接</li> <li>转发到Telegram频道</li></ol> <p>然而呢, IFTTT</p> <ol><li>其中的图片/视频链接不是直链</li> <li>Webhook有频率限制</li> <li><strong>甚至, IFTTT似乎实现错了这个功能</strong>(后文详述)</li></ol> <p>直链这个解析实在是难以描述, 如果不通过推特官方的API: 他默认做了很多对爬虫不友好的操作</p> <p>一番测试下来发现效果真的很差, 很容易错过点赞</p> <p>于是...那就看看推特的API然后自己做一套吧</p> <h2 id=\"正文\">正文</h2> <h3 id=\"申请api\">申请API</h3> <p>首先, 我们需要申请一下开发者API, <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://developer.twitter.com/en/apply-for-access\">申请链接</a></p> <p>在申请的时候他会让选择你的用途并描述你要做什么, 至少<code>200 characters</code>, 不是<code>words</code>. 也就是说差不多2-3句话差不多了</p> <p>这个做完以后就等着邮箱发信给你, 确认一下. 我刚填完就收到了邮件, 基本上体验还好</p> <h3 id=\"创建app\">创建APP</h3> <figure><img alt=\"\" data-lazy=\"{}\" src=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/0c01edb7cb9312c5f2f4b80434521de1-1200.png\" srcset=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAOCAYAAABdC15GAAAB+klEQVR4AbXBy2pVdxjG4d/7/b+11s5OspKAg7YoBQMZOulldFZoh95Cr0xnXo5KIYNCKYnktLNOr9nZDSqpuHPweeQrfMU4jpRS+BbbvP3rkIgCEtM48PPTH6kyeag0XxelYNYg8eynH1hcdiz6gVldkZmYh0tsHkNdJXWVtPzHZmnRDZj7y77v+fDhCDDtdkvTNDwaFRAwjkzjQNf37LQtEYV1dMNA1lXPk/M3HG/9wunJ3ywuCraxjSSWSgm2tze5u6csZSaqG2ZzKCHuIqGgZ7/SnF9wTeKGJyMJ25ydGSkwZkksCWOqTOq64hYFMGEFi8FURWRwJzm64ei4Icqc2WzG58SK+ER8ScAALDqxmMRJN/H63cDzVvy2X4AJszLZDBNkiHVlCHZ3Wh6qAmaGvabw54uCBBLXQlACBPQTZLC27LqOo+NjJBES8/km8/mc70ESGynuIrOqISqyqmiaGkVw0fXcx6v3I4dn5uVBxUbC3iy5IcCGy8E0KdaVEuzttjyGP/aTL4hr0zgRrNiw6FiLbdKGf/49woatzTlNU3Nfr96PHJ6ZlwcVGwl1ckWcnl9gG0nYJiSySoQAs2RACDA3SimkgN2dlhERrESI+/h9P/k/EYFtJFFKUKIAZkWsCDAQgLkmkRFia6Phe5o1NbeJ28SKuPERIRqxJO4GzCgAAAAASUVORK5CYII=\" data-srcset=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/0c01edb7cb9312c5f2f4b80434521de1-1200.png 1200w,https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/ecdc97f8cc432f226f25219efcca49f9-720.png 720w,https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/5c9848baae689a4790c353f2ec838e89-480.png 480w\" width=\"1200\"></figure> <p>一开始他默认会给你创建一个项目, 然后你在里面可以创建你的第一个APP. 但是注意一下, 除了<code>API_KEY</code>和<code>API_SECRET</code>, 他还有一个<code>ACCESS_TOKEN</code>. 这个对应的是用户的数据访问, 也就是说你这个APP代表的是哪个用户做事情. 我们目前是要获取自己帐号的点赞列表, 所以直接看下面<code>Authentication Tokens</code> 获取自己的就好</p> <h3 id=\"github-action\">Github Action</h3> <p>然后就是我们的重头戏上场: <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/NeverBehave/Tweet2Telegram\">https://github.com/NeverBehave/Tweet2Telegram</a></p> <p>默认15分钟获取一次, 目前来看效果不错</p> <p>甚至说实话, 我觉得转发也可以改成这个, 不知道好到哪里去了:</p> <ul><li>不需要麻烦的获取链接跳转再替换</li> <li>视频/图片原生就在Telegram, 无需Web Preiew</li></ul> <p>写完以后感受: 推特的API其实还蛮舒服的, 当然如果只是个人使用的话. 一开始被<code>IFTTT</code>坑的不要不要的, 现在看来其实还好</p> <p>这里, 我想提一下这个很有意思的API问题 (Aka IFTTT干的好事)</p> <h4 id=\"since_id\"><code>since_id</code></h4> <p>这是我也踩了一脚坑, 意识到以后重新观察了一下<code>IFTTT</code>的行为, 估计是一样的</p> <p>获取点赞列表的时候, 其中一个参数是叫做<code>since_id</code>(<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://developer.twitter.com/en/docs/twitter-api/v1/tweets/post-and-engage/api-reference/get-favorites-list\">官方文档</a>), 这个东西的意思是说返回所有<strong>从这个<code>ID</code>开始的所有推文</strong>. 放在这个上下文是不是很容易理解为<strong>如果你点赞了的一条推文, 我记住它, 那么下次我获取新的点赞的时候, 给这个推文的<code>ID</code>, 就可以获取从这个点赞以后的推文了</strong></p> <p>不是的!!!!!! 这个的意思纯粹是说<strong>按照时间顺序, 比你给的这个<code>ID</code>新的所有你喜欢的推文</strong></p> <p>所以当你点赞了一条今天发送的推文, 然后去点赞了一条昨天发送的推文, 那么你就获取不到这个<strong>新</strong>的点赞了</p> <p>我发现IFTTT就有类似的行为, 他总是检测不到一些点赞, 估计他的<strong>新点赞的推文</strong>也就是靠这个ID判断的, 实际上是错的!</p> <p>但是实际上API文档里面写的很清楚了是时间顺序, 所以还是自己傻逼了, 抚额</p> <h2 id=\"后言\">后言</h2> <p>大部分的参数在项目里面提供了, 我就不在这里重新描述了, <s>其实这就是水文</s></p> <p>然后就是这个IFTTT的bug, 不知道去哪里报一下</p>",
+            "url": "https://blog.never.pet/2021/01/08/tweet-to-telegram",
+            "title": "用 Github Action 拯救 Twitter 与 Telegram 的转发",
+            "summary": "如果你想直接看成品: https://github.com/NeverBehave/Tweet2Telegram\n",
+            "date_modified": "2021-01-08T03:53:19.524Z",
+            "date_published": "2021-01-08T00:00:00.000Z"
+        },
+        {
             "id": "https://blog.never.pet/2021/01/04/2020-summary",
             "content_html": "<div class=\"container\"><iframe src=\"https://www.youtube-nocookie.com/embed/RQsM2uvXow8\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen=\"allowfullscreen\" class=\"video\"></iframe> <div>正在尝试载入Youtube嵌入...</div></div> <blockquote><p>^背景音乐</p></blockquote> <h2 id=\"剧情前提\">剧情前提</h2> <p>其实一开始不是很想写, 感觉自己这年过下来, 也没啥好写的. 但是呢刚好现在年初我又在申请研究生, 状态说实话有点丧, 回顾一下看看会不会好一点.  <s>那确实是很迟到</s></p> <blockquote><p>下面按照事件开始时间来回顾一下自己折腾了什么吧</p></blockquote> <h2 id=\"正文\">正文</h2> <h3 id=\"1月\">1月</h3> <h4 id=\"毛装做出来了\">毛装做出来了</h4> <div class=\"tweet-box\"><div><div>\n                正在尝试加载推文...\n        </div></div></div> <p>从国内运过来运费花了差不多1000RMB, 算是我在爱好上开销比较大的一次了</p> <p>如果你不熟悉相关内容, 可以右转了解一下: <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Furry_fandom\">https://en.wikipedia.org/wiki/Furry_fandom</a></p> <p>但是后续在7月左右我把它卖掉了. 除了说有些不满意以外, 更多是因为疫情期间当时还在搬家, 而且当时觉得自己头脑不是很冷静, 希望可以退出圈子一段时间让清醒一下, 就直接清理的时候将其转手了</p> <p>如果要问在更深层的原因, 可能是我个人偏见吧, 我觉得目前这个圈子氛围太过烧钱. 不提推特上有很多套毛装的高级玩家, 至少在中文圈内, 大家目前的心理预期和举动让我也不是很舒服. 其次是 2020 委托圈也有不少狗血的事情但是这时我也没有太多关注了. 目前主要是看看相关作品点点赞先(好了, 这个时候就不要去看我的推特点赞了), 然后还有就是接触国外相关社区. 后续的注册ASN号的时候也是遇到了一只很友善的毛毛帮忙的.</p> <blockquote><p>在一个饭圈, 最紧要的是开心</p></blockquote> <h3 id=\"3月\">3月</h3> <p>这个时候疫情已经开始一段时间了, 学校宣布在春假以后关闭校园, 同期开始准备搬家</p> <h4 id=\"research\">Research</h4> <p>相关的研究这个时候刚好在招募人, 其中我拿到的这个是尝试收集国内当时主动公布的物流信息和/或民间发布(例如微博)的信息来追踪物资动向, 绘制时间线.</p> <p>说实话, 这个最后效果一般, 一部分是官方新闻太少, 民间资料确实有很多很好的(当时有github仓库定时汇总审核相关信息), 但是具体的动向和后续缺失很厉害</p> <blockquote><p>有点经历也算好的吧.jpg</p></blockquote> <h4 id=\"实习\">实习</h4> <p>拿到了 <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.ansys.com\">Ansys.Inc</a> 的实习, 主要在做一些可视化编辑器相关的工作. 公司平时主要是做的仿真, 可能物理/工程系的同学会经常用到相关产品.</p> <p>5月开始, 一小时21刀,  一周正常40hrs, 一个月折合RMB 2w左右吧, 疫情期间所以是远程, 不然说可以周末有烤肉, 还有其他活动之类的, 工作量也确实不是很大, 整体比较惬意, 还(自)学了不少东西</p> <p><strong>这次很考验了一把我的前端能力, 说实话现在看来, 我还是搞砸了, 让我开始更多的思考框架/设计相关的一些问题.</strong></p> <p>但是老大(PM)和我的Mentor人都很好, 现在还在Telegram保持联系 (<s>我还给我的Mentor推荐了<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://store.steampowered.com/app/427520\">Factorio</a>, 还好没耽误工作</s>)</p> <blockquote><p>我不会说这期间我还刷了很多Netflix :)</p></blockquote> <h4 id=\"搬家\">搬家</h4> <p>当时学校周围的房子直接被预订一空, 我因为马上是大三要住出去了, 联系了之前联系好的房东问可不可以提前开始租期, 获得同意</p> <p>这个房子是之前学校宿舍被水淹了以后学校紧急组下改造的房子, 因为后面学校修好了自家的房子就直接吧精装修完, 带校园网(每个网口都是G口对等)的房子解约了, 整体设施什么的都非常好, <s>除了价格</s></p> <p>在实习期间好的网络确实救我一命: 公司没发笔记本, 是分配了一个Horizon的虚拟机, 代码不能离开公司电脑</p> <blockquote><p>搬家是真的累,  尤其是没有车</p></blockquote> <h3 id=\"5-8月\">5-8月</h3> <p>学期结束了, 开始实习</p> <h4 id=\"杂项\">杂项</h4> <ul><li>番/剧/电影 (大部分都是Netflix)\n<ul><li>这些应该还只是一部分...有些电影真的不记得了</li> <li>日剧\n<ul><li>我的青春恋爱物语果然有问题</li> <li>某科学的超电磁炮</li> <li><strong>心理测量者</strong></li> <li><strong>反叛的鲁鲁修</strong> <ul><li><s>All Hail Lelouch</s></li></ul></li> <li><strong>诈骗之王</strong></li> <li><strong>紫罗兰永恒花园</strong></li> <li><strong>钢之炼金术师</strong></li> <li><strong>进击的巨人</strong></li> <li><strong>狂赌之渊</strong></li> <li>深夜食堂</li> <li>工作细胞</li> <li><strong>BEASTARS</strong></li> <li><strong>动物新世代 BNA</strong></li> <li>百变小樱\n<ul><li>我才知道结局是什么</li></ul></li> <li>想哭的我带上了猫的面具</li> <li>擅长捉弄人的高木同学</li> <li>AV 帝王</li></ul></li> <li>美/英剧\n<ul><li>后翼弃兵</li> <li>黑镜(第五季, 互动影片)</li> <li><strong>爱死机器人</strong></li> <li>刑案侦讯室</li> <li>逍遥法外 (How to get away with murder)</li> <li><strong>攻壳特工队 (SAC_2045)</strong></li> <li>性爱自修室</li> <li>碳变</li> <li>人造母者</li> <li><strong>全知之城</strong></li> <li>理论上完美的另一半 (OSMOSIS)</li> <li>美国工厂</li> <li>雨伞学院</li> <li>纸牌屋</li></ul></li> <li>国产\n<ul><li>刺客伍六七</li> <li>谁是受害者</li> <li>流浪地球</li> <li>罗小黑战记</li></ul></li> <li>韩剧\n<ul><li>人性课外课</li> <li>富豪辩护人</li></ul></li></ul></li> <li>游戏\n<ul><li>枪火重生 (国产)</li> <li>守望先锋\n<ul><li>平时和朋友玩确实只有这个了</li></ul></li> <li>The Game of Life</li> <li>荒野乱斗(前半年在打, 打到1w1左右就不怎么打了)</li></ul></li> <li><a href=\"/2020/05/18/my-lovely-hard-drives\">硬盘车</a> <ul><li>还翻车了, 看更新</li></ul></li> <li>开了一堆信用卡\n<ul><li>Amex, Apple Card, Chase, Bofa Cash Reward...</li></ul></li> <li><strong>主力机转向Linux</strong> <ul><li>Manjaro</li> <li>Thinkpad M75q 小主机</li></ul></li> <li>买了一堆新的电子产品\n<ul><li>IPad Pro + Magic Keyboard + Apple Pencil\n<ul><li>差不多花了1000刀, 快赶上一台MacBook了, 但是用着确实舒服</li></ul></li> <li>AirPod Pro</li></ul></li> <li>锁了 Instagram, 关闭大部分 Google 账户数据收集</li></ul> <h4 id=\"转向了-fastmail\">转向了 FastMail</h4> <div class=\"tweet-box\"><div><div>\n                正在尝试加载推文...\n        </div></div></div> <p>在某个时间点开始, 我开始有意远离谷歌类的产品了, 第一件事就是把自己的邮箱彻底从谷歌搬走.</p> <p>我妈觉得免费大于卖信息, 觉得自己的信息无所谓. 我觉得这个是可以理解的, 我也没有为她转移. <strong>但对于我来说, 不仅仅是广告, 我的重要通讯基本都是邮件. 而所有的邮件通讯对我来说都很重要, 其中的信息密度很大</strong>, 我不希望谷歌可以&quot;免费&quot;拿走来借此建立我的模型.</p> <p><a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://fastmail.com\">Fastmail</a> 是别人推荐的, 目前来说用着也是真的非常舒服的邮箱. 支持无限自定义域名, 按帐号收费, 5块钱一个月年付40, 30G储存带一些网盘和日历功能.</p> <p>如果有类似需求的可以考虑一下, 首月免费不需要绑定付款信息, 走我的<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://ref.fm/u24741032\">AFF</a>可以首年9折 , 推荐人拿你打折部分金额, 不可提现</p> <h4 id=\"移除了-chrome\">移除了 Chrome</h4> <p>同样类似与上面的原因, 花了快一年的时间彻底换成了 Firefox, 对于部分调试需求和购物返利则使用 Chromium</p> <h4 id=\"邮箱被人爆破了\">邮箱被人爆破了</h4> <div class=\"tweet-box\"><div><div>\n                正在尝试加载推文...\n        </div></div></div> <p>自己开了一个免费的邮箱托管服务, 结果自己设置了个弱密码, 没什么好说的</p> <blockquote><p>防火墙和黑名单给开上了, 学到了</p></blockquote> <h4 id=\"cnblacklistr-关闭\">CNBlackListR 关闭</h4> <p>历史遗留问题, 得承认最后的做法两头不讨好, 但是总是要结束这一切</p> <h3 id=\"8月过后---\">8月过后...</h3> <p>重新开始上课了! 大部分事情都安顿好了, 最后也都是A?</p> <h4 id=\"入了-3d-打印的坑\">入了 3D 打印的坑</h4> <div class=\"tweet-box\"><div><div>\n                正在尝试加载推文...\n        </div></div></div> <p>搬家, 100刀从别人手里拿下了一台 Ender 3, 一通改装效果不错. 刷了 Klipper, 升级了 BLTouch</p> <p>在我同学走之前我都给他们打了一些<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.thingiverse.com/thing:4249113/\">面罩支架</a> 算是派上了点用场</p> <p><s>电费也很不错</s></p> <blockquote><p>虽然现在坏了一直修不好...</p></blockquote> <h4 id=\"希捷的盘挂了\">希捷的盘挂了</h4> <p>这才不到一年...</p> <p>而且挂的时候我的阵列没有坏, 反而是文件系统坏了, 修不好直接直接拷数据出来重建, 丢了不少东西</p> <blockquote><p>以后云备份必不能省! 海门再买傻逼</p></blockquote> <h4 id=\"给家里和同学家都换上了ubnt的ap\">给家里和同学家都换上了UBNT的AP</h4> <p>之前用的路由器<code>AC86U</code>总是莫名断流让我相当不爽, 进了<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.reddit.com/r/homelabsales/\">r/homelabsales</a> 收了一堆 UBNT 连带着免费给隔壁同学家也换上了 (花了400刀左右)</p> <p>但是ISP(Spectrum)并不做美, 晚上会断流和上传小水管都不开心. 怀念校园网对等上传</p> <p>不过好的是铁头给我的这个三手<code>86U</code>我出出去的时候居然还多了200RMB, <s>真的保值</s></p> <h4 id=\"拿到了asn\">拿到了ASN!</h4> <div class=\"tweet-box\"><div><div>\n                正在尝试加载推文...\n        </div></div></div> <p><a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://bgp.he.net/AS212243\">https://bgp.he.net/AS212243</a></p> <p>顺便还花了不少搞了一些服务器<s>ewaste</s>送到机房托管, 然后开始了BGP之旅</p> <p>目前还在慢慢的构建, 买了一堆年付垃圾但是支持BGP的小鸡玩玩</p> <p>顺便的话, 踩了一堆<code>IPv6</code>的坑, 点名<code>Alpine</code>傻逼</p> <h4 id=\"从-ansible-换到了-nixos\">从 Ansible 换到了 NixOS</h4> <p>这个确实是个好东西, 声明式的构建环境, 舒服的一批 <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://nixos.org\">https://nixos.org</a></p> <p>而且刚好这学期我在上编程语言(Programming Languages), 写了<code>Prolog</code>, <code>Scheme</code>和<code>Haskell</code>. <code>Nix</code>这个真的是再熟悉不过了, 第一次有了学了的东西马上就能用上, 而且用的很舒服的感觉</p> <p>唯一的问题可能是这东西目前构建吃内存问题有点严重, 然后就是上传, 因为他是先在本地构建所有部分然后推送给各个服务器</p> <h4 id=\"买了新车\">买了新车</h4> <p>Honda CR-V 2021, 到落地差不多32k刀</p> <p><s>但是还没考完驾照</s></p> <p>1.5排量+boost ~ 2.0, 够用吧, 然后 Carplay 是有线的确实让我一阵头大</p> <p>顺带也让我认识到汽车配件的价格: 真正贵的不是配件本身, 而是安装的人工</p> <h2 id=\"总结\">总结</h2> <p>作为学生的话, GPA 3.91/4.0, 有几封教授的推荐信, 有一段实习, 有一些研究经历, 有杂七杂八的事情可以做, 看了不少好作品, 还挣了点钱. 满足满足</p> <p>但是作为马上要毕业的人来说, 我感觉我现在还是没有什么方向. 在文章开头, 我也提到目前在申请研究生, 每个大学都在问一个问题: 你为什么要读研究生</p> <p>说实话, 这个让我有点懵, 我到现在的成绩, 去找实习, 去做各种各样的事情, 如果不说很功利的点, 似乎也就没什么了: 我找实习是为了充实自己的简历, 为以后找工作铺路. 读研究生可能就是如果在当前这个环境下找不到好的工作, 就做为一条退路吧. 如果你说做点开源的东西, 项目, 也不是为了工作经验和虚荣心?</p> <p>更多的时候学校也会问研究方向. 说实话这些东西让我回想起在实习的时候, 遇到一些组织规划代码, 设计数据结构框架的时候的问题. 上班的时候确实没什么空去仔细想这些问题, 闲下来以后在群里讨论一下, 诶, 确实似乎有更好的方法, 或者有更好的思路. <strong>这些需要花时间研究的问题通常不是在学校学习的时候立马能够想到的, 而是在实际解决问题的时候冒出来的</strong></p> <p>而大学在这个时候就开始问你有没有. 我得说我暂时还没有一个让我觉得有足够动力去花上很长时间思考的一个东西. 这也许是一部分人为什么选择在工作一段时间以后再回来进修的原因? 开阔完眼界, 换换脑子, 做点研究.</p> <p>另外一个点就是到底现在知识有没有高低之分. 很多时候会提到一个概念, 叫做核心竞争力. 你做的工作会不会很容易被人取代? 这在程序员里面也是一个很大的压力来源. 我也经常被家里和外面这样的压力弄得不知所措: 这看起来做理论研究的人总是更胜一筹.</p> <p>但是真的知识有高低之分吗? 经验难道就很容易被取代吗? 说实话, 我不知道. 一个团队的一个人如果真的很容易就被替代, 那么这可能不是一个团队. 一个人没有那么简单就被换掉. 很多因素在里面也许需要考虑一下. 最后人在其中是动态的, 你也在学习, 长见识, 作出改变. 替代本身这个概念, 更多时候可能只是没有想清楚未来该怎么走, 而这个就正是我还没有准备好的东西.</p> <p>从比较传统的, 吃过文化亏的家庭出来, 确实, 读书和文凭这些事情还是比较敏感的. 哪个父母不希望看到孩子在未来有一个稳定的靠山, 强有力的竞争力在社会上翱翔? 就算是到了另外一个国家, 这些事情有所变化, 但是终究到底方向也是没错的. 而已经习惯被安排好的我被领到这个21岁这个岔路口, 一时间也不习惯做决定这个久违的权利. 他们的第一次也是我的第一次.</p> <p>我倒不是说不想上, 家里给钱上学? 上学诶, 这可算是很轻松的活了好吧, 要是以前的我估计说不出这话, 但是看过这么多事情过来, 上学在其中可能算真的简单的了. 但是在研究生里要做什么确实得要好好想想了, 不能再过得浑浑噩噩的了</p> <div class=\"container\"><iframe src=\"https://www.youtube-nocookie.com/embed/MBRqu0YOH14\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen=\"allowfullscreen\" class=\"video\"></iframe> <div>正在尝试载入Youtube嵌入...</div></div> <blockquote><p>在最后放上这个小视频结尾: 成就和错误终将回归烟云, 散落四周.<br>\n有起有落才是人生; 少年啊, 真正的愁苦是说不出来的.</p></blockquote>",
             "url": "https://blog.never.pet/2021/01/04/2020-summary",
             "title": "The end of 2020 年终总结",
             "summary": "^背景音乐\n",
-            "date_modified": "2021-01-04T09:03:59.151Z",
+            "date_modified": "2021-01-08T03:53:19.524Z",
             "date_published": "2021-01-04T02:00:00.000Z"
         },
         {
@@ -24,7 +33,7 @@
             "url": "https://blog.never.pet/2021/01/01/2020-red-pack-writeup",
             "title": "年度总结红包WriteUp -- Berd.moe",
             "summary": "在Leonn的博客频道看到这个, https://blog.berd.moe/archives/2020-review/\n",
-            "date_modified": "2021-01-04T09:03:59.151Z",
+            "date_modified": "2021-01-08T03:53:19.524Z",
             "date_published": "2021-01-01T12:00:01.000Z"
         },
         {
@@ -33,7 +42,7 @@
             "url": "https://blog.never.pet/2020/05/25/customize-telegram-twitter-ifttt-connection",
             "title": "用 webhook 拯救 ifttt 上 Twitter 与 Telegram 的同步",
             "summary": "这大概是我最近最后一篇更新了, 马上要上班了, Orz\n",
-            "date_modified": "2021-01-04T09:03:59.151Z",
+            "date_modified": "2021-01-08T03:53:19.524Z",
             "date_published": "2020-05-25T00:00:00.000Z"
         },
         {
@@ -42,7 +51,7 @@
             "url": "https://blog.never.pet/2020/05/23/bye-dbd",
             "title": "Bye, deadbydaylight.wiki",
             "summary": "在清理Google Analysis的时候, 发现了这个帐号的记录\n",
-            "date_modified": "2021-01-04T09:03:59.151Z",
+            "date_modified": "2021-01-08T03:53:19.524Z",
             "date_published": "2020-05-23T00:00:00.000Z"
         },
         {
@@ -51,7 +60,7 @@
             "url": "https://blog.never.pet/2020/05/21/keep-your-google-voice-with-sao",
             "title": "Google Voice 自动应答和保号",
             "summary": "偶然打开某个骚群, 发现有人抱怨自己的 Google Voice 被回收了, 并讨论如何保号\n",
-            "date_modified": "2021-01-04T09:03:59.151Z",
+            "date_modified": "2021-01-08T03:53:19.524Z",
             "date_published": "2020-05-21T00:00:00.000Z"
         },
         {
@@ -60,7 +69,7 @@
             "url": "https://blog.never.pet/2020/05/21/switch-from-lambda-to-fission",
             "title": "从AWS lambda迁移到Fission",
             "summary": "我开始用aws lambda的时间大约是它还只有node v8运行时的时候, 主要其免费的额度确实相当的诱人, 加上学生赠与的免费credit, 香的一批\n",
-            "date_modified": "2021-01-04T09:03:59.155Z",
+            "date_modified": "2021-01-08T03:53:19.524Z",
             "date_published": "2020-05-21T00:00:00.000Z"
         },
         {
@@ -87,7 +96,7 @@
             "url": "https://blog.never.pet/2019/05/31/nano-pi-neo2-first-experience",
             "title": "Nano Pi NEO2 体验小记",
             "summary": "H5似乎已经停止生产了, Nano PI Neo2 也似乎没有了\n",
-            "date_modified": "2021-01-04T09:03:59.155Z",
+            "date_modified": "2021-01-08T03:53:19.524Z",
             "date_published": "2019-05-31T03:42:00.000Z"
         },
         {
@@ -96,7 +105,7 @@
             "url": "https://blog.never.pet/2019/03/27/space-and-s-p-a-c-e",
             "title": "空格与 空 格",
             "summary": "相关项目：kongebot\n机器人 @kongebot\n",
-            "date_modified": "2021-01-04T09:03:59.155Z",
+            "date_modified": "2021-01-08T03:53:19.524Z",
             "date_published": "2019-03-27T06:08:00.000Z"
         },
         {
@@ -105,7 +114,7 @@
             "url": "https://blog.never.pet/2019/03/27/ripe-probe-hosting",
             "title": "RIPE Probe Hosting",
             "summary": "先上图（低清警告）\n",
-            "date_modified": "2021-01-04T09:03:59.155Z",
+            "date_modified": "2021-01-08T03:53:19.524Z",
             "date_published": "2019-03-27T03:47:00.000Z"
         },
         {
@@ -114,7 +123,7 @@
             "url": "https://blog.never.pet/2019/03/20/my-thought-about-cloud-game-before",
             "title": "云游戏：生不逢时",
             "summary": "谨此文怀念我接触的第一个国内在线串流游戏平台：云游戏\n",
-            "date_modified": "2021-01-04T09:03:59.155Z",
+            "date_modified": "2021-01-08T03:53:19.524Z",
             "date_published": "2019-03-20T03:42:00.000Z"
         },
         {
@@ -123,7 +132,7 @@
             "url": "https://blog.never.pet/2019/03/08/telegram-web-hosting",
             "title": "Telegram Web 搭建",
             "summary": "Telegram 是个好东西，他有个Web客户端，也是个好东西\n",
-            "date_modified": "2021-01-04T09:03:59.155Z",
+            "date_modified": "2021-01-08T03:53:19.524Z",
             "date_published": "2019-03-07T18:10:00.000Z"
         },
         {
@@ -132,7 +141,7 @@
             "url": "https://blog.never.pet/2019/02/08/tasker-messenger",
             "title": "华为短信机.jpg",
             "summary": "到国外以后，国内带来的两张手机卡突然有一张没地方放了。刚好老母过来的时候让她赶紧把手里的华为P9给换了水果，顺便还注册了美区ID。既然有台这个机器……这就折腾一下吧\n",
-            "date_modified": "2021-01-04T09:03:59.155Z",
+            "date_modified": "2021-01-08T03:53:19.524Z",
             "date_published": "2019-02-08T04:28:00.000Z"
         },
         {
@@ -141,7 +150,7 @@
             "url": "https://blog.never.pet/2018/12/31/2018-2019",
             "title": "一张图总结2018",
             "summary": "时区： UTC-4\n",
-            "date_modified": "2021-01-04T09:03:59.151Z",
+            "date_modified": "2021-01-08T03:53:19.524Z",
             "date_published": "2018-12-31T09:47:00.000Z"
         },
         {
@@ -150,7 +159,7 @@
             "url": "https://blog.never.pet/2018/12/15/how-to-feed-a-robot",
             "title": "如何科学的给机器人投食",
             "summary": "机器人在这里特指爬虫，本文特指一些通过扫默认目录尝试窥探 phpmyadmin 一类管理面板的玩意\n",
-            "date_modified": "2021-01-04T09:03:59.151Z",
+            "date_modified": "2021-01-08T03:53:19.524Z",
             "date_published": "2018-12-15T04:54:00.000Z"
         },
         {
@@ -168,7 +177,7 @@
             "url": "https://blog.never.pet/2018/10/11/moving-my-blog-1",
             "title": "再一次迁移博客",
             "summary": "在考量了typecho，用github issue等一类博客的利弊只有，我换掉了博客目前用[Mweb]的博客并做了重定向\n",
-            "date_modified": "2021-01-04T09:03:59.151Z",
+            "date_modified": "2021-01-08T03:53:19.524Z",
             "date_published": "2018-10-11T09:21:40.000Z"
         },
         {
@@ -177,7 +186,7 @@
             "url": "https://blog.never.pet/2018/09/11/use-telegram-for-image-cdn",
             "title": "Telegram 图床（视频）计划",
             "summary": "那破链接会变，输了\n",
-            "date_modified": "2021-01-04T09:03:59.155Z",
+            "date_modified": "2021-01-08T03:53:19.524Z",
             "date_published": "2018-09-11T05:28:00.000Z"
         },
         {
@@ -186,7 +195,7 @@
             "url": "https://blog.never.pet/2018/09/11/build-a-rediretcor-with-ss-redir",
             "title": "利用ss-redir做国内中转节点",
             "summary": "大部分搬运内容，实测可用\n",
-            "date_modified": "2021-01-04T09:03:59.151Z",
+            "date_modified": "2021-01-08T03:53:19.524Z",
             "date_published": "2018-09-10T17:15:00.000Z"
         },
         {
@@ -195,7 +204,7 @@
             "url": "https://blog.never.pet/2018/07/27/rancher-v1.6-loadbalancer",
             "title": "Rancher v1.6 负载均衡折腾小记",
             "summary": "包含了两个内容，一个是加日志，另外一个是H2\n",
-            "date_modified": "2021-01-04T09:03:59.155Z",
+            "date_modified": "2021-01-08T03:53:19.524Z",
             "date_published": "2018-07-26T23:28:00.000Z"
         },
         {
@@ -204,7 +213,7 @@
             "url": "https://blog.never.pet/2018/07/26/build-your-own-gdgdocs",
             "title": "GDGDOCS 项目自建",
             "summary": "今天做了一份调查问卷，要把结果分享给别人，于是就关联到一个Spreadsheet，结果GDGDOCS不再支持form以外的反代了。那……就自己做一个咯\n",
-            "date_modified": "2021-01-04T09:03:59.151Z",
+            "date_modified": "2021-01-08T03:53:19.524Z",
             "date_published": "2018-07-26T03:59:00.000Z"
         },
         {
@@ -213,7 +222,7 @@
             "url": "https://blog.never.pet/2018/06/20/proxmox-rpcbind-ddos",
             "title": "Proxmox rpcbind 的小问题",
             "summary": "最近收到一封Abuse说机器有被利用DDOS的问题，原文部分内容是这样的：\n",
-            "date_modified": "2021-01-04T09:03:59.155Z",
+            "date_modified": "2021-01-08T03:53:19.524Z",
             "date_published": "2018-06-20T03:57:00.000Z"
         },
         {
@@ -222,7 +231,7 @@
             "url": "https://blog.never.pet/2018/06/18/about-CNBlackListR-project",
             "title": "关于 CNBlackListR 项目的交接",
             "summary": "因为打算逐渐远离一段时间的中文圈，目前就是在清理中文圈的羁绊。毕竟我也耗不起这时间，在各种猜忌周旋的同时处理那些头疼的垃圾死🐎Spammer。高中生也没有生产力，希望能够理解。\n",
-            "date_modified": "2021-01-04T09:03:59.151Z",
+            "date_modified": "2021-01-08T03:53:19.524Z",
             "date_published": "2018-06-17T23:38:00.000Z"
         },
         {
@@ -231,7 +240,7 @@
             "url": "https://blog.never.pet/2018/06/15/proxmox-nat",
             "title": "Proxmox 开 NAT 小鸡",
             "summary": "参考：https://cyberpersons.com/2016/07/27/setup-nat-proxmox/\n",
-            "date_modified": "2021-01-04T09:03:59.155Z",
+            "date_modified": "2021-01-08T03:53:19.524Z",
             "date_published": "2018-06-15T02:19:00.000Z"
         },
         {
@@ -240,7 +249,7 @@
             "url": "https://blog.never.pet/2018/05/21/my-really-silly-article",
             "title": "学生事故 | 学会无知，保持迷茫",
             "summary": "作者按：这个版本相比与公众号发布的版本有所不同。\nhttps://mp.weixin.qq.com/s/gWLiH1XvWYHYBFwWHmis0A\n",
-            "date_modified": "2021-01-04T09:03:59.155Z",
+            "date_modified": "2021-01-08T03:53:19.524Z",
             "date_published": "2018-05-21T02:08:00.000Z"
         },
         {
@@ -249,7 +258,7 @@
             "url": "https://blog.never.pet/2018/01/31/cups-ngrok-and-a-little-machine",
             "title": "折腾了一下CUPS，ngrok，还有一台买了很久的占美小主机",
             "summary": "又到了折腾的时间，这一次是因为学校打印公用电脑总是各种问题。然后又一次论文打印晚了被老师一波late记过来，忍无可忍。\n",
-            "date_modified": "2021-01-04T09:03:59.151Z",
+            "date_modified": "2021-01-08T03:53:19.524Z",
             "date_published": "2018-01-31T11:52:00.000Z"
         }
     ]
