@@ -10,12 +10,21 @@
     },
     "items": [
         {
+            "id": "https://blog.never.pet/2022/03/10/cisco-ucs-experience",
+            "content_html": "<p>最近入手了一个很老的Cisco UCS C240 M3S机器，遇到了不少麻烦，记录的同时吐槽一下</p> <figure><img alt=\"\" data-lazy=\"{}\" src=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/07dd1ac95af4b123fbdca1ee9d62df34-1200.jpg\" srcset=\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx4BBQUFBwYHDggIDh4UERQeHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHv/AABEIAB4AKAMBEQACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AOn8Z/E+fRNKuZbW3tmu4490YlDFCfcAg9PevKhT5nY9Cc7I4v4UftAeIvE/xH03w1q+n6Jb2V20qyTQJIrptidhyzkdVA6dM1tUw0YxbRjCs5Ssy1+0H4qtLCLw5qMEUN/DBeifBcGKZMZxkZ4yhHSlhI2ldjxLukct+z9rNjP4mcRRokrWexn6fekTI/T9K6qi0OeMktT6Y8I3BbVr4OhEcV5EikjhgIomJHqNxP5Gsi9z5R+M2ox2+mCaR2UTLsHHXIxWdFXZrV2PNPA8gtPEOlaraX0Mt4peQRhjGsWNwId2GMkc8ZGCOc8V0VE5RcTKl7slJnoXi3S/Fuv+FdMtbjRhbW2n+YEkhUCNkZ1VB97PAPJI7k88mleCk5R6/gS1NpRl0/E2NGaTQ9H07QtRs7RQuM3SKMvyf9nLDJ9D09q5ZVajqXT0CUUtJK6NnxN431q2+06dBfJZWXmKkNxIB5ZXGf4VKscA5xxkjpXRStOz6lfDCy0R5zqk954/077JpGhXE8VsgeSW5fYA/UhVXluvr/MCiEHCXvOxpKSmvdVyjd6H4V8M2M+m6jqCXGqXSAw/Zck2jDqHJGCCCCcDquM96iFStOaaS5f62HKNKMWnudz8KDHpPhy+u4tTaVp+fsz5kQIgI3tgg/xEnGccelZYnEuHwxuyqOG9ort2O78J6tKL8pJJ4fOmq8e83NnNyoBJKlyBjuQAf8fNjmsFNRqRtfrdfLRa/gdby6XK3F3t6/8ADHEftEWuiLcm50q4tgoufPWaLlWzubylwcdSOe3FexR0kzhqr3UeVW/iC+s9JYadcXFqySHGJcgRtxszgHrzn3rrlGL6HOpS2uUtNjl1DUFC7Vd1C7nYngjkdOnX8+9YylyouMeZnsHg7RdP03R4LZoRLKExJPjDOc8n+n0rgqScpXO2muVWO38M6PpqP9oNnG7IMAtlsfTNZRpRWqRq5t7s4L4x+H9R8SeK9P0+0nt4Igqogd2A3MeuAD6fp+XdTqRpU3J9DjrRcpJI/wD/2Q==\" data-srcset=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/07dd1ac95af4b123fbdca1ee9d62df34-1200.jpg 1200w,https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/fcae6716749b1dbccd19939955eb69e1-720.jpg 720w,https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/89977447d7da39d2f27e60ca161b5f06-480.jpg 480w\" width=\"1200\"></figure> <h2 id=\"cmic\">CMIC</h2> <p>3.0这个版本的CMIC还是在用Flash！但是还好因为Flash游戏的流行，有开源项目专门做浏览器帮助用户使用Flash。亲测 <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/radubirsan/FlashBrowser\">https://github.com/radubirsan/FlashBrowser</a> 可用</p> <h3 id=\"kvm\">KVM</h3> <p>KVM的话，一般是Java，这个可以尝试用 <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/AdoptOpenJDK/IcedTea-Web\">IcedTea-Web</a> 解决。</p> <h4 id=\"cmic-kvm\">CMIC KVM</h4> <blockquote><p><a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://community.cisco.com/t5/cisco-bug-discussions/cscvs11682-c220-c240-m3-server-need-html5-support-for-cimc-webui/td-p/4144939\">https://community.cisco.com/t5/cisco-bug-discussions/cscvs11682-c220-c240-m3-server-need-html5-support-for-cimc-webui/td-p/4144939</a></p></blockquote> <blockquote><p>There is a workaround I was made aware of recently which uses the API on the UCS server to make a call directly to obtain the Java KVM console. I have tested this and although you don't get the GUI, you get the full console functionality (turn on/off, mount virtual images to upgrade, etc):\n<code>https://&lt;CIMC_IP&gt;/kvm.jnlp?cimcAddr=&lt;CIMC_IP&gt;&amp;tkn1=&lt;CIMC_username&gt;&amp;tkn2=&lt;CIMC_Password&gt;</code></p></blockquote> <p>可以通过直接访问API拿到JNLP，拿到以后信息不变可以反复使用，也可以直接编辑这个文件，里面的内容也挺直接的。里面是包含了账号密码的，要小心保管</p> <h4 id=\"supermicro-kvm\">SuperMicro KVM</h4> <p>SuperMicro的机器似乎会每次动态生成JNLP的验证，但是还好他们的网页不需要Flash。</p> <h2 id=\"更新固件\">更新固件</h2> <p>这个简直就是头大的不行。他们的firmware似乎是只提供HUU(Cisco UCS Host Upgrade Utility)，然后这个镜像如果直接做成U盘，每次都会卡死在906复制文件错误。试过了Rufus和DD直接写都不行，但是用<code>virtual media</code>挂载是可以的！太糙了，这是什么神奇操作……</p> <p>HUU不方便那就提取出来走Webui试试看好了，但是！他们的HUU提取是要用专门的程序<code>getfw</code>。他们的固件默认是加密打包好了的所以直接拆还挺麻烦的，但是这个程序真的emmm要求特别多：首先要<code>squashfs</code>，然后<code>openssl</code>版本要<code>1.0.1</code>e，然后还是直接从<code>PATH</code>读取的。要不是<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://blog.jamiescott.me/extract-cisco-ucs-firmware-from/\">这篇博客</a>我真的要放弃了</p> <h3 id=\"错误提示\">错误提示</h3> <h3 id=\"decryption-failed\">Decryption failed</h3> <p>openssl版本不对</p> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\"><span class=\"token comment\"># Set up openssl</span>\n<span class=\"token function\">wget</span> https://ftp.openssl.org/source/old/1.0.1/openssl-1.0.1e.tar.gz\n<span class=\"token function\">tar</span> -zxvf openssl-1.0.1e.tar.gz\n<span class=\"token builtin class-name\">cd</span> openssl-1.0.1e\n./config\n<span class=\"token function\">make</span>\n\n<span class=\"token function\">sudo</span> <span class=\"token function\">su</span>\n<span class=\"token builtin class-name\">export</span> <span class=\"token assign-left variable\"><span class=\"token environment constant\">PATH</span></span><span class=\"token operator\">=</span><span class=\"token string\">&quot;/path/to/openssl-1.0.1e/apps:<span class=\"token environment constant\">$PATH</span>&quot;</span></code></pre></div><h3 id=\"extraction-failed\">Extraction Failed</h3> <p>如果你直接用本地正在mount的iso，拷贝单独的一份出来</p> <h3 id=\"更新cmic\">更新CMIC</h3> <p>然后就是HUU更新有的时候还是不行，CMIC我当时直接更新还是失败</p> <blockquote><p>网页提示 <code>Error while updating: invalid file name CIMC</code>\n然后remote http download百分之5直接reset\nHUU 提示自己内存不够是否确认重启CMIC</p></blockquote> <p>然后我发现HUU没有成功重启CMIC！我自己重启了一遍就好了，真的佛了</p> <p><strong>多试试重启！！！</strong></p>",
+            "url": "https://blog.never.pet/2022/03/10/cisco-ucs-experience",
+            "title": "老IPMI折腾记",
+            "summary": "最近入手了一个很老的Cisco UCS C240 M3S机器，遇到了不少麻烦，记录的同时吐槽一下\n",
+            "date_modified": "2022-03-11T05:25:31.792Z",
+            "date_published": "2022-03-10T00:00:00.000Z"
+        },
+        {
             "id": "https://blog.never.pet/2021/01/08/tweet-to-telegram",
             "content_html": "<blockquote><p>如果你想直接看成品: <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/NeverBehave/Tweet2Telegram\">https://github.com/NeverBehave/Tweet2Telegram</a></p></blockquote> <h2 id=\"剧情前提\">剧情前提</h2> <p>推特上有太多好 <s>(毛毛)(色)(不你什么都不知道)</s> 图/视频了, 然而每次想找点回来的时候却...翻起来好麻烦啊</p> <p>然而每次保存下来好麻烦, 要是点赞了以后可以自动保存下来就好了</p> <p>于是我又动起了IFTTT的念头...因为IFTTT也有推特点赞转发啊! 我之前还做过一期<a href=\"/2020/05/25/customize-telegram-twitter-ifttt-connection\">如何用IFTTT配合推特转发到个人频道</a>；甚至还买了Pro</p> <p>但是如果是这样的话, 文章标题怎么感觉有点不对呢...?</p> <h3 id=\"ifttt的困境\">IFTTT的困境</h3> <p>IFTTT这个东西嘛, 简单点的就算了, 这回我们的需求是:</p> <ol><li>获取点赞的推文</li> <li>解析其中所有的视频/图片/链接</li> <li>转发到Telegram频道</li></ol> <p>然而呢, IFTTT</p> <ol><li>其中的图片/视频链接不是直链</li> <li>Webhook有频率限制</li> <li><strong>甚至, IFTTT似乎实现错了这个功能</strong>(后文详述)</li></ol> <p>直链这个解析实在是难以描述, 如果不通过推特官方的API: 他默认做了很多对爬虫不友好的操作</p> <p>一番测试下来发现效果真的很差, 很容易错过点赞</p> <p>于是...那就看看推特的API然后自己做一套吧</p> <h2 id=\"正文\">正文</h2> <h3 id=\"申请api\">申请API</h3> <p>首先, 我们需要申请一下开发者API, <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://developer.twitter.com/en/apply-for-access\">申请链接</a></p> <p>在申请的时候他会让选择你的用途并描述你要做什么, 至少<code>200 characters</code>, 不是<code>words</code>. 也就是说差不多2-3句话差不多了</p> <p>这个做完以后就等着邮箱发信给你, 确认一下. 我刚填完就收到了邮件, 基本上体验还好</p> <h3 id=\"创建app\">创建APP</h3> <figure><img alt=\"\" data-lazy=\"{}\" src=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/0c01edb7cb9312c5f2f4b80434521de1-1200.png\" srcset=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAOCAYAAABdC15GAAAB+klEQVR4AbXBy2pVdxjG4d/7/b+11s5OspKAg7YoBQMZOulldFZoh95Cr0xnXo5KIYNCKYnktLNOr9nZDSqpuHPweeQrfMU4jpRS+BbbvP3rkIgCEtM48PPTH6kyeag0XxelYNYg8eynH1hcdiz6gVldkZmYh0tsHkNdJXWVtPzHZmnRDZj7y77v+fDhCDDtdkvTNDwaFRAwjkzjQNf37LQtEYV1dMNA1lXPk/M3HG/9wunJ3ywuCraxjSSWSgm2tze5u6csZSaqG2ZzKCHuIqGgZ7/SnF9wTeKGJyMJ25ydGSkwZkksCWOqTOq64hYFMGEFi8FURWRwJzm64ei4Icqc2WzG58SK+ER8ScAALDqxmMRJN/H63cDzVvy2X4AJszLZDBNkiHVlCHZ3Wh6qAmaGvabw54uCBBLXQlACBPQTZLC27LqOo+NjJBES8/km8/mc70ESGynuIrOqISqyqmiaGkVw0fXcx6v3I4dn5uVBxUbC3iy5IcCGy8E0KdaVEuzttjyGP/aTL4hr0zgRrNiw6FiLbdKGf/49woatzTlNU3Nfr96PHJ6ZlwcVGwl1ckWcnl9gG0nYJiSySoQAs2RACDA3SimkgN2dlhERrESI+/h9P/k/EYFtJFFKUKIAZkWsCDAQgLkmkRFia6Phe5o1NbeJ28SKuPERIRqxJO4GzCgAAAAASUVORK5CYII=\" data-srcset=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/0c01edb7cb9312c5f2f4b80434521de1-1200.png 1200w,https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/ecdc97f8cc432f226f25219efcca49f9-720.png 720w,https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/5c9848baae689a4790c353f2ec838e89-480.png 480w\" width=\"1200\"></figure> <p>一开始他默认会给你创建一个项目, 然后你在里面可以创建你的第一个APP. 但是注意一下, 除了<code>API_KEY</code>和<code>API_SECRET</code>, 他还有一个<code>ACCESS_TOKEN</code>. 这个对应的是用户的数据访问, 也就是说你这个APP代表的是哪个用户做事情. 我们目前是要获取自己帐号的点赞列表, 所以直接看下面<code>Authentication Tokens</code> 获取自己的就好</p> <h3 id=\"github-action\">Github Action</h3> <p>然后就是我们的重头戏上场: <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/NeverBehave/Tweet2Telegram\">https://github.com/NeverBehave/Tweet2Telegram</a></p> <p>默认15分钟获取一次, 目前来看效果不错</p> <p>甚至说实话, 我觉得转发也可以改成这个, 不知道好到哪里去了:</p> <ul><li>不需要麻烦的获取链接跳转再替换</li> <li>视频/图片原生就在Telegram, 无需Web Preiew</li></ul> <p>写完以后感受: 推特的API其实还蛮舒服的, 当然如果只是个人使用的话. 一开始被<code>IFTTT</code>坑的不要不要的, 现在看来其实还好</p> <p>这里, 我想提一下这个很有意思的API问题 (Aka IFTTT干的好事)</p> <h4 id=\"since_id\"><code>since_id</code></h4> <p>这是我也踩了一脚坑, 意识到以后重新观察了一下<code>IFTTT</code>的行为, 估计是一样的</p> <p>获取点赞列表的时候, 其中一个参数是叫做<code>since_id</code>(<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://developer.twitter.com/en/docs/twitter-api/v1/tweets/post-and-engage/api-reference/get-favorites-list\">官方文档</a>), 这个东西的意思是说返回所有<strong>从这个<code>ID</code>开始的所有推文</strong>. 放在这个上下文是不是很容易理解为<strong>如果你点赞了的一条推文, 我记住它, 那么下次我获取新的点赞的时候, 给这个推文的<code>ID</code>, 就可以获取从这个点赞以后的推文了</strong></p> <p>不是的!!!!!! 这个的意思纯粹是说<strong>按照时间顺序, 比你给的这个<code>ID</code>新的所有你喜欢的推文</strong></p> <p>所以当你点赞了一条今天发送的推文, 然后去点赞了一条昨天发送的推文, 那么你就获取不到这个<strong>新</strong>的点赞了</p> <p>我发现IFTTT就有类似的行为, 他总是检测不到一些点赞, 估计他的<strong>新点赞的推文</strong>也就是靠这个ID判断的, 实际上是错的!</p> <p>但是实际上API文档里面写的很清楚了是时间顺序, 所以还是自己傻逼了, 抚额</p> <h2 id=\"后言\">后言</h2> <p>大部分的参数在项目里面提供了, 我就不在这里重新描述了, <s>其实这就是水文</s></p> <p>然后就是这个IFTTT的bug, 不知道去哪里报一下</p>",
             "url": "https://blog.never.pet/2021/01/08/tweet-to-telegram",
             "title": "用 Github Action 拯救 Twitter 与 Telegram 的转发",
             "summary": "如果你想直接看成品: https://github.com/NeverBehave/Tweet2Telegram\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.796Z",
             "date_published": "2021-01-08T00:00:00.000Z"
         },
         {
@@ -24,7 +33,7 @@
             "url": "https://blog.never.pet/2021/01/04/2020-summary",
             "title": "The end of 2020 年终总结",
             "summary": "^背景音乐\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.792Z",
             "date_published": "2021-01-04T02:00:00.000Z"
         },
         {
@@ -33,7 +42,7 @@
             "url": "https://blog.never.pet/2021/01/01/2020-red-pack-writeup",
             "title": "年度总结红包WriteUp -- Berd.moe",
             "summary": "在Leonn的博客频道看到这个, https://blog.berd.moe/archives/2020-review/\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.792Z",
             "date_published": "2021-01-01T12:00:01.000Z"
         },
         {
@@ -42,7 +51,7 @@
             "url": "https://blog.never.pet/2020/05/25/customize-telegram-twitter-ifttt-connection",
             "title": "用 webhook 拯救 ifttt 上 Twitter 与 Telegram 的同步",
             "summary": "这大概是我最近最后一篇更新了, 马上要上班了, Orz\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.792Z",
             "date_published": "2020-05-25T00:00:00.000Z"
         },
         {
@@ -51,7 +60,7 @@
             "url": "https://blog.never.pet/2020/05/23/bye-dbd",
             "title": "Bye, deadbydaylight.wiki",
             "summary": "在清理Google Analysis的时候, 发现了这个帐号的记录\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.792Z",
             "date_published": "2020-05-23T00:00:00.000Z"
         },
         {
@@ -60,7 +69,7 @@
             "url": "https://blog.never.pet/2020/05/21/keep-your-google-voice-with-sao",
             "title": "Google Voice 自动应答和保号",
             "summary": "偶然打开某个骚群, 发现有人抱怨自己的 Google Voice 被回收了, 并讨论如何保号\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.792Z",
             "date_published": "2020-05-21T00:00:00.000Z"
         },
         {
@@ -69,7 +78,7 @@
             "url": "https://blog.never.pet/2020/05/21/switch-from-lambda-to-fission",
             "title": "从AWS lambda迁移到Fission",
             "summary": "我开始用aws lambda的时间大约是它还只有node v8运行时的时候, 主要其免费的额度确实相当的诱人, 加上学生赠与的免费credit, 香的一批\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.796Z",
             "date_published": "2020-05-21T00:00:00.000Z"
         },
         {
@@ -96,7 +105,7 @@
             "url": "https://blog.never.pet/2019/05/31/nano-pi-neo2-first-experience",
             "title": "Nano Pi NEO2 体验小记",
             "summary": "H5似乎已经停止生产了, Nano PI Neo2 也似乎没有了\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.792Z",
             "date_published": "2019-05-31T03:42:00.000Z"
         },
         {
@@ -105,7 +114,7 @@
             "url": "https://blog.never.pet/2019/03/27/space-and-s-p-a-c-e",
             "title": "空格与 空 格",
             "summary": "相关项目：kongebot\n机器人 @kongebot\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.792Z",
             "date_published": "2019-03-27T06:08:00.000Z"
         },
         {
@@ -114,7 +123,7 @@
             "url": "https://blog.never.pet/2019/03/27/ripe-probe-hosting",
             "title": "RIPE Probe Hosting",
             "summary": "先上图（低清警告）\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.792Z",
             "date_published": "2019-03-27T03:47:00.000Z"
         },
         {
@@ -123,7 +132,7 @@
             "url": "https://blog.never.pet/2019/03/20/my-thought-about-cloud-game-before",
             "title": "云游戏：生不逢时",
             "summary": "谨此文怀念我接触的第一个国内在线串流游戏平台：云游戏\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.792Z",
             "date_published": "2019-03-20T03:42:00.000Z"
         },
         {
@@ -132,7 +141,7 @@
             "url": "https://blog.never.pet/2019/03/08/telegram-web-hosting",
             "title": "Telegram Web 搭建",
             "summary": "Telegram 是个好东西，他有个Web客户端，也是个好东西\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.796Z",
             "date_published": "2019-03-07T18:10:00.000Z"
         },
         {
@@ -141,7 +150,7 @@
             "url": "https://blog.never.pet/2019/02/08/tasker-messenger",
             "title": "华为短信机.jpg",
             "summary": "到国外以后，国内带来的两张手机卡突然有一张没地方放了。刚好老母过来的时候让她赶紧把手里的华为P9给换了水果，顺便还注册了美区ID。既然有台这个机器……这就折腾一下吧\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.796Z",
             "date_published": "2019-02-08T04:28:00.000Z"
         },
         {
@@ -150,7 +159,7 @@
             "url": "https://blog.never.pet/2018/12/31/2018-2019",
             "title": "一张图总结2018",
             "summary": "时区： UTC-4\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.792Z",
             "date_published": "2018-12-31T09:47:00.000Z"
         },
         {
@@ -159,7 +168,7 @@
             "url": "https://blog.never.pet/2018/12/15/how-to-feed-a-robot",
             "title": "如何科学的给机器人投食",
             "summary": "机器人在这里特指爬虫，本文特指一些通过扫默认目录尝试窥探 phpmyadmin 一类管理面板的玩意\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.792Z",
             "date_published": "2018-12-15T04:54:00.000Z"
         },
         {
@@ -177,7 +186,7 @@
             "url": "https://blog.never.pet/2018/10/11/moving-my-blog-1",
             "title": "再一次迁移博客",
             "summary": "在考量了typecho，用github issue等一类博客的利弊只有，我换掉了博客目前用[Mweb]的博客并做了重定向\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.792Z",
             "date_published": "2018-10-11T09:21:40.000Z"
         },
         {
@@ -186,7 +195,7 @@
             "url": "https://blog.never.pet/2018/09/11/use-telegram-for-image-cdn",
             "title": "Telegram 图床（视频）计划",
             "summary": "那破链接会变，输了\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.796Z",
             "date_published": "2018-09-11T05:28:00.000Z"
         },
         {
@@ -195,7 +204,7 @@
             "url": "https://blog.never.pet/2018/09/11/build-a-rediretcor-with-ss-redir",
             "title": "利用ss-redir做国内中转节点",
             "summary": "大部分搬运内容，实测可用\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.792Z",
             "date_published": "2018-09-10T17:15:00.000Z"
         },
         {
@@ -204,7 +213,7 @@
             "url": "https://blog.never.pet/2018/07/27/rancher-v1.6-loadbalancer",
             "title": "Rancher v1.6 负载均衡折腾小记",
             "summary": "包含了两个内容，一个是加日志，另外一个是H2\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.792Z",
             "date_published": "2018-07-26T23:28:00.000Z"
         },
         {
@@ -213,7 +222,7 @@
             "url": "https://blog.never.pet/2018/07/26/build-your-own-gdgdocs",
             "title": "GDGDOCS 项目自建",
             "summary": "今天做了一份调查问卷，要把结果分享给别人，于是就关联到一个Spreadsheet，结果GDGDOCS不再支持form以外的反代了。那……就自己做一个咯\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.792Z",
             "date_published": "2018-07-26T03:59:00.000Z"
         },
         {
@@ -222,7 +231,7 @@
             "url": "https://blog.never.pet/2018/06/20/proxmox-rpcbind-ddos",
             "title": "Proxmox rpcbind 的小问题",
             "summary": "最近收到一封Abuse说机器有被利用DDOS的问题，原文部分内容是这样的：\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.792Z",
             "date_published": "2018-06-20T03:57:00.000Z"
         },
         {
@@ -231,7 +240,7 @@
             "url": "https://blog.never.pet/2018/06/18/about-CNBlackListR-project",
             "title": "关于 CNBlackListR 项目的交接",
             "summary": "因为打算逐渐远离一段时间的中文圈，目前就是在清理中文圈的羁绊。毕竟我也耗不起这时间，在各种猜忌周旋的同时处理那些头疼的垃圾死🐎Spammer。高中生也没有生产力，希望能够理解。\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.792Z",
             "date_published": "2018-06-17T23:38:00.000Z"
         },
         {
@@ -240,7 +249,7 @@
             "url": "https://blog.never.pet/2018/06/15/proxmox-nat",
             "title": "Proxmox 开 NAT 小鸡",
             "summary": "参考：https://cyberpersons.com/2016/07/27/setup-nat-proxmox/\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.792Z",
             "date_published": "2018-06-15T02:19:00.000Z"
         },
         {
@@ -249,7 +258,7 @@
             "url": "https://blog.never.pet/2018/05/21/my-really-silly-article",
             "title": "学生事故 | 学会无知，保持迷茫",
             "summary": "作者按：这个版本相比与公众号发布的版本有所不同。\nhttps://mp.weixin.qq.com/s/gWLiH1XvWYHYBFwWHmis0A\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.792Z",
             "date_published": "2018-05-21T02:08:00.000Z"
         },
         {
@@ -258,7 +267,7 @@
             "url": "https://blog.never.pet/2018/01/31/cups-ngrok-and-a-little-machine",
             "title": "折腾了一下CUPS，ngrok，还有一台买了很久的占美小主机",
             "summary": "又到了折腾的时间，这一次是因为学校打印公用电脑总是各种问题。然后又一次论文打印晚了被老师一波late记过来，忍无可忍。\n",
-            "date_modified": "2021-01-15T03:15:08.197Z",
+            "date_modified": "2022-03-11T05:25:31.792Z",
             "date_published": "2018-01-31T11:52:00.000Z"
         }
     ]
