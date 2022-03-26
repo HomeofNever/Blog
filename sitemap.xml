@@ -2,44 +2,44 @@
 <?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://blog.never.pet/blog/category/record</loc>
-    <lastmod>2022-03-26T13:37:08.224Z</lastmod>
-        <priority>0.3</priority>
-        <changefreq>always</changefreq>
-      </url>
-    <url>
         <loc>https://blog.never.pet/blog/category/%E6%90%9E%E6%9C%BA</loc>
-    <lastmod>2022-03-26T13:37:08.224Z</lastmod>
+    <lastmod>2022-03-26T14:39:54.952Z</lastmod>
         <priority>0.3</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/blog/category/announcement</loc>
-    <lastmod>2022-03-26T13:37:08.224Z</lastmod>
+    <lastmod>2022-03-26T14:39:54.952Z</lastmod>
         <priority>0.3</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/blog/category/digital</loc>
-    <lastmod>2022-03-26T13:37:08.224Z</lastmod>
+    <lastmod>2022-03-26T14:39:54.952Z</lastmod>
+        <priority>0.3</priority>
+        <changefreq>always</changefreq>
+      </url>
+    <url>
+        <loc>https://blog.never.pet/blog/category/record</loc>
+    <lastmod>2022-03-26T14:39:54.951Z</lastmod>
         <priority>0.3</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/blog/category/technology</loc>
-    <lastmod>2022-03-26T13:37:08.223Z</lastmod>
+    <lastmod>2022-03-26T14:39:54.948Z</lastmod>
         <priority>0.3</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/blog/category/technology/page/2</loc>
-    <lastmod>2022-03-26T13:37:08.223Z</lastmod>
+    <lastmod>2022-03-26T14:39:54.948Z</lastmod>
         <priority>0.3</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/blog/category/writeup</loc>
-    <lastmod>2022-03-26T13:37:08.221Z</lastmod>
+    <lastmod>2022-03-26T14:39:54.947Z</lastmod>
         <priority>0.3</priority>
         <changefreq>always</changefreq>
       </url>
@@ -55,7 +55,7 @@
       </url>
     <url>
         <loc>https://blog.never.pet/blog/category/uncategorized</loc>
-    <lastmod>2022-03-26T13:37:08.220Z</lastmod>
+    <lastmod>2022-03-26T14:39:54.946Z</lastmod>
         <priority>0.3</priority>
         <changefreq>always</changefreq>
       </url>
@@ -159,85 +159,85 @@
       </url>
     <url>
         <loc>https://blog.never.pet/archives</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/friends</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>1</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/page/2</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>1</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/page/3</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>1</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2022/03/26/p440ar-ctrl-benchmark</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2022/03/10/cisco-ucs-experience</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2021/01/08/tweet-to-telegram</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2021/01/04/2020-summary</loc>
-    <lastmod>2022-03-26T13:36:36.955Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2021/01/01/2020-red-pack-writeup</loc>
-    <lastmod>2022-03-26T13:36:36.955Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2020/05/25/customize-telegram-twitter-ifttt-connection</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2020/05/23/bye-dbd</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2020/05/21/keep-your-google-voice-with-sao</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2020/05/21/switch-from-lambda-to-fission</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
@@ -255,49 +255,49 @@
       </url>
     <url>
         <loc>https://blog.never.pet/2019/05/31/nano-pi-neo2-first-experience</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2019/03/27/space-and-s-p-a-c-e</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2019/03/27/ripe-probe-hosting</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2019/03/20/my-thought-about-cloud-game-before</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2019/03/08/telegram-web-hosting</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2019/02/08/tasker-messenger</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2018/12/31/2018-2019</loc>
-    <lastmod>2022-03-26T13:36:36.955Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2018/12/15/how-to-feed-a-robot</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
@@ -309,67 +309,67 @@
       </url>
     <url>
         <loc>https://blog.never.pet/2018/10/11/moving-my-blog-1</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/about</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2018/09/11/use-telegram-for-image-cdn</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2018/09/11/build-a-rediretcor-with-ss-redir</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2018/07/27/rancher-v1.6-loadbalancer</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2018/07/26/build-your-own-gdgdocs</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2018/06/20/proxmox-rpcbind-ddos</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2018/06/18/about-CNBlackListR-project</loc>
-    <lastmod>2022-03-26T13:36:36.955Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2018/06/15/proxmox-nat</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2018/05/21/my-really-silly-article</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
     <url>
         <loc>https://blog.never.pet/2018/01/31/cups-ngrok-and-a-little-machine</loc>
-    <lastmod>2022-03-26T13:36:36.959Z</lastmod>
+    <lastmod>2022-03-26T14:39:33.224Z</lastmod>
         <priority>0.6</priority>
         <changefreq>always</changefreq>
       </url>
