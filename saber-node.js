@@ -1,15 +1,20 @@
 const webpack = require('webpack')
 
-exports.chainWebpack = function(chain) {
+const fileLoaderExt = (names, chain) => {
   chain.module
-    .rule("pdf")
-    .test(/\.pdf$/)
-    .use("pdf")
+    .rule("file load path")
+    .test(new RegExp(`\.(${names.join('|')})$`))
+    .use("file load path")
     .loader("file-loader")
     .options({
-      name: "[name].[ext]",
+      name: "[path][name].[ext]",
     });
-    chain.module
+}
+
+exports.chainWebpack = function(chain) {
+  fileLoaderExt(["pdf", "tar.gz"], chain)
+    
+  chain.module
     .rule("cool")
     .test(/\.cool$/)
     .use("cool")
