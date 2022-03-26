@@ -11,11 +11,11 @@
     "items": [
         {
             "id": "https://blog.never.pet/2022/03/26/p440ar-ctrl-benchmark",
-            "content_html": "<p>最近到了一批<code>HPE DL560 G9</code>的机器，默认带的是<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-c04496202\">P440ar</a>的卡。但是目前我们都是用的ZFS，所以一般来说我们都会把卡刷成<code>IT Mode</code>直通给系统。</p> <p>戴尔的卡已经有<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://fohdeesha.com/docs/index.html\">很成熟的教程</a>了，但是HP似乎都没有，目前可以选择的方案看了一圈只有</p> <ul><li>HBA Mode，他们的卡自带了这个模式</li> <li>RAID 0 for each physical drive，我没想到的是他们界面直接就有这个选项，看来很多这样的需求</li></ul> <p>但是继续找了一下并没有看到有关于更多ZFS的评测，所以这里就记录一下目前收集到的信息</p> <h2 id=\"规格\">规格</h2> <h3 id=\"硬盘\">硬盘</h3> <p>硬盘是<code>2.5 inch Seagate 1TB 7200 RPM</code>，具体信息：</p> <div class=\"saber-highlight\" data-lang=\"\"><pre class=\"saber-highlight-code language-text\"><code class=\"language-text\">Status: OK\nSerial Number: 9XG6E9NN\nModel: ST910006CLAR1000\nMedia Type: HDD\nCapacity: 1000 GB\nFirmware Version: AS0D\nEncryption Status\tNot Encrypted</code></pre></div><h3 id=\"控制器\">控制器</h3> <p>控制器读缓存开启，写缓存关闭</p> <h2 id=\"测试\">测试</h2> <h3 id=\"脚本\">脚本</h3> <p>使用的是<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/axboe/fio\">fio</a>，配合脚本</p> <!----> <h3 id=\"raid-0-结果\">RAID 0 结果</h3> <p><a href=\"../_assets/file/p440ar-ctrl-benchmark/fio-raid0.tar.gz\">fio-raid0.tar.gz</a></p> <h3 id=\"hba-结果\">HBA 结果</h3> <p><a href=\"../_assets/file/p440ar-ctrl-benchmark/fio-hba.tar.gz\">fio-hba.tar.gz</a></p> <h2 id=\"结论\">结论</h2> <p>目前测试出来单盘的情况下，HBA和Raid0的结果在512K的读写下很相近，但是HBA模式表现似乎要更好一点。</p> <p>所有结果都打包在上面，有需要的可以自行下载研究。如果有更多测试/模式想要测试，可以在评论区留言</p>",
+            "content_html": "<p>最近到了一批<code>HPE DL560 G9</code>的机器，默认带的是<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-c04496202\">P440ar</a>的卡。但是目前我们都是用的ZFS，所以一般来说我们都会把卡刷成<code>IT Mode</code>直通给系统。</p> <p>戴尔的卡已经有<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://fohdeesha.com/docs/index.html\">很成熟的教程</a>了，但是HP似乎都没有，目前可以选择的方案看了一圈只有</p> <ul><li>HBA Mode，他们的卡自带了这个模式</li> <li>RAID 0 for each physical drive，我没想到的是他们界面直接就有这个选项，看来很多这样的需求</li></ul> <p>但是继续找了一下并没有看到有关于更多ZFS的评测，所以这里就记录一下目前收集到的信息</p> <h2 id=\"规格\">规格</h2> <h3 id=\"硬盘\">硬盘</h3> <p>硬盘是<code>2.5 inch Seagate 1TB 7200 RPM</code>，具体信息：</p> <div class=\"saber-highlight\" data-lang=\"\"><pre class=\"saber-highlight-code language-text\"><code class=\"language-text\">Status: OK\nSerial Number: 9XG6E9NN\nModel: ST910006CLAR1000\nMedia Type: HDD\nCapacity: 1000 GB\nFirmware Version: AS0D\nEncryption Status\tNot Encrypted</code></pre></div><h3 id=\"控制器\">控制器</h3> <p>控制器读缓存开启，写缓存关闭</p> <h2 id=\"测试\">测试</h2> <h3 id=\"脚本\">脚本</h3> <p>使用的是<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/axboe/fio\">fio</a>，配合脚本</p> <!----> <h3 id=\"raid-0-结果\">RAID 0 结果</h3> <p><a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/pages/_assets/file/p440ar-ctrl-benchmark/fio-raid0.tar.gz\">fio-raid0.tar.gz</a></p> <h3 id=\"hba-结果\">HBA 结果</h3> <p><a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/pages/_assets/file/p440ar-ctrl-benchmark/fio-hba.tar.gz\">fio-hba.tar.gz</a></p> <h2 id=\"结论\">结论</h2> <p>目前测试出来单盘的情况下，HBA和Raid0的结果在512K的读写下很相近，但是HBA模式表现似乎要更好一点。</p> <p>所有结果都打包在上面，有需要的可以自行下载研究。如果有更多测试/模式想要测试，可以在评论区留言</p>",
             "url": "https://blog.never.pet/2022/03/26/p440ar-ctrl-benchmark",
             "title": "P440ar Array Controller 直通评测",
             "summary": "最近到了一批HPE DL560 G9的机器，默认带的是P440ar的卡。但是目前我们都是用的ZFS，所以一般来说我们都会把卡刷成IT Mode直通给系统。\n",
-            "date_modified": "2022-03-26T10:59:28.139Z",
+            "date_modified": "2022-03-26T13:36:36.959Z",
             "date_published": "2022-03-26T00:00:00.000Z"
         },
         {
@@ -24,7 +24,7 @@
             "url": "https://blog.never.pet/2022/03/10/cisco-ucs-experience",
             "title": "老IPMI折腾记",
             "summary": "最近入手了一个很老的Cisco UCS C240 M3S机器，遇到了不少麻烦，记录的同时吐槽一下\n",
-            "date_modified": "2022-03-26T10:59:28.139Z",
+            "date_modified": "2022-03-26T13:36:36.959Z",
             "date_published": "2022-03-10T00:00:00.000Z"
         },
         {
@@ -33,7 +33,7 @@
             "url": "https://blog.never.pet/2021/01/08/tweet-to-telegram",
             "title": "用 Github Action 拯救 Twitter 与 Telegram 的转发",
             "summary": "如果你想直接看成品: https://github.com/NeverBehave/Tweet2Telegram\n",
-            "date_modified": "2022-03-26T10:59:28.139Z",
+            "date_modified": "2022-03-26T13:36:36.959Z",
             "date_published": "2021-01-08T00:00:00.000Z"
         },
         {
@@ -42,7 +42,7 @@
             "url": "https://blog.never.pet/2021/01/04/2020-summary",
             "title": "The end of 2020 年终总结",
             "summary": "^背景音乐\n",
-            "date_modified": "2022-03-26T10:59:28.135Z",
+            "date_modified": "2022-03-26T13:36:36.955Z",
             "date_published": "2021-01-04T02:00:00.000Z"
         },
         {
@@ -51,7 +51,7 @@
             "url": "https://blog.never.pet/2021/01/01/2020-red-pack-writeup",
             "title": "年度总结红包WriteUp -- Berd.moe",
             "summary": "在Leonn的博客频道看到这个, https://blog.berd.moe/archives/2020-review/\n",
-            "date_modified": "2022-03-26T10:59:28.135Z",
+            "date_modified": "2022-03-26T13:36:36.955Z",
             "date_published": "2021-01-01T12:00:01.000Z"
         },
         {
@@ -60,7 +60,7 @@
             "url": "https://blog.never.pet/2020/05/25/customize-telegram-twitter-ifttt-connection",
             "title": "用 webhook 拯救 ifttt 上 Twitter 与 Telegram 的同步",
             "summary": "这大概是我最近最后一篇更新了, 马上要上班了, Orz\n",
-            "date_modified": "2022-03-26T10:59:28.139Z",
+            "date_modified": "2022-03-26T13:36:36.959Z",
             "date_published": "2020-05-25T00:00:00.000Z"
         },
         {
@@ -69,7 +69,7 @@
             "url": "https://blog.never.pet/2020/05/23/bye-dbd",
             "title": "Bye, deadbydaylight.wiki",
             "summary": "在清理Google Analysis的时候, 发现了这个帐号的记录\n",
-            "date_modified": "2022-03-26T10:59:28.139Z",
+            "date_modified": "2022-03-26T13:36:36.959Z",
             "date_published": "2020-05-23T00:00:00.000Z"
         },
         {
@@ -78,7 +78,7 @@
             "url": "https://blog.never.pet/2020/05/21/keep-your-google-voice-with-sao",
             "title": "Google Voice 自动应答和保号",
             "summary": "偶然打开某个骚群, 发现有人抱怨自己的 Google Voice 被回收了, 并讨论如何保号\n",
-            "date_modified": "2022-03-26T10:59:28.139Z",
+            "date_modified": "2022-03-26T13:36:36.959Z",
             "date_published": "2020-05-21T00:00:00.000Z"
         },
         {
@@ -87,7 +87,7 @@
             "url": "https://blog.never.pet/2020/05/21/switch-from-lambda-to-fission",
             "title": "从AWS lambda迁移到Fission",
             "summary": "我开始用aws lambda的时间大约是它还只有node v8运行时的时候, 主要其免费的额度确实相当的诱人, 加上学生赠与的免费credit, 香的一批\n",
-            "date_modified": "2022-03-26T10:59:28.139Z",
+            "date_modified": "2022-03-26T13:36:36.959Z",
             "date_published": "2020-05-21T00:00:00.000Z"
         },
         {
@@ -114,7 +114,7 @@
             "url": "https://blog.never.pet/2019/05/31/nano-pi-neo2-first-experience",
             "title": "Nano Pi NEO2 体验小记",
             "summary": "H5似乎已经停止生产了, Nano PI Neo2 也似乎没有了\n",
-            "date_modified": "2022-03-26T10:59:28.139Z",
+            "date_modified": "2022-03-26T13:36:36.959Z",
             "date_published": "2019-05-31T03:42:00.000Z"
         },
         {
@@ -123,7 +123,7 @@
             "url": "https://blog.never.pet/2019/03/27/space-and-s-p-a-c-e",
             "title": "空格与 空 格",
             "summary": "相关项目：kongebot\n机器人 @kongebot\n",
-            "date_modified": "2022-03-26T10:59:28.139Z",
+            "date_modified": "2022-03-26T13:36:36.959Z",
             "date_published": "2019-03-27T06:08:00.000Z"
         },
         {
@@ -132,7 +132,7 @@
             "url": "https://blog.never.pet/2019/03/27/ripe-probe-hosting",
             "title": "RIPE Probe Hosting",
             "summary": "先上图（低清警告）\n",
-            "date_modified": "2022-03-26T10:59:28.139Z",
+            "date_modified": "2022-03-26T13:36:36.959Z",
             "date_published": "2019-03-27T03:47:00.000Z"
         },
         {
@@ -141,7 +141,7 @@
             "url": "https://blog.never.pet/2019/03/20/my-thought-about-cloud-game-before",
             "title": "云游戏：生不逢时",
             "summary": "谨此文怀念我接触的第一个国内在线串流游戏平台：云游戏\n",
-            "date_modified": "2022-03-26T10:59:28.139Z",
+            "date_modified": "2022-03-26T13:36:36.959Z",
             "date_published": "2019-03-20T03:42:00.000Z"
         },
         {
@@ -150,7 +150,7 @@
             "url": "https://blog.never.pet/2019/03/08/telegram-web-hosting",
             "title": "Telegram Web 搭建",
             "summary": "Telegram 是个好东西，他有个Web客户端，也是个好东西\n",
-            "date_modified": "2022-03-26T10:59:28.139Z",
+            "date_modified": "2022-03-26T13:36:36.959Z",
             "date_published": "2019-03-07T18:10:00.000Z"
         },
         {
@@ -159,7 +159,7 @@
             "url": "https://blog.never.pet/2019/02/08/tasker-messenger",
             "title": "华为短信机.jpg",
             "summary": "到国外以后，国内带来的两张手机卡突然有一张没地方放了。刚好老母过来的时候让她赶紧把手里的华为P9给换了水果，顺便还注册了美区ID。既然有台这个机器……这就折腾一下吧\n",
-            "date_modified": "2022-03-26T10:59:28.139Z",
+            "date_modified": "2022-03-26T13:36:36.959Z",
             "date_published": "2019-02-08T04:28:00.000Z"
         },
         {
@@ -168,7 +168,7 @@
             "url": "https://blog.never.pet/2018/12/31/2018-2019",
             "title": "一张图总结2018",
             "summary": "时区： UTC-4\n",
-            "date_modified": "2022-03-26T10:59:28.135Z",
+            "date_modified": "2022-03-26T13:36:36.955Z",
             "date_published": "2018-12-31T09:47:00.000Z"
         },
         {
@@ -177,7 +177,7 @@
             "url": "https://blog.never.pet/2018/12/15/how-to-feed-a-robot",
             "title": "如何科学的给机器人投食",
             "summary": "机器人在这里特指爬虫，本文特指一些通过扫默认目录尝试窥探 phpmyadmin 一类管理面板的玩意\n",
-            "date_modified": "2022-03-26T10:59:28.139Z",
+            "date_modified": "2022-03-26T13:36:36.959Z",
             "date_published": "2018-12-15T04:54:00.000Z"
         },
         {
@@ -195,7 +195,7 @@
             "url": "https://blog.never.pet/2018/10/11/moving-my-blog-1",
             "title": "再一次迁移博客",
             "summary": "在考量了typecho，用github issue等一类博客的利弊只有，我换掉了博客目前用[Mweb]的博客并做了重定向\n",
-            "date_modified": "2022-03-26T10:59:28.139Z",
+            "date_modified": "2022-03-26T13:36:36.959Z",
             "date_published": "2018-10-11T09:21:40.000Z"
         },
         {
@@ -204,7 +204,7 @@
             "url": "https://blog.never.pet/2018/09/11/use-telegram-for-image-cdn",
             "title": "Telegram 图床（视频）计划",
             "summary": "那破链接会变，输了\n",
-            "date_modified": "2022-03-26T10:59:28.139Z",
+            "date_modified": "2022-03-26T13:36:36.959Z",
             "date_published": "2018-09-11T05:28:00.000Z"
         },
         {
@@ -213,7 +213,7 @@
             "url": "https://blog.never.pet/2018/09/11/build-a-rediretcor-with-ss-redir",
             "title": "利用ss-redir做国内中转节点",
             "summary": "大部分搬运内容，实测可用\n",
-            "date_modified": "2022-03-26T10:59:28.139Z",
+            "date_modified": "2022-03-26T13:36:36.959Z",
             "date_published": "2018-09-10T17:15:00.000Z"
         },
         {
@@ -222,7 +222,7 @@
             "url": "https://blog.never.pet/2018/07/27/rancher-v1.6-loadbalancer",
             "title": "Rancher v1.6 负载均衡折腾小记",
             "summary": "包含了两个内容，一个是加日志，另外一个是H2\n",
-            "date_modified": "2022-03-26T10:59:28.139Z",
+            "date_modified": "2022-03-26T13:36:36.959Z",
             "date_published": "2018-07-26T23:28:00.000Z"
         },
         {
@@ -231,7 +231,7 @@
             "url": "https://blog.never.pet/2018/07/26/build-your-own-gdgdocs",
             "title": "GDGDOCS 项目自建",
             "summary": "今天做了一份调查问卷，要把结果分享给别人，于是就关联到一个Spreadsheet，结果GDGDOCS不再支持form以外的反代了。那……就自己做一个咯\n",
-            "date_modified": "2022-03-26T10:59:28.139Z",
+            "date_modified": "2022-03-26T13:36:36.959Z",
             "date_published": "2018-07-26T03:59:00.000Z"
         },
         {
@@ -240,7 +240,7 @@
             "url": "https://blog.never.pet/2018/06/20/proxmox-rpcbind-ddos",
             "title": "Proxmox rpcbind 的小问题",
             "summary": "最近收到一封Abuse说机器有被利用DDOS的问题，原文部分内容是这样的：\n",
-            "date_modified": "2022-03-26T10:59:28.139Z",
+            "date_modified": "2022-03-26T13:36:36.959Z",
             "date_published": "2018-06-20T03:57:00.000Z"
         },
         {
@@ -249,7 +249,7 @@
             "url": "https://blog.never.pet/2018/06/18/about-CNBlackListR-project",
             "title": "关于 CNBlackListR 项目的交接",
             "summary": "因为打算逐渐远离一段时间的中文圈，目前就是在清理中文圈的羁绊。毕竟我也耗不起这时间，在各种猜忌周旋的同时处理那些头疼的垃圾死🐎Spammer。高中生也没有生产力，希望能够理解。\n",
-            "date_modified": "2022-03-26T10:59:28.135Z",
+            "date_modified": "2022-03-26T13:36:36.955Z",
             "date_published": "2018-06-17T23:38:00.000Z"
         },
         {
@@ -258,7 +258,7 @@
             "url": "https://blog.never.pet/2018/06/15/proxmox-nat",
             "title": "Proxmox 开 NAT 小鸡",
             "summary": "参考：https://cyberpersons.com/2016/07/27/setup-nat-proxmox/\n",
-            "date_modified": "2022-03-26T10:59:28.139Z",
+            "date_modified": "2022-03-26T13:36:36.959Z",
             "date_published": "2018-06-15T02:19:00.000Z"
         },
         {
@@ -267,7 +267,7 @@
             "url": "https://blog.never.pet/2018/05/21/my-really-silly-article",
             "title": "学生事故 | 学会无知，保持迷茫",
             "summary": "作者按：这个版本相比与公众号发布的版本有所不同。\nhttps://mp.weixin.qq.com/s/gWLiH1XvWYHYBFwWHmis0A\n",
-            "date_modified": "2022-03-26T10:59:28.139Z",
+            "date_modified": "2022-03-26T13:36:36.959Z",
             "date_published": "2018-05-21T02:08:00.000Z"
         },
         {
@@ -276,7 +276,7 @@
             "url": "https://blog.never.pet/2018/01/31/cups-ngrok-and-a-little-machine",
             "title": "折腾了一下CUPS，ngrok，还有一台买了很久的占美小主机",
             "summary": "又到了折腾的时间，这一次是因为学校打印公用电脑总是各种问题。然后又一次论文打印晚了被老师一波late记过来，忍无可忍。\n",
-            "date_modified": "2022-03-26T10:59:28.139Z",
+            "date_modified": "2022-03-26T13:36:36.959Z",
             "date_published": "2018-01-31T11:52:00.000Z"
         }
     ]
