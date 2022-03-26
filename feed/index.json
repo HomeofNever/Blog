@@ -10,12 +10,21 @@
     },
     "items": [
         {
+            "id": "https://blog.never.pet/2022/03/26/p440ar-ctrl-benchmark",
+            "content_html": "<p>最近到了一批<code>HPE DL560 G9</code>的机器，默认带的是<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-c04496202\">P440ar</a>的卡。但是目前我们都是用的ZFS，所以一般来说我们都会把卡刷成<code>IT Mode</code>直通给系统。</p> <p>戴尔的卡已经有<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://fohdeesha.com/docs/index.html\">很成熟的教程</a>了，但是HP似乎都没有，目前可以选择的方案看了一圈只有</p> <ul><li>HBA Mode，他们的卡自带了这个模式</li> <li>RAID 0 for each physical drive，我没想到的是他们界面直接就有这个选项，看来很多这样的需求</li></ul> <p>但是继续找了一下并没有看到有关于更多ZFS的评测，所以这里就记录一下目前收集到的信息</p> <h2 id=\"规格\">规格</h2> <h3 id=\"硬盘\">硬盘</h3> <p>硬盘是<code>2.5 inch Seagate 1TB 7200 RPM</code>，具体信息：</p> <div class=\"saber-highlight\" data-lang=\"\"><pre class=\"saber-highlight-code language-text\"><code class=\"language-text\">Status\t OK\nSerial Number\t9XG6E9NN\nModel\tST910006CLAR1000\nMedia Type\tHDD\nCapacity\t1000 GB\nFirmware Version\tAS0D\nDrive Configuration\tConfigured\nEncryption Status\tNot Encrypted</code></pre></div><h3 id=\"控制器\">控制器</h3> <p>控制器读缓存开启，写缓存关闭</p> <h2 id=\"测试\">测试</h2> <h3 id=\"脚本\">脚本</h3> <p>使用的是fio，配合脚本</p> <p><a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://gist.github.com/sennajox/3667757\">https://gist.github.com/sennajox/3667757</a></p> <h3 id=\"raid-0-结果\">RAID 0 结果</h3> <p><a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/pages/_assets/file/p440ar-ctrl-benchmark/fio-raid0.tar\">fio-raid0.tar.gz</a></p> <h3 id=\"hba-结果\">HBA 结果</h3> <p><a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/pages/_assets/file/p440ar-ctrl-benchmark/fio-hba.tar\">fio-hba.tar.gz</a></p> <h2 id=\"结论\">结论</h2> <p>目前测试出来单盘的情况下，HBA和Raid0的结果在512K的读写下很相近，但是HBA模式表现似乎要更好一点。</p> <p>所有结果都打包在上面，有需要的可以自行下载研究。如果有更多测试/模式想要测试，可以在评论区留言</p>",
+            "url": "https://blog.never.pet/2022/03/26/p440ar-ctrl-benchmark",
+            "title": "P440ar Array Controller 直通评测",
+            "summary": "最近到了一批HPE DL560 G9的机器，默认带的是P440ar的卡。但是目前我们都是用的ZFS，所以一般来说我们都会把卡刷成IT Mode直通给系统。\n",
+            "date_modified": "2022-03-26T09:54:38.470Z",
+            "date_published": "2022-03-26T00:00:00.000Z"
+        },
+        {
             "id": "https://blog.never.pet/2022/03/10/cisco-ucs-experience",
             "content_html": "<p>最近入手了一个很老的Cisco UCS C240 M3S机器，遇到了不少麻烦，记录的同时吐槽一下</p> <figure><img alt=\"\" data-lazy=\"{}\" src=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/07dd1ac95af4b123fbdca1ee9d62df34-1200.jpg\" srcset=\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx4BBQUFBwYHDggIDh4UERQeHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHv/AABEIAB4AKAMBEQACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AOn8Z/E+fRNKuZbW3tmu4490YlDFCfcAg9PevKhT5nY9Cc7I4v4UftAeIvE/xH03w1q+n6Jb2V20qyTQJIrptidhyzkdVA6dM1tUw0YxbRjCs5Ssy1+0H4qtLCLw5qMEUN/DBeifBcGKZMZxkZ4yhHSlhI2ldjxLukct+z9rNjP4mcRRokrWexn6fekTI/T9K6qi0OeMktT6Y8I3BbVr4OhEcV5EikjhgIomJHqNxP5Gsi9z5R+M2ox2+mCaR2UTLsHHXIxWdFXZrV2PNPA8gtPEOlaraX0Mt4peQRhjGsWNwId2GMkc8ZGCOc8V0VE5RcTKl7slJnoXi3S/Fuv+FdMtbjRhbW2n+YEkhUCNkZ1VB97PAPJI7k88mleCk5R6/gS1NpRl0/E2NGaTQ9H07QtRs7RQuM3SKMvyf9nLDJ9D09q5ZVajqXT0CUUtJK6NnxN431q2+06dBfJZWXmKkNxIB5ZXGf4VKscA5xxkjpXRStOz6lfDCy0R5zqk954/077JpGhXE8VsgeSW5fYA/UhVXluvr/MCiEHCXvOxpKSmvdVyjd6H4V8M2M+m6jqCXGqXSAw/Zck2jDqHJGCCCCcDquM96iFStOaaS5f62HKNKMWnudz8KDHpPhy+u4tTaVp+fsz5kQIgI3tgg/xEnGccelZYnEuHwxuyqOG9ort2O78J6tKL8pJJ4fOmq8e83NnNyoBJKlyBjuQAf8fNjmsFNRqRtfrdfLRa/gdby6XK3F3t6/8ADHEftEWuiLcm50q4tgoufPWaLlWzubylwcdSOe3FexR0kzhqr3UeVW/iC+s9JYadcXFqySHGJcgRtxszgHrzn3rrlGL6HOpS2uUtNjl1DUFC7Vd1C7nYngjkdOnX8+9YylyouMeZnsHg7RdP03R4LZoRLKExJPjDOc8n+n0rgqScpXO2muVWO38M6PpqP9oNnG7IMAtlsfTNZRpRWqRq5t7s4L4x+H9R8SeK9P0+0nt4Igqogd2A3MeuAD6fp+XdTqRpU3J9DjrRcpJI/wD/2Q==\" data-srcset=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/07dd1ac95af4b123fbdca1ee9d62df34-1200.jpg 1200w,https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/fcae6716749b1dbccd19939955eb69e1-720.jpg 720w,https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/89977447d7da39d2f27e60ca161b5f06-480.jpg 480w\" width=\"1200\"></figure> <h2 id=\"cmic\">CMIC</h2> <p>3.0这个版本的CMIC还是在用Flash！但是还好因为Flash游戏的流行，有开源项目专门做浏览器帮助用户使用Flash。亲测 <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/radubirsan/FlashBrowser\">https://github.com/radubirsan/FlashBrowser</a> 可用</p> <h3 id=\"kvm\">KVM</h3> <p>KVM的话，一般是Java，这个可以尝试用 <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/AdoptOpenJDK/IcedTea-Web\">IcedTea-Web</a> 解决。</p> <h4 id=\"cmic-kvm\">CMIC KVM</h4> <blockquote><p><a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://community.cisco.com/t5/cisco-bug-discussions/cscvs11682-c220-c240-m3-server-need-html5-support-for-cimc-webui/td-p/4144939\">https://community.cisco.com/t5/cisco-bug-discussions/cscvs11682-c220-c240-m3-server-need-html5-support-for-cimc-webui/td-p/4144939</a></p></blockquote> <blockquote><p>There is a workaround I was made aware of recently which uses the API on the UCS server to make a call directly to obtain the Java KVM console. I have tested this and although you don't get the GUI, you get the full console functionality (turn on/off, mount virtual images to upgrade, etc):\n<code>https://&lt;CIMC_IP&gt;/kvm.jnlp?cimcAddr=&lt;CIMC_IP&gt;&amp;tkn1=&lt;CIMC_username&gt;&amp;tkn2=&lt;CIMC_Password&gt;</code></p></blockquote> <p>可以通过直接访问API拿到JNLP，拿到以后信息不变可以反复使用，也可以直接编辑这个文件，里面的内容也挺直接的。里面是包含了账号密码的，要小心保管</p> <h4 id=\"supermicro-kvm\">SuperMicro KVM</h4> <p>SuperMicro的机器似乎会每次动态生成JNLP的验证，但是还好他们的网页不需要Flash。</p> <h2 id=\"更新固件\">更新固件</h2> <p>这个简直就是头大的不行。他们的firmware似乎是只提供HUU(Cisco UCS Host Upgrade Utility)，然后这个镜像如果直接做成U盘，每次都会卡死在906复制文件错误。试过了Rufus和DD直接写都不行，但是用<code>virtual media</code>挂载是可以的！太糙了，这是什么神奇操作……</p> <p>HUU不方便那就提取出来走Webui试试看好了，但是！他们的HUU提取是要用专门的程序<code>getfw</code>。他们的固件默认是加密打包好了的所以直接拆还挺麻烦的，但是这个程序真的emmm要求特别多：首先要<code>squashfs</code>，然后<code>openssl</code>版本要<code>1.0.1</code>e，然后还是直接从<code>PATH</code>读取的。要不是<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://blog.jamiescott.me/extract-cisco-ucs-firmware-from/\">这篇博客</a>我真的要放弃了</p> <h3 id=\"错误提示\">错误提示</h3> <h3 id=\"decryption-failed\">Decryption failed</h3> <p>openssl版本不对</p> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\"><span class=\"token comment\"># Set up openssl</span>\n<span class=\"token function\">wget</span> https://ftp.openssl.org/source/old/1.0.1/openssl-1.0.1e.tar.gz\n<span class=\"token function\">tar</span> -zxvf openssl-1.0.1e.tar.gz\n<span class=\"token builtin class-name\">cd</span> openssl-1.0.1e\n./config\n<span class=\"token function\">make</span>\n\n<span class=\"token function\">sudo</span> <span class=\"token function\">su</span>\n<span class=\"token builtin class-name\">export</span> <span class=\"token assign-left variable\"><span class=\"token environment constant\">PATH</span></span><span class=\"token operator\">=</span><span class=\"token string\">&quot;/path/to/openssl-1.0.1e/apps:<span class=\"token environment constant\">$PATH</span>&quot;</span></code></pre></div><h3 id=\"extraction-failed\">Extraction Failed</h3> <p>如果你直接用本地正在mount的iso，拷贝单独的一份出来</p> <h3 id=\"更新cmic\">更新CMIC</h3> <p>然后就是HUU更新有的时候还是不行，CMIC我当时直接更新还是失败</p> <blockquote><p>网页提示 <code>Error while updating: invalid file name CIMC</code>\n然后remote http download百分之5直接reset\nHUU 提示自己内存不够是否确认重启CMIC</p></blockquote> <p>然后我发现HUU没有成功重启CMIC！我自己重启了一遍就好了，真的佛了</p> <p><strong>多试试重启！！！</strong></p>",
             "url": "https://blog.never.pet/2022/03/10/cisco-ucs-experience",
             "title": "老IPMI折腾记",
             "summary": "最近入手了一个很老的Cisco UCS C240 M3S机器，遇到了不少麻烦，记录的同时吐槽一下\n",
-            "date_modified": "2022-03-11T05:25:31.792Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2022-03-10T00:00:00.000Z"
         },
         {
@@ -24,7 +33,7 @@
             "url": "https://blog.never.pet/2021/01/08/tweet-to-telegram",
             "title": "用 Github Action 拯救 Twitter 与 Telegram 的转发",
             "summary": "如果你想直接看成品: https://github.com/NeverBehave/Tweet2Telegram\n",
-            "date_modified": "2022-03-11T05:25:31.796Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2021-01-08T00:00:00.000Z"
         },
         {
@@ -33,7 +42,7 @@
             "url": "https://blog.never.pet/2021/01/04/2020-summary",
             "title": "The end of 2020 年终总结",
             "summary": "^背景音乐\n",
-            "date_modified": "2022-03-11T05:25:31.792Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2021-01-04T02:00:00.000Z"
         },
         {
@@ -42,7 +51,7 @@
             "url": "https://blog.never.pet/2021/01/01/2020-red-pack-writeup",
             "title": "年度总结红包WriteUp -- Berd.moe",
             "summary": "在Leonn的博客频道看到这个, https://blog.berd.moe/archives/2020-review/\n",
-            "date_modified": "2022-03-11T05:25:31.792Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2021-01-01T12:00:01.000Z"
         },
         {
@@ -51,16 +60,16 @@
             "url": "https://blog.never.pet/2020/05/25/customize-telegram-twitter-ifttt-connection",
             "title": "用 webhook 拯救 ifttt 上 Twitter 与 Telegram 的同步",
             "summary": "这大概是我最近最后一篇更新了, 马上要上班了, Orz\n",
-            "date_modified": "2022-03-11T05:25:31.792Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2020-05-25T00:00:00.000Z"
         },
         {
             "id": "https://blog.never.pet/2020/05/23/bye-dbd",
-            "content_html": "<p>在清理Google Analysis的时候, 发现了这个帐号的记录</p> <object data=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/DBD_Overview_20170516-20200522.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700px\"><embed src=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/DBD_Overview_20170516-20200522.pdf\"> <p>您的浏览器暂时不支持直接浏览pdf, 请 <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/DBD_Overview_20170516-20200522.pdf\">下载</a>.</p></object> <p>这个是当时<code>deadbydaylight.wiki</code>黎明杀机百科的分析数据, 高峰的时候日PV有几万的样子, 同时在线访客<code>&gt;1k</code>, 主要来源是台湾, 确实有一批人当时很在意百科的发展</p> <p>这个算是我第一次大规模的做百科, 一开始在 <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://translate.wiki\">https://translate.wiki</a> 做过一小段时间</p> <p>高中的时候不算是爱学习的, 因为学习好的人太多了emmm. 然后突然黎明杀机这个游戏火了起来, 玩法也很新奇: 不公平1v4这个模式也有很多主播在进行</p> <p>我当时只有一台<code>macbook air 2015</code>也硬是打了几十个小时</p> <p>在后来, 偶然和&quot;中国区代表&quot;一起, 还有<code>Kazama Sion</code>一起做起了百科, 经历了这个游戏在国内被封杀的阶段, 也见证了网易的&quot;第五人格&quot;的事故</p> <p>只可惜当时我还是高中生, 确实没有那么多精力和时间打理, 也没有那么多规划</p> <p>资料当时都是从 gamepedia 上面英文版要到授权的, 也很感谢当时所有参与过这个百科的志愿者</p> <p>到现在这件事情也算告一段落了, 可能会继续梳理一下思绪补充一些内容</p> <p>有兴趣的可以去这里看看: <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://deadbydaylight-zh.gamepedia.com/\">https://deadbydaylight-zh.gamepedia.com/</a></p> <hr> <p>目前也有活跃的维护者了, <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://deadbydaylight-zh.gamepedia.com/UserProfile:LeCgHn_Jason\">https://deadbydaylight-zh.gamepedia.com/UserProfile:LeCgHn_Jason</a></p> <p>总之, 祝好</p>",
+            "content_html": "<p>在清理Google Analysis的时候, 发现了这个帐号的记录</p> <object data=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/pages/_assets/file/bye-dbd/DBD_Overview_20170516-20200522.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700px\"><embed src=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/pages/_assets/file/bye-dbd/DBD_Overview_20170516-20200522.pdf\"> <p>您的浏览器暂时不支持直接浏览pdf, 请 <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/pages/_assets/file/bye-dbd/DBD_Overview_20170516-20200522.pdf\">下载</a>.</p></object> <p>这个是当时<code>deadbydaylight.wiki</code>黎明杀机百科的分析数据, 高峰的时候日PV有几万的样子, 同时在线访客<code>&gt;1k</code>, 主要来源是台湾, 确实有一批人当时很在意百科的发展</p> <p>这个算是我第一次大规模的做百科, 一开始在 <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://translate.wiki\">https://translate.wiki</a> 做过一小段时间</p> <p>高中的时候不算是爱学习的, 因为学习好的人太多了emmm. 然后突然黎明杀机这个游戏火了起来, 玩法也很新奇: 不公平1v4这个模式也有很多主播在进行</p> <p>我当时只有一台<code>macbook air 2015</code>也硬是打了几十个小时</p> <p>在后来, 偶然和&quot;中国区代表&quot;一起, 还有<code>Kazama Sion</code>一起做起了百科, 经历了这个游戏在国内被封杀的阶段, 也见证了网易的&quot;第五人格&quot;的事故</p> <p>只可惜当时我还是高中生, 确实没有那么多精力和时间打理, 也没有那么多规划</p> <p>资料当时都是从 gamepedia 上面英文版要到授权的, 也很感谢当时所有参与过这个百科的志愿者</p> <p>到现在这件事情也算告一段落了, 可能会继续梳理一下思绪补充一些内容</p> <p>有兴趣的可以去这里看看: <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://deadbydaylight-zh.gamepedia.com/\">https://deadbydaylight-zh.gamepedia.com/</a></p> <hr> <p>目前也有活跃的维护者了, <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://deadbydaylight-zh.gamepedia.com/UserProfile:LeCgHn_Jason\">https://deadbydaylight-zh.gamepedia.com/UserProfile:LeCgHn_Jason</a></p> <p>总之, 祝好</p>",
             "url": "https://blog.never.pet/2020/05/23/bye-dbd",
             "title": "Bye, deadbydaylight.wiki",
             "summary": "在清理Google Analysis的时候, 发现了这个帐号的记录\n",
-            "date_modified": "2022-03-11T05:25:31.792Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2020-05-23T00:00:00.000Z"
         },
         {
@@ -69,7 +78,7 @@
             "url": "https://blog.never.pet/2020/05/21/keep-your-google-voice-with-sao",
             "title": "Google Voice 自动应答和保号",
             "summary": "偶然打开某个骚群, 发现有人抱怨自己的 Google Voice 被回收了, 并讨论如何保号\n",
-            "date_modified": "2022-03-11T05:25:31.792Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2020-05-21T00:00:00.000Z"
         },
         {
@@ -78,7 +87,7 @@
             "url": "https://blog.never.pet/2020/05/21/switch-from-lambda-to-fission",
             "title": "从AWS lambda迁移到Fission",
             "summary": "我开始用aws lambda的时间大约是它还只有node v8运行时的时候, 主要其免费的额度确实相当的诱人, 加上学生赠与的免费credit, 香的一批\n",
-            "date_modified": "2022-03-11T05:25:31.796Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2020-05-21T00:00:00.000Z"
         },
         {
@@ -105,7 +114,7 @@
             "url": "https://blog.never.pet/2019/05/31/nano-pi-neo2-first-experience",
             "title": "Nano Pi NEO2 体验小记",
             "summary": "H5似乎已经停止生产了, Nano PI Neo2 也似乎没有了\n",
-            "date_modified": "2022-03-11T05:25:31.792Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2019-05-31T03:42:00.000Z"
         },
         {
@@ -114,7 +123,7 @@
             "url": "https://blog.never.pet/2019/03/27/space-and-s-p-a-c-e",
             "title": "空格与 空 格",
             "summary": "相关项目：kongebot\n机器人 @kongebot\n",
-            "date_modified": "2022-03-11T05:25:31.792Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2019-03-27T06:08:00.000Z"
         },
         {
@@ -123,7 +132,7 @@
             "url": "https://blog.never.pet/2019/03/27/ripe-probe-hosting",
             "title": "RIPE Probe Hosting",
             "summary": "先上图（低清警告）\n",
-            "date_modified": "2022-03-11T05:25:31.792Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2019-03-27T03:47:00.000Z"
         },
         {
@@ -132,7 +141,7 @@
             "url": "https://blog.never.pet/2019/03/20/my-thought-about-cloud-game-before",
             "title": "云游戏：生不逢时",
             "summary": "谨此文怀念我接触的第一个国内在线串流游戏平台：云游戏\n",
-            "date_modified": "2022-03-11T05:25:31.792Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2019-03-20T03:42:00.000Z"
         },
         {
@@ -141,7 +150,7 @@
             "url": "https://blog.never.pet/2019/03/08/telegram-web-hosting",
             "title": "Telegram Web 搭建",
             "summary": "Telegram 是个好东西，他有个Web客户端，也是个好东西\n",
-            "date_modified": "2022-03-11T05:25:31.796Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2019-03-07T18:10:00.000Z"
         },
         {
@@ -150,7 +159,7 @@
             "url": "https://blog.never.pet/2019/02/08/tasker-messenger",
             "title": "华为短信机.jpg",
             "summary": "到国外以后，国内带来的两张手机卡突然有一张没地方放了。刚好老母过来的时候让她赶紧把手里的华为P9给换了水果，顺便还注册了美区ID。既然有台这个机器……这就折腾一下吧\n",
-            "date_modified": "2022-03-11T05:25:31.796Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2019-02-08T04:28:00.000Z"
         },
         {
@@ -159,7 +168,7 @@
             "url": "https://blog.never.pet/2018/12/31/2018-2019",
             "title": "一张图总结2018",
             "summary": "时区： UTC-4\n",
-            "date_modified": "2022-03-11T05:25:31.792Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2018-12-31T09:47:00.000Z"
         },
         {
@@ -168,7 +177,7 @@
             "url": "https://blog.never.pet/2018/12/15/how-to-feed-a-robot",
             "title": "如何科学的给机器人投食",
             "summary": "机器人在这里特指爬虫，本文特指一些通过扫默认目录尝试窥探 phpmyadmin 一类管理面板的玩意\n",
-            "date_modified": "2022-03-11T05:25:31.792Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2018-12-15T04:54:00.000Z"
         },
         {
@@ -186,7 +195,7 @@
             "url": "https://blog.never.pet/2018/10/11/moving-my-blog-1",
             "title": "再一次迁移博客",
             "summary": "在考量了typecho，用github issue等一类博客的利弊只有，我换掉了博客目前用[Mweb]的博客并做了重定向\n",
-            "date_modified": "2022-03-11T05:25:31.792Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2018-10-11T09:21:40.000Z"
         },
         {
@@ -195,7 +204,7 @@
             "url": "https://blog.never.pet/2018/09/11/use-telegram-for-image-cdn",
             "title": "Telegram 图床（视频）计划",
             "summary": "那破链接会变，输了\n",
-            "date_modified": "2022-03-11T05:25:31.796Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2018-09-11T05:28:00.000Z"
         },
         {
@@ -204,7 +213,7 @@
             "url": "https://blog.never.pet/2018/09/11/build-a-rediretcor-with-ss-redir",
             "title": "利用ss-redir做国内中转节点",
             "summary": "大部分搬运内容，实测可用\n",
-            "date_modified": "2022-03-11T05:25:31.792Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2018-09-10T17:15:00.000Z"
         },
         {
@@ -213,7 +222,7 @@
             "url": "https://blog.never.pet/2018/07/27/rancher-v1.6-loadbalancer",
             "title": "Rancher v1.6 负载均衡折腾小记",
             "summary": "包含了两个内容，一个是加日志，另外一个是H2\n",
-            "date_modified": "2022-03-11T05:25:31.792Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2018-07-26T23:28:00.000Z"
         },
         {
@@ -222,7 +231,7 @@
             "url": "https://blog.never.pet/2018/07/26/build-your-own-gdgdocs",
             "title": "GDGDOCS 项目自建",
             "summary": "今天做了一份调查问卷，要把结果分享给别人，于是就关联到一个Spreadsheet，结果GDGDOCS不再支持form以外的反代了。那……就自己做一个咯\n",
-            "date_modified": "2022-03-11T05:25:31.792Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2018-07-26T03:59:00.000Z"
         },
         {
@@ -231,7 +240,7 @@
             "url": "https://blog.never.pet/2018/06/20/proxmox-rpcbind-ddos",
             "title": "Proxmox rpcbind 的小问题",
             "summary": "最近收到一封Abuse说机器有被利用DDOS的问题，原文部分内容是这样的：\n",
-            "date_modified": "2022-03-11T05:25:31.792Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2018-06-20T03:57:00.000Z"
         },
         {
@@ -240,7 +249,7 @@
             "url": "https://blog.never.pet/2018/06/18/about-CNBlackListR-project",
             "title": "关于 CNBlackListR 项目的交接",
             "summary": "因为打算逐渐远离一段时间的中文圈，目前就是在清理中文圈的羁绊。毕竟我也耗不起这时间，在各种猜忌周旋的同时处理那些头疼的垃圾死🐎Spammer。高中生也没有生产力，希望能够理解。\n",
-            "date_modified": "2022-03-11T05:25:31.792Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2018-06-17T23:38:00.000Z"
         },
         {
@@ -249,7 +258,7 @@
             "url": "https://blog.never.pet/2018/06/15/proxmox-nat",
             "title": "Proxmox 开 NAT 小鸡",
             "summary": "参考：https://cyberpersons.com/2016/07/27/setup-nat-proxmox/\n",
-            "date_modified": "2022-03-11T05:25:31.792Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2018-06-15T02:19:00.000Z"
         },
         {
@@ -258,7 +267,7 @@
             "url": "https://blog.never.pet/2018/05/21/my-really-silly-article",
             "title": "学生事故 | 学会无知，保持迷茫",
             "summary": "作者按：这个版本相比与公众号发布的版本有所不同。\nhttps://mp.weixin.qq.com/s/gWLiH1XvWYHYBFwWHmis0A\n",
-            "date_modified": "2022-03-11T05:25:31.792Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2018-05-21T02:08:00.000Z"
         },
         {
@@ -267,7 +276,7 @@
             "url": "https://blog.never.pet/2018/01/31/cups-ngrok-and-a-little-machine",
             "title": "折腾了一下CUPS，ngrok，还有一台买了很久的占美小主机",
             "summary": "又到了折腾的时间，这一次是因为学校打印公用电脑总是各种问题。然后又一次论文打印晚了被老师一波late记过来，忍无可忍。\n",
-            "date_modified": "2022-03-11T05:25:31.792Z",
+            "date_modified": "2022-03-26T09:54:38.470Z",
             "date_published": "2018-01-31T11:52:00.000Z"
         }
     ]
