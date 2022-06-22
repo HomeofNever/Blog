@@ -10,12 +10,21 @@
     },
     "items": [
         {
+            "id": "https://blog.never.pet/2022/06/22/lsi-9266-8i-to-it-mode",
+            "content_html": "<h2 id=\"前提的前提\">前提的前提</h2> <p>这个故事的经历以失败暂告一段落，但是着里面的过程我觉得还是值得记录一下。估计以后也用得上 --- ZFS还是一定要IT Mode，没办法。如果你想尝试一下的话不妨接着往下看，我稍微把工具都整理了一下</p> <h2 id=\"事故前提\">事故前提</h2> <p>18年的时候有我和另外一个朋友合组了一台HP 380P G8，这是一台相当老的服务器。21年左右的时候尝试升级了一下，结果后续内存和硬盘各种爆炸，所以想着晚些时候直接换个新的上去好了。结果新的服务器到了以后，基本架构换成了ZFS，不再是和以前一样的硬件RAID。ZFS需要直通模式，他既是文件系统，本身也包含了卷管理的部分。大部分RAID卡虽然提供了类似的模式，比如说给你每个盘开RAID 0，或者是提供了一个HBA Mode，但这些模式通常都是由软件模拟的，除了性能可能存在问题，有些甚至无法读取<code>smartctl</code>。所以一般来说会找那种可以刷成直通模式，让卡本身不做任何处理的固件。但是……</p> <p>这次我给搞忘了！反应过来的时候旧机器都已经寄到家门口了……新机器内置的RAID卡<code>P440ar</code>虽然是有HBA模式，看着性能也没啥问题，但是这机器发出去就很难再调整硬件配置，为了保险起见，还是单独弄一张带<code>IT Mode</code>固件的卡好了。</p> <h2 id=\"理论可行\">理论可行</h2> <p>翻箱倒柜找到了一张旧机器里面的<code>9266-8i</code>，搜索了一下，似乎并没有特别多的资料。但是似乎有人留下了一篇<code>cross-flashing</code>的经历：</p> <blockquote><p><a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://mywiredhouse.net/blog/flashing-lsi-2208-firmware-use-hba/\">https://mywiredhouse.net/blog/flashing-lsi-2208-firmware-use-hba/</a></p></blockquote> <p>大概意思就是Supermicro主板内置刚好也有一块LSI的RAID卡，控制器是<code>SMB2208</code>。这个版本刚好是没有<code>IT Mode</code>的。但是<code>SMB2308</code>有。然而，2208和2308虽然型号不一样，背后的架构其实是差不多的，甚至芯片都是用的一样的……那么，有没有可能可以直接想办法把2308给的固件刷到2208里面呢？</p> <p>答案是可以，作者发现这是真的能用。那么采用2208控制器卡有很多变种，比如我手里这块<code>9266-8i</code>其实也是同样的芯片组:</p> <blockquote><p>参考 <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://docs.broadcom.com/doc/12353227\">https://docs.broadcom.com/doc/12353227</a></p></blockquote> <p>所以如果这个用2208的卡可以，那么其他用同样的控制器的卡，理论上有概率也是可以的。</p> <p>所以我们开始试试看把！</p> <h2 id=\"准备环境\">准备环境</h2> <p>配置2208首先要使用DOS环境把卡清空，才可以再刷入2308固件。所以<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.freedos.org/download/\">FreeDOS</a>走起。</p> <p>如果你有多个U盘的话，可以选择直接下载LITEUSB的镜像写入。这里的问题是因为你还需要把各种工具和固件放进去 --- 虽然你U盘可以很大，但是镜像的文件系统本身为了压缩大小，是限定了分区大小的。也就是如果你没有第二个U盘，你可能还得想想办法扩容分区。我实在是懒得折腾了，Archlinux有个提前分了2G大小压缩后的镜像，但是写入是结结实实要2G。FreeDOS提供的FullUSB镜像在本次过程中分区大小是足够的。</p> <p>主要要准备的东西有：</p> <ol><li>9207_8i_Package_P20_IR_IT_FW_BIOS_for_MSDOS_Windows.zip  (has the 9207-8.bin firmware and mptsas2.rom bios in it)</li> <li>lsi2208fixer.zip (has <code>megarec</code>, <code>megacli</code>, <code>sas2flash</code>, and this has the 2208 recovery firmware)</li> <li>sas2008.zip  (提取 <code>sbrempty.bin</code> file in it)</li> <li>Installer_P20_for_UEFI.zip (this has the version of sas2flash.efi in it for UEFI shell)</li></ol> <p>注意的点：</p> <ol><li>在我测试的过程中，P14和P20的刷写软件都认为9266是兼容的固件。如果你的卡刷不了，可能你要准备P14的固件。我都放在了文章最后的链接里面</li> <li>lsi2208fixer那个镜像里面包含了所有的工具，但是问题就是分区太小了一点。我选择直接复制里面的文件到FullUSB镜像</li></ol> <p>镜像直接dd即可：</p> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\"><span class=\"token function\">sudo</span> <span class=\"token function\">dd</span> <span class=\"token assign-left variable\">if</span><span class=\"token operator\">=</span>FD13FULL.img <span class=\"token assign-left variable\">of</span><span class=\"token operator\">=</span>/dev/sda <span class=\"token assign-left variable\">bs</span><span class=\"token operator\">=</span>1M</code></pre></div><p>开个文件夹，正常挂载文件系统即可，不需要额外参数。文件我是开了个文件夹直接放在根目录。</p> <h3 id=\"freedos指令快速入门\">FreeDOS指令快速入门</h3> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\"><span class=\"token function\">dir</span>\n<span class=\"token builtin class-name\">cd</span>\n<span class=\"token function\">mkdir</span>\n<span class=\"token builtin class-name\">type</span> <span class=\"token comment\"># Same as cat</span>\n<span class=\"token function\">more</span> \n<span class=\"token comment\"># &gt; &lt; 这些管道符都是可以正常使用的</span>\n<span class=\"token comment\"># 调用程序直接输入名字即可</span>\n<span class=\"token comment\"># 可以用tab补全</span>\n<span class=\"token comment\"># 有些时候程序名字太长会被缩写，要留意下输出</span></code></pre></div><h3 id=\"dos16m-error-40-not-enough-available-extended-memory-xmin\">dos/16M error: [40] not enough available extended memory (XMIN)</h3> <p>这个问题在我的机器上遇到了，找了一圈看到了这个：</p> <blockquote><p><a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://forums.unraid.net/topic/12114-lsi-controller-fw-updates-irit-modes/page/63/\">https://forums.unraid.net/topic/12114-lsi-controller-fw-updates-irit-modes/page/63/</a>\nPulling a stick did nothing, that still left me with 4GB in the PC. I couldn't get around this no matter what I tried. I ultimately had to replaced DOS4GW.EXE with <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"http://dos32a.narechk.net/index_en.html\">DOS/32A a more recent DOS Extender</a> which didn't have a problem with what I guess is TOO MUCH ram. I just dumped everything from the extract binw directory into the root of my USB drive and renamed DOS32A.EXE to DOS4GW.EXE and the DOS parts worked.</p></blockquote> <p>拔内存我留4G也没有用，和这个人症状一样。之前在服务器256G都能跑起来，让我很困惑（我换PC的原因是因为服务器重启很慢而且很吵）。但是他里面说道这个Extender确实解决了问题：先<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://dos32a.narechk.net/content/download.html\">下载这个extender</a>，然后把里面文件解包全部放到和工具一个目录下，再把<code>DOS32A.EXE</code>改名成<code>DOS4GW.EXE</code>，问题解决。字符串搜索了一下，<code>megarec</code>里面确实提到了这个EXE，有点意思。</p> <h2 id=\"第一步，清flash\">第一步，清Flash</h2> <h3 id=\"先看看设备在不在\">先看看设备在不在</h3> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\">megarec -adplist</code></pre></div><h3 id=\"备份一下原本的固件\">备份一下原本的固件</h3> <p>备份结果会在当前目录产生</p> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\">megarec -readsbr <span class=\"token number\">0</span> smc2208.sbr\nmegarec -readspd <span class=\"token number\">0</span> smc2208.spd\nmegacli -adpallinfo -a0 <span class=\"token operator\">&gt;</span> allinfo.txt</code></pre></div><p><code>allinfo.txt</code>包含了SAS Address，记得存留</p> <h3 id=\"刷flash\">刷Flash</h3> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\">megarec -writesbr <span class=\"token number\">0</span> sbrempty.bin\nmegarec -cleanflash <span class=\"token number\">0</span></code></pre></div><p>如果没有报错，重启后进入下一步</p> <h2 id=\"cross-flashing\">Cross Flashing</h2> <p>在这里我遇到了个奇怪的问题，之前我是用服务器直接刷的，DOS里面<code>SAS2Flash</code>是可以看得到卡，但是换到PC就找不到了，所以我用了<code>sas2flash.efi</code></p> <p>如果你遇到类似的问题，需要进入<code>EFI Shell</code>来处理这个问题，目前的主板一般都会内置一个Shell，所以不需要额外下载EFI执行文件。下面是一些常用的指令：</p> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\">map <span class=\"token comment\"># 查看所有的映射</span>\n<span class=\"token comment\"># efi需要FAT</span>\nfs0: <span class=\"token comment\"># 切换到对应的文件系统</span>\n<span class=\"token comment\"># 直接看fs开头的找你的U盘</span>\n<span class=\"token builtin class-name\">cd</span>\n<span class=\"token comment\"># 程序执行直接文件名即可</span></code></pre></div><h3 id=\"列出设备\">列出设备</h3> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\">sas2flash -list</code></pre></div><h3 id=\"刷写固件\">刷写固件</h3> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\">sas2flash -o -f <span class=\"token number\">9207</span>-8.bin -b mptsas2.rom</code></pre></div><p>如果你不需要选项，可以忽略<code>-b</code>的rom部分，这样开机就不会进bios，速度快一点。</p> <h4 id=\"其他选项\">其他选项</h4> <p><code>sas2flash</code>其实有很多清理模式：</p> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\">sas2flsh -o -e <span class=\"token number\">6</span></code></pre></div><p>会清理rom和固件，但是会保留基本信息，例如SASa。<code>7</code>就是清除所有信息</p> <h3 id=\"写回sasa\">写回SASa</h3> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\">sas2flash -o -sasadd 50030480195exxxx</code></pre></div><h2 id=\"后续\">后续</h2> <p>刷完以后，卡上的蜂鸣器就开始疯狂叫，吵的不行。我不得已先贴了个胶带上去降低音量。原文中评论有人说道一样的卡型号也遇到了类似的问题，虽然卡可以用但是警报是关不掉的。所以他最后选择直接把哪个蜂鸣器取下来。</p> <p>我这里一开始刷完也是可以正常启动的，如果刷了rom甚至是可以看到卡型号和控制器型号正常显示了。但是一旦真正接入了硬盘以后，rom就会在开机的时候卡住。整机报<code>PCI Bus Error</code>。不刷rom可以正常进系统，但是会提示<code>mptsas error</code>。反正横竖认不出来。在当时赶时间，所以直接下单了一块刷好的<code>HP H220</code>先装上发了，但是卡在这个地方丝毫没有头绪。看来这还真的是YMMW？</p> <p>那先试试看能不能恢复固件把，事实证明确实是可以恢复回去的。</p> <h2 id=\"恢复固件\">恢复固件</h2> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\">megarec -cleanflash <span class=\"token number\">0</span>\n<span class=\"token punctuation\">(</span>reboot<span class=\"token punctuation\">)</span>\nmegarec -writesbr <span class=\"token number\">0</span> smc2208.sbr <span class=\"token comment\"># 之前备份的</span>\nmegarec -m0flash <span class=\"token number\">0</span> 2208_16.rom  <span class=\"token comment\"># 在恢复工具里面有 (this is the rom from the LSI recovery ROM thread linked above)</span></code></pre></div><h3 id=\"写回sasa-2\">写回SASa</h3> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\">megaoem -AdpSetSASA 50030480195exxxx -a0</code></pre></div><h2 id=\"最后的最后\">最后的最后</h2> <p>大家记得一定手里要有多几块U盘，来回刷系统测试真的是搞心态。还有就是少碰HBA：）真的兔子洞</p> <h3 id=\"所有用到的固件工具文件\">所有用到的固件/工具文件</h3> <p><a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/HomeofNever/Blog/tree/master/pages/_assets/file/lsi-9266-8i-to-it-mode\">https://github.com/HomeofNever/Blog/tree/master/pages/_assets/file/lsi-9266-8i-to-it-mode</a></p> <h3 id=\"其他相关资料\">其他相关资料</h3> <blockquote><p><a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://forums.serverbuilds.net/t/flashing-sas2208-to-it-mode-when-sas2flsh-does-not-detect-it/2357\">https://forums.serverbuilds.net/t/flashing-sas2208-to-it-mode-when-sas2flsh-does-not-detect-it/2357</a></p></blockquote> <h3 id=\"用到的资源下载链接\">用到的资源下载链接</h3> <blockquote><p><a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://forums.laptopvideo2go.com/topic/29059-sas2008-lsi92409211-firmware-files/\">https://forums.laptopvideo2go.com/topic/29059-sas2008-lsi92409211-firmware-files/</a></p></blockquote>",
+            "url": "https://blog.never.pet/2022/06/22/lsi-9266-8i-to-it-mode",
+            "title": "给 LSI 9266-8i 刷 IT Mode",
+            "summary": "这个故事的经历以失败暂告一段落，但是着里面的过程我觉得还是值得记录一下。估计以后也用得上 --- ZFS还是一定要IT Mode，没办法。如果你想尝试一下的话不妨接着往下看，我稍微把工具都整理了一下\n",
+            "date_modified": "2022-06-22T09:57:24.544Z",
+            "date_published": "2022-06-22T00:00:00.000Z"
+        },
+        {
             "id": "https://blog.never.pet/2022/03/26/p440ar-ctrl-benchmark",
             "content_html": "<p>最近到了一批<code>HPE DL560 G9</code>的机器，默认带的是<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-c04496202\">P440ar</a>的卡。但是目前我们都是用的ZFS，所以一般来说我们都会把卡刷成<code>IT Mode</code>直通给系统。</p> <p>戴尔的卡已经有<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://fohdeesha.com/docs/index.html\">很成熟的教程</a>了，但是HP似乎都没有，目前可以选择的方案看了一圈只有</p> <ul><li>HBA Mode，他们的卡自带了这个模式</li> <li>RAID 0 for each physical drive，我没想到的是他们界面直接就有这个选项，看来很多这样的需求</li></ul> <p>但是继续找了一下并没有看到有关于更多ZFS的评测，所以这里就记录一下目前收集到的信息</p> <h2 id=\"规格\">规格</h2> <h3 id=\"硬盘\">硬盘</h3> <p>硬盘是<code>2.5 inch Seagate 1TB 7200 RPM</code>，具体信息：</p> <div class=\"saber-highlight\" data-lang=\"\"><pre class=\"saber-highlight-code language-text\"><code class=\"language-text\">Status: OK\nSerial Number: 9XG6E9NN\nModel: ST910006CLAR1000\nMedia Type: HDD\nCapacity: 1000 GB\nFirmware Version: AS0D\nEncryption Status\tNot Encrypted</code></pre></div><h3 id=\"控制器\">控制器</h3> <p>控制器读缓存开启，写缓存关闭</p> <h2 id=\"测试\">测试</h2> <h3 id=\"脚本\">脚本</h3> <p>使用的是<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/axboe/fio\">fio</a>，配合脚本</p> <iframe src=\"https://gist.github.com/sennajox/3667757.pibb\" class=\"gist-iframe\"></iframe> <h3 id=\"raid-0-结果\">RAID 0 结果</h3> <p><a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/pages/_assets/file/p440ar-ctrl-benchmark/fio-raid0.tar.gz\">fio-raid0.tar.gz</a></p> <h3 id=\"hba-结果\">HBA 结果</h3> <p><a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://cdn.jsdelivr.net/gh/homeofnever/blog@gh-pages/_saber/pages/_assets/file/p440ar-ctrl-benchmark/fio-hba.tar.gz\">fio-hba.tar.gz</a></p> <h2 id=\"结论\">结论</h2> <p>目前测试出来单盘的情况下，HBA和Raid0的结果在512K的读写下很相近，但是HBA模式表现似乎要更好一点。</p> <p>所有结果都打包在上面，有需要的可以自行下载研究。如果有更多测试/模式想要测试，可以在评论区留言</p>",
             "url": "https://blog.never.pet/2022/03/26/p440ar-ctrl-benchmark",
             "title": "P440ar Array Controller 直通评测",
             "summary": "最近到了一批HPE DL560 G9的机器，默认带的是P440ar的卡。但是目前我们都是用的ZFS，所以一般来说我们都会把卡刷成IT Mode直通给系统。\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.544Z",
             "date_published": "2022-03-26T00:00:00.000Z"
         },
         {
@@ -24,7 +33,7 @@
             "url": "https://blog.never.pet/2022/03/10/cisco-ucs-experience",
             "title": "老IPMI折腾记",
             "summary": "最近入手了一个很老的Cisco UCS C240 M3S机器，遇到了不少麻烦，记录的同时吐槽一下\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.540Z",
             "date_published": "2022-03-10T00:00:00.000Z"
         },
         {
@@ -33,7 +42,7 @@
             "url": "https://blog.never.pet/2021/01/08/tweet-to-telegram",
             "title": "用 Github Action 拯救 Twitter 与 Telegram 的转发",
             "summary": "如果你想直接看成品: https://github.com/NeverBehave/Tweet2Telegram\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.544Z",
             "date_published": "2021-01-08T00:00:00.000Z"
         },
         {
@@ -42,7 +51,7 @@
             "url": "https://blog.never.pet/2021/01/04/2020-summary",
             "title": "The end of 2020 年终总结",
             "summary": "^背景音乐\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.540Z",
             "date_published": "2021-01-04T02:00:00.000Z"
         },
         {
@@ -51,7 +60,7 @@
             "url": "https://blog.never.pet/2021/01/01/2020-red-pack-writeup",
             "title": "年度总结红包WriteUp -- Berd.moe",
             "summary": "在Leonn的博客频道看到这个, https://blog.berd.moe/archives/2020-review/\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.540Z",
             "date_published": "2021-01-01T12:00:01.000Z"
         },
         {
@@ -60,7 +69,7 @@
             "url": "https://blog.never.pet/2020/05/25/customize-telegram-twitter-ifttt-connection",
             "title": "用 webhook 拯救 ifttt 上 Twitter 与 Telegram 的同步",
             "summary": "这大概是我最近最后一篇更新了, 马上要上班了, Orz\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.540Z",
             "date_published": "2020-05-25T00:00:00.000Z"
         },
         {
@@ -69,7 +78,7 @@
             "url": "https://blog.never.pet/2020/05/23/bye-dbd",
             "title": "Bye, deadbydaylight.wiki",
             "summary": "在清理Google Analysis的时候, 发现了这个帐号的记录\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.540Z",
             "date_published": "2020-05-23T00:00:00.000Z"
         },
         {
@@ -78,7 +87,7 @@
             "url": "https://blog.never.pet/2020/05/21/keep-your-google-voice-with-sao",
             "title": "Google Voice 自动应答和保号",
             "summary": "偶然打开某个骚群, 发现有人抱怨自己的 Google Voice 被回收了, 并讨论如何保号\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.544Z",
             "date_published": "2020-05-21T00:00:00.000Z"
         },
         {
@@ -87,7 +96,7 @@
             "url": "https://blog.never.pet/2020/05/21/switch-from-lambda-to-fission",
             "title": "从AWS lambda迁移到Fission",
             "summary": "我开始用aws lambda的时间大约是它还只有node v8运行时的时候, 主要其免费的额度确实相当的诱人, 加上学生赠与的免费credit, 香的一批\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.544Z",
             "date_published": "2020-05-21T00:00:00.000Z"
         },
         {
@@ -114,7 +123,7 @@
             "url": "https://blog.never.pet/2019/05/31/nano-pi-neo2-first-experience",
             "title": "Nano Pi NEO2 体验小记",
             "summary": "H5似乎已经停止生产了, Nano PI Neo2 也似乎没有了\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.544Z",
             "date_published": "2019-05-31T03:42:00.000Z"
         },
         {
@@ -123,7 +132,7 @@
             "url": "https://blog.never.pet/2019/03/27/space-and-s-p-a-c-e",
             "title": "空格与 空 格",
             "summary": "相关项目：kongebot\n机器人 @kongebot\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.544Z",
             "date_published": "2019-03-27T06:08:00.000Z"
         },
         {
@@ -132,7 +141,7 @@
             "url": "https://blog.never.pet/2019/03/27/ripe-probe-hosting",
             "title": "RIPE Probe Hosting",
             "summary": "先上图（低清警告）\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.544Z",
             "date_published": "2019-03-27T03:47:00.000Z"
         },
         {
@@ -141,7 +150,7 @@
             "url": "https://blog.never.pet/2019/03/20/my-thought-about-cloud-game-before",
             "title": "云游戏：生不逢时",
             "summary": "谨此文怀念我接触的第一个国内在线串流游戏平台：云游戏\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.544Z",
             "date_published": "2019-03-20T03:42:00.000Z"
         },
         {
@@ -150,7 +159,7 @@
             "url": "https://blog.never.pet/2019/03/08/telegram-web-hosting",
             "title": "Telegram Web 搭建",
             "summary": "Telegram 是个好东西，他有个Web客户端，也是个好东西\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.544Z",
             "date_published": "2019-03-07T18:10:00.000Z"
         },
         {
@@ -159,7 +168,7 @@
             "url": "https://blog.never.pet/2019/02/08/tasker-messenger",
             "title": "华为短信机.jpg",
             "summary": "到国外以后，国内带来的两张手机卡突然有一张没地方放了。刚好老母过来的时候让她赶紧把手里的华为P9给换了水果，顺便还注册了美区ID。既然有台这个机器……这就折腾一下吧\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.544Z",
             "date_published": "2019-02-08T04:28:00.000Z"
         },
         {
@@ -168,7 +177,7 @@
             "url": "https://blog.never.pet/2018/12/31/2018-2019",
             "title": "一张图总结2018",
             "summary": "时区： UTC-4\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.540Z",
             "date_published": "2018-12-31T09:47:00.000Z"
         },
         {
@@ -177,7 +186,7 @@
             "url": "https://blog.never.pet/2018/12/15/how-to-feed-a-robot",
             "title": "如何科学的给机器人投食",
             "summary": "机器人在这里特指爬虫，本文特指一些通过扫默认目录尝试窥探 phpmyadmin 一类管理面板的玩意\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.540Z",
             "date_published": "2018-12-15T04:54:00.000Z"
         },
         {
@@ -195,7 +204,7 @@
             "url": "https://blog.never.pet/2018/10/11/moving-my-blog-1",
             "title": "再一次迁移博客",
             "summary": "在考量了typecho，用github issue等一类博客的利弊只有，我换掉了博客目前用[Mweb]的博客并做了重定向\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.544Z",
             "date_published": "2018-10-11T09:21:40.000Z"
         },
         {
@@ -204,7 +213,7 @@
             "url": "https://blog.never.pet/2018/09/11/use-telegram-for-image-cdn",
             "title": "Telegram 图床（视频）计划",
             "summary": "那破链接会变，输了\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.544Z",
             "date_published": "2018-09-11T05:28:00.000Z"
         },
         {
@@ -213,7 +222,7 @@
             "url": "https://blog.never.pet/2018/09/11/build-a-rediretcor-with-ss-redir",
             "title": "利用ss-redir做国内中转节点",
             "summary": "大部分搬运内容，实测可用\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.540Z",
             "date_published": "2018-09-10T17:15:00.000Z"
         },
         {
@@ -222,7 +231,7 @@
             "url": "https://blog.never.pet/2018/07/27/rancher-v1.6-loadbalancer",
             "title": "Rancher v1.6 负载均衡折腾小记",
             "summary": "包含了两个内容，一个是加日志，另外一个是H2\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.544Z",
             "date_published": "2018-07-26T23:28:00.000Z"
         },
         {
@@ -231,7 +240,7 @@
             "url": "https://blog.never.pet/2018/07/26/build-your-own-gdgdocs",
             "title": "GDGDOCS 项目自建",
             "summary": "今天做了一份调查问卷，要把结果分享给别人，于是就关联到一个Spreadsheet，结果GDGDOCS不再支持form以外的反代了。那……就自己做一个咯\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.540Z",
             "date_published": "2018-07-26T03:59:00.000Z"
         },
         {
@@ -240,7 +249,7 @@
             "url": "https://blog.never.pet/2018/06/20/proxmox-rpcbind-ddos",
             "title": "Proxmox rpcbind 的小问题",
             "summary": "最近收到一封Abuse说机器有被利用DDOS的问题，原文部分内容是这样的：\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.544Z",
             "date_published": "2018-06-20T03:57:00.000Z"
         },
         {
@@ -249,7 +258,7 @@
             "url": "https://blog.never.pet/2018/06/18/about-CNBlackListR-project",
             "title": "关于 CNBlackListR 项目的交接",
             "summary": "因为打算逐渐远离一段时间的中文圈，目前就是在清理中文圈的羁绊。毕竟我也耗不起这时间，在各种猜忌周旋的同时处理那些头疼的垃圾死🐎Spammer。高中生也没有生产力，希望能够理解。\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.540Z",
             "date_published": "2018-06-17T23:38:00.000Z"
         },
         {
@@ -258,7 +267,7 @@
             "url": "https://blog.never.pet/2018/06/15/proxmox-nat",
             "title": "Proxmox 开 NAT 小鸡",
             "summary": "参考：https://cyberpersons.com/2016/07/27/setup-nat-proxmox/\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.544Z",
             "date_published": "2018-06-15T02:19:00.000Z"
         },
         {
@@ -267,17 +276,8 @@
             "url": "https://blog.never.pet/2018/05/21/my-really-silly-article",
             "title": "学生事故 | 学会无知，保持迷茫",
             "summary": "作者按：这个版本相比与公众号发布的版本有所不同。\nhttps://mp.weixin.qq.com/s/gWLiH1XvWYHYBFwWHmis0A\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
+            "date_modified": "2022-06-22T09:57:24.544Z",
             "date_published": "2018-05-21T02:08:00.000Z"
-        },
-        {
-            "id": "https://blog.never.pet/2018/01/31/cups-ngrok-and-a-little-machine",
-            "content_html": "<p>又到了折腾的时间，这一次是因为学校打印公用电脑总是各种问题。然后又一次论文打印晚了被老师一波late记过来，忍无可忍。</p> <h3 id=\"概述\">概述</h3> <p>学校打印机其实是可以直接联网的。网管在一台盗版的 winserver2008 上配置了 samba。但是那个其实并不是给学生用的，只是为了方便一点给公用电脑下发配置而已。更何况换了 MacBook 的我怎么可能装得了那驱动????</p> <p>打印机型号是<code>IR-ADV 4025/4035</code>，128G硬盘的我瑟瑟发抖。之前就因为家里HP的打印机装了一个驱动感觉特别不爽，现在还来？不干！那能不能在另外一台机上面装一个然后远程扔<code>postscript</code>？</p> <h3 id=\"主意来了\">主意来了</h3> <p>这个时候想起之前买了一台占美的小主机（应该是这个名字，<code>j1900？32G emmc</code>，4G内存然后无线网卡什么的全部下掉。<code>VGA</code>换成了双网口+HDMI，一台下来630）。删掉里面的 win7 装了<code>Debian</code>，结果上来<code>Gnome</code>报错。听了 <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://zhaofeng.li\">@zhaofeng</a> 的建议换了<code>xfce</code>。但是习惯命令行了无所谓。</p> <p>找到之前网管给我开的特权<code>MAC ADDRESS</code>（因为学校设备都要注册mac才能上线，有规则限制，客户端之间有隔离，但是我这个mac会被分配到可以单向访问的ip段，避开了问题，<s>嘿嘿嘿果然提前有人脉有资源就是好</s>），改好，在ICT打印机旁边的空桌子下面找到网线口和电源。完美！然后把之前学校闲置的一台显示器搬出来试试（别问我怎么知道在哪里和他们为什么不锁柜子）。本地测试基本完成。</p> <p>接下来就是调整<code>CUPS</code>，打开 Web 界面然后添加。<code>discover</code> 里面直接跳出两台打印机，完美！但是<code>Canon</code>列表里面没有想要的驱动</p> <p>有毒。万一要是没有给Linux版的驱动那不就白高兴Orz</p> <p>上官网找，canon你这网站是外包吧怎么下载页面指向的是循环页面。无奈只能关键词谷歌搜索，换了几个关键词在Debian CUPS的PDD说明里面找到了。一共给了三个下载链接，狂喜！然后cn的网站和us的全部是空链接，<s>佳能你这剧毒哦</s>，但是最后uk的链接居然可以下载（但是下载页面居然是文本）！100M的包挂着网易蜂巢的网很快弄下载（网易这百兆国外资源跑满，国内只有10兆，不过还行，S3下载神器。但是我的旧版套餐就要下架了）。跑起来没毛病，各种自定义选项均可以用。</p> <h3 id=\"小小的研究\">小小的研究</h3> <p>因为有两台打印机，就想着能不能一次就添加完，找到了打印池（class），把两台打印机加到一个class然后添加一次class就好。作业会平均分配，还行。不过就是不知道会从哪个打印机出来。也没什么，到打印机面前看一下任务就知道了，倒是不算什么</p> <p>我后面还是没有加Samba在服务器上自动分发Windows驱动，第一是因为内置了，而且Samba在这个时间出了很多问题，内网环境也不是很好布置（单向），还有就是通用驱动都可以用为什么我还要那么麻烦????，不服请买苹果。</p> <p>写完以后做了一个小教程扔到微信上，把内网IP绑在了域名上。主要是怕后面内网变动IP变了结果连不上。到时候就直接换解析方便一点。蛮多人在用，作业一天有几十个，完成收工。</p> <h3 id=\"然后就没有了？\">然后就没有了？</h3> <p>不不不当然还是要写一下坑的：</p> <ol><li>我也不知道是怎么弄得，CUPS都可以局域网访问了但是外网（对就是ngrok）总是bad request。配置文件设置了HOST改了重启了还是没用。迫不得已只能用squid做了一个反向代理</li> <li>在MacBook上添加IPP打印机，那个队列是整个地址去掉域名的部分（就是有点像 get 请求那样，扶额），我一开始怎么都加不上打印机简直崩溃，查了一下才知道是这样的。然后就是地址他一定会链接631端口。真的GG，现在我的ngrok还不能支持远程打印就是这个奇葩的原因。谁说就一定631了我直接映射80不行吗学学Windows好不好扔个地址就好了。</li> <li>这里又不得不吐槽一下Windows的问题（或者说我真的是找不到怎么做了），Mac上添加打印机就是会一个是否有双面打印单元的选项，但是Windows上的generic驱动 imagesetter和color printer都不支持双面打印。唯一就是选择正确的驱动了，还好Windows 10内置了那款打印机的驱动。</li> <li>还有个小问题就是打印大文件有几率会丢/卡，初步怀疑是网络问题但是还没有确定</li></ol> <h3 id=\"关于ngrok\">关于Ngrok</h3> <p>用的是免费的 <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"http://ngrok.cc\">ngrok.cc</a> ，感觉很稳定没什么问题就用这免费的了。手里面有两个账号但是有一个连注册的邮箱都忘记了只有clientid，能用????，之前设置了就是用来做ssh转发没毛病。另外一个就把squid反向代理放出去了。但是Mac不支持（GG）Windows可以用。也就放在那里了。没有上HTTPS什么的因为没什么时间管，而且大部分时间都是连进内网打印。外网的有需要再好好做吧233。打印权限没管，但是学校本来也不限制这个所以也没做。等 NoticeBoard 做成型了在整合也来得及。后面想的是用 anyconnect 做一个接入校园内网的 VPN（学校对等宽带有多余ip），以后有机会还可以托管个NAS在学校电费网费都省了23333</p> <p>不过都是后话了，配置文件图片什么的有机会再补（估计是不会填坑了????，除非有人催）</p>",
-            "url": "https://blog.never.pet/2018/01/31/cups-ngrok-and-a-little-machine",
-            "title": "折腾了一下CUPS，ngrok，还有一台买了很久的占美小主机",
-            "summary": "又到了折腾的时间，这一次是因为学校打印公用电脑总是各种问题。然后又一次论文打印晚了被老师一波late记过来，忍无可忍。\n",
-            "date_modified": "2022-03-26T17:35:26.702Z",
-            "date_published": "2018-01-31T11:52:00.000Z"
         }
     ]
 }
