@@ -10,12 +10,21 @@
     },
     "items": [
         {
+            "id": "https://blog.never.pet/2022/07/04/headless-mac-mini",
+            "content_html": "<h2 id=\"事故前提\">事故前提</h2> <p>Nix天生和JS一棒子包管理八字不合，在经过一系列斗争之后，我屈服了。搞个macos好了，毕竟现在大家适配不都是mac，实在是不想和工具打架了。</p> <p>看了一眼，M2 Macbook马上就要出了，Air改了设计，我最喜欢的锥形设计没了，而且只有两个同侧的type c？还1100刀8GB？再见再见。那就看看M1 Macbook吧，这不是马上要发布新款了，估计要降价把，899刀，8G，怎么想要个16G这么难，而且还是感觉有点贵。反正都是用，看看有没有人出二手把。</p> <p>看了一圈便宜了差不多100左右把，感觉还是一般版，主要是自己刚买了个笔记本，前前后后也花了1500，为啥我还要买个笔记本？出门带着也很重，那不如考虑一下mac mini好了，直接从笔记本远程上去。8G要649，不错，看一眼16G，哇塞要加200，隔着抢钱呢。不就是逼人买底配呗，那既然都是底配了，直接看二手，花的越少越好。500块钱，不错，还不用给税。那就这样愉快的定啦！</p> <h2 id=\"尝试动手\">尝试动手</h2> <p>收到机器，配置好，看了一眼状态，启动88次，SSD写入300G读取500G，状态很好！主要是现在Mac SSD都是銲死的了，SSD没了机器也废了。</p> <p>首先进去先到<code>设置-&gt;共享</code>打开<code>屏幕共享(vnc)</code>和<code>远程登录(ssh)</code>。ssh我强烈建议开启，后续会提到为什么……</p> <h3 id=\"resolution-分辨率\">Resolution 分辨率</h3> <p>由于默认没有显示器的情况下，链接VNC将会默认创建一个<code>1920x1080</code>的<code>Unknown Display</code>。这个东西的分辨率是无法调整，但是如果显示器的情况下VNC将会直接挂载现有的。我推荐这个时候可以用<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/waydabber/BetterDisplay\">BetterDisplay</a>来创建一个合适分辨率的<code>Dummy</code>，挂载上去，然后再链接。</p> <p>注意记得开启<code>low resolution</code>否则苹果的retina设定，大小还是会不匹配。每次更改分辨率以后，这个软件会默认把这个勾去掉，所以记得重新打回去</p> <p>如果需要重新启动VNC Server：</p> <blockquote><p><a rel=\"noopener noreferrer\" target=\"_blank\" href=\"http://bytesandbolts.com/remotely-restart-mac-os-x-in-built-vnc-server/\">http://bytesandbolts.com/remotely-restart-mac-os-x-in-built-vnc-server/</a></p></blockquote> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\"><span class=\"token function\">sudo</span> /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -restart -agent</code></pre></div><h3 id=\"screensaver-屏幕保护\">ScreenSaver 屏幕保护</h3> <p>这个是真的头大，屏幕保护默认是<strong>不能从VNC解除的</strong>。我尝试了很多组合键，最后还是ssh进去杀掉有用：</p> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\"><span class=\"token function\">killall</span> ScreenSaverEngine</code></pre></div><p>其实是有个选项被从UI隐藏了，好家伙啊好家伙：</p> <blockquote><p><a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.reddit.com/r/macmini/comments/posw4u/m1_mac_mini_screen_saver_still_randomly_invokes/\">https://www.reddit.com/r/macmini/comments/posw4u/m1_mac_mini_screen_saver_still_randomly_invokes/</a></p></blockquote> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\"><span class=\"token function\">sudo</span> defaults <span class=\"token function\">write</span> /Library/Preferences/com.apple.screensaver loginWindowIdleTime <span class=\"token number\">0</span></code></pre></div><h3 id=\"重启\">重启</h3> <p>这是另外一波头疼的问题，如果你开启了<code>filevault</code>，那么重启以后必须要用键盘解开硬盘才能启动VNC这些服务。所以……这怎么搞啊艹，那就关了咯。</p> <p>如果真的开了但是又要重启的话：</p> <blockquote><p><a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://apple.stackexchange.com/questions/225818/how-to-perform-filevault-authenticated-restart-when-updating-osx-from-appstore\">https://apple.stackexchange.com/questions/225818/how-to-perform-filevault-authenticated-restart-when-updating-osx-from-appstore</a></p></blockquote> <div class=\"saber-highlight\" data-lang=\"\"><pre class=\"saber-highlight-code language-text\"><code class=\"language-text\">sudo fdesetup authrestart</code></pre></div>",
+            "url": "https://blog.never.pet/2022/07/04/headless-mac-mini",
+            "title": "Headless Mac Mini 折腾记",
+            "summary": "Nix天生和JS一棒子包管理八字不合，在经过一系列斗争之后，我屈服了。搞个macos好了，毕竟现在大家适配不都是mac，实在是不想和工具打架了。\n",
+            "date_modified": "2022-07-05T05:45:14.637Z",
+            "date_published": "2022-07-04T00:00:00.000Z"
+        },
+        {
             "id": "https://blog.never.pet/2022/06/22/lsi-9266-8i-to-it-mode",
             "content_html": "<h2 id=\"前提的前提\">前提的前提</h2> <p>这个故事的经历以失败暂告一段落，但是着里面的过程我觉得还是值得记录一下。估计以后也用得上 --- ZFS还是一定要IT Mode，没办法。如果你想尝试一下的话不妨接着往下看，我稍微把工具都整理了一下</p> <h2 id=\"事故前提\">事故前提</h2> <p>18年的时候有我和另外一个朋友合组了一台HP 380P G8，这是一台相当老的服务器。21年左右的时候尝试升级了一下，结果后续内存和硬盘各种爆炸，所以想着晚些时候直接换个新的上去好了。结果新的服务器到了以后，文件系统我们换成了ZFS，不再是和以前一样的硬件RAID。ZFS需要直通模式，他既是文件系统，本身也包含了卷管理的功能。大部分RAID卡虽然提供了类似的模式，比如说给你每个盘开RAID 0，或者是提供了一个HBA Mode，但这些模式通常都是由软件模拟的，除了性能可能存在问题，有些甚至无法读取<code>smartctl</code>。所以一般来说会找那种可以刷成直通模式，让卡本身不做任何处理的固件。但是……</p> <p>这次我给搞忘了！反应过来的时候旧机器都已经寄到家门口了……新机器内置的RAID卡<code>P440ar</code>虽然是有HBA模式，看着性能也没啥问题，但是这机器发出去就很难再调整硬件配置，为了保险起见，还是单独弄一张带<code>IT Mode</code>固件的卡好了。</p> <h2 id=\"理论可行\">理论可行</h2> <p>翻箱倒柜找到了一张旧机器里面的<code>9266-8i</code>，搜索了一下，似乎并没有特别多的资料。但是似乎有人留下了一篇<code>cross-flashing</code>的经历：</p> <blockquote><p><a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://mywiredhouse.net/blog/flashing-lsi-2208-firmware-use-hba/\">https://mywiredhouse.net/blog/flashing-lsi-2208-firmware-use-hba/</a></p></blockquote> <p>大概意思就是Supermicro主板内置刚好也有一块LSI的RAID卡，控制器是<code>SMB2208</code>。这个版本刚好是没有<code>IT Mode</code>的。但是<code>SMB2308</code>有。然而，2208和2308虽然型号不一样，背后的架构其实是差不多的，甚至芯片都是用的一样的……那么，有没有可能可以直接想办法把2308给的固件刷到2208里面呢？</p> <p>答案是可以，作者发现这是真的能用。那么采用2208控制器卡有很多变种，比如我手里这块<code>9266-8i</code>其实也是同样的芯片组:</p> <blockquote><p>参考 <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://docs.broadcom.com/doc/12353227\">https://docs.broadcom.com/doc/12353227</a></p></blockquote> <p>所以如果这个用2208的卡可以，那么其他用同样的控制器的卡，理论上有概率也是可以的。</p> <p>所以我们开始试试看把！</p> <h2 id=\"准备环境\">准备环境</h2> <p>配置2208首先要使用DOS环境把卡清空，才可以再刷入2308固件。所以<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://www.freedos.org/download/\">FreeDOS</a>走起。</p> <p>如果你有多个U盘的话，可以选择直接下载LITEUSB的镜像写入。这里的问题是因为你还需要把各种工具和固件放进去 --- 虽然你U盘可以很大，但是镜像的文件系统本身为了压缩大小，是限定了分区大小的。也就是如果你没有第二个U盘，你可能还得想想办法扩容分区。我实在是懒得折腾了，Archlinux有个提前分了2G大小压缩后的镜像，但是写入是结结实实要2G。FreeDOS提供的FullUSB镜像在本次过程中分区大小是足够的。</p> <p>主要要准备的东西有：</p> <ol><li>9207_8i_Package_P20_IR_IT_FW_BIOS_for_MSDOS_Windows.zip  (has the 9207-8.bin firmware and mptsas2.rom bios in it)</li> <li>lsi2208fixer.zip (has <code>megarec</code>, <code>megacli</code>, <code>sas2flash</code>, and this has the 2208 recovery firmware)</li> <li>sas2008.zip  (提取 <code>sbrempty.bin</code> file in it)</li> <li>Installer_P20_for_UEFI.zip (this has the version of sas2flash.efi in it for UEFI shell)</li></ol> <p>注意的点：</p> <ol><li>在我测试的过程中，P14和P20的刷写软件都认为9266是兼容的固件。如果你的卡刷不了，可能你要准备P14的固件。我都放在了文章最后的链接里面</li> <li>lsi2208fixer那个镜像里面包含了所有的工具，但是问题就是分区太小了一点。我选择直接复制里面的文件到FullUSB镜像</li></ol> <p>镜像直接dd即可：</p> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\"><span class=\"token function\">sudo</span> <span class=\"token function\">dd</span> <span class=\"token assign-left variable\">if</span><span class=\"token operator\">=</span>FD13FULL.img <span class=\"token assign-left variable\">of</span><span class=\"token operator\">=</span>/dev/sda <span class=\"token assign-left variable\">bs</span><span class=\"token operator\">=</span>1M</code></pre></div><p>开个文件夹，正常挂载文件系统即可，不需要额外参数。文件我是开了个文件夹直接放在根目录。</p> <h3 id=\"freedos指令快速入门\">FreeDOS指令快速入门</h3> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\"><span class=\"token function\">dir</span>\n<span class=\"token builtin class-name\">cd</span>\n<span class=\"token function\">mkdir</span>\n<span class=\"token builtin class-name\">type</span> <span class=\"token comment\"># Same as cat</span>\n<span class=\"token function\">more</span> \n<span class=\"token comment\"># &gt; &lt; 这些管道符都是可以正常使用的</span>\n<span class=\"token comment\"># 调用程序直接输入名字即可</span>\n<span class=\"token comment\"># 可以用tab补全</span>\n<span class=\"token comment\"># 有些时候程序名字太长会被缩写，要留意下输出</span></code></pre></div><h3 id=\"dos16m-error-40-not-enough-available-extended-memory-xmin\">dos/16M error: [40] not enough available extended memory (XMIN)</h3> <p>这个问题在我的机器上遇到了，找了一圈看到了这个：</p> <blockquote><p><a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://forums.unraid.net/topic/12114-lsi-controller-fw-updates-irit-modes/page/63/\">https://forums.unraid.net/topic/12114-lsi-controller-fw-updates-irit-modes/page/63/</a>\nPulling a stick did nothing, that still left me with 4GB in the PC. I couldn't get around this no matter what I tried. I ultimately had to replaced DOS4GW.EXE with <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"http://dos32a.narechk.net/index_en.html\">DOS/32A a more recent DOS Extender</a> which didn't have a problem with what I guess is TOO MUCH ram. I just dumped everything from the extract binw directory into the root of my USB drive and renamed DOS32A.EXE to DOS4GW.EXE and the DOS parts worked.</p></blockquote> <p>拔内存我留4G也没有用，和这个人症状一样。之前在服务器256G都能跑起来，让我很困惑（我换PC的原因是因为服务器重启很慢而且很吵）。但是他里面说道这个Extender确实解决了问题：先<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://dos32a.narechk.net/content/download.html\">下载这个extender</a>，然后把里面文件解包全部放到和工具一个目录下，再把<code>DOS32A.EXE</code>改名成<code>DOS4GW.EXE</code>，问题解决。字符串搜索了一下，<code>megarec</code>里面确实提到了这个EXE，有点意思。</p> <h2 id=\"第一步，清flash\">第一步，清Flash</h2> <h3 id=\"先看看设备在不在\">先看看设备在不在</h3> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\">megarec -adplist</code></pre></div><h3 id=\"备份一下原本的固件\">备份一下原本的固件</h3> <p>备份结果会在当前目录产生</p> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\">megarec -readsbr <span class=\"token number\">0</span> smc2208.sbr\nmegarec -readspd <span class=\"token number\">0</span> smc2208.spd\nmegacli -adpallinfo -a0 <span class=\"token operator\">&gt;</span> allinfo.txt</code></pre></div><p><code>allinfo.txt</code>包含了SAS Address，记得存留</p> <h3 id=\"刷flash\">刷Flash</h3> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\">megarec -writesbr <span class=\"token number\">0</span> sbrempty.bin\nmegarec -cleanflash <span class=\"token number\">0</span></code></pre></div><p>如果没有报错，重启后进入下一步</p> <h2 id=\"cross-flashing\">Cross Flashing</h2> <p>在这里我遇到了个奇怪的问题，之前我是用服务器直接刷的，DOS里面<code>SAS2Flash</code>是可以看得到卡，但是换到PC就找不到了，所以我用了<code>sas2flash.efi</code></p> <p>如果你遇到类似的问题，需要进入<code>EFI Shell</code>来处理这个问题，目前的主板一般都会内置一个Shell，所以不需要额外下载EFI执行文件。下面是一些常用的指令：</p> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\">map <span class=\"token comment\"># 查看所有的映射</span>\n<span class=\"token comment\"># efi需要FAT</span>\nfs0: <span class=\"token comment\"># 切换到对应的文件系统</span>\n<span class=\"token comment\"># 直接看fs开头的找你的U盘</span>\n<span class=\"token builtin class-name\">cd</span>\n<span class=\"token comment\"># 程序执行直接文件名即可</span></code></pre></div><h3 id=\"列出设备\">列出设备</h3> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\">sas2flash -list</code></pre></div><h3 id=\"刷写固件\">刷写固件</h3> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\">sas2flash -o -f <span class=\"token number\">9207</span>-8.bin -b mptsas2.rom</code></pre></div><p>如果你不需要选项，可以忽略<code>-b</code>的rom部分，这样开机就不会进bios，速度快一点。</p> <h4 id=\"其他选项\">其他选项</h4> <p><code>sas2flash</code>其实有很多清理模式：</p> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\">sas2flsh -o -e <span class=\"token number\">6</span></code></pre></div><p>会清理rom和固件，但是会保留基本信息，例如SASa。<code>7</code>就是清除所有信息</p> <h3 id=\"写回sasa\">写回SASa</h3> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\">sas2flash -o -sasadd 50030480195exxxx</code></pre></div><h2 id=\"后续\">后续</h2> <p>刷完以后，卡上的蜂鸣器就开始疯狂叫，吵的不行。我不得已先贴了个胶带上去降低音量。原文中评论有人说道一样的卡型号也遇到了类似的问题，虽然卡可以用但是警报是关不掉的。所以他最后选择直接把哪个蜂鸣器取下来。</p> <p>我这里一开始刷完也是可以正常启动的，如果刷了rom甚至是可以看到卡型号和控制器型号正常显示了。但是一旦真正接入了硬盘以后，rom就会在开机的时候卡住。整机报<code>PCI Bus Error</code>。不刷rom可以正常进系统，但是会提示<code>mptsas error</code>。反正横竖认不出来。在当时赶时间，所以直接下单了一块刷好的<code>HP H220</code>先装上发了，但是卡在这个地方丝毫没有头绪。看来这还真的是YMMW？</p> <p>那先试试看能不能恢复固件把，事实证明确实是可以恢复回去的。</p> <h2 id=\"恢复固件\">恢复固件</h2> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\">megarec -cleanflash <span class=\"token number\">0</span>\n<span class=\"token punctuation\">(</span>reboot<span class=\"token punctuation\">)</span>\nmegarec -writesbr <span class=\"token number\">0</span> smc2208.sbr <span class=\"token comment\"># 之前备份的</span>\nmegarec -m0flash <span class=\"token number\">0</span> 2208_16.rom  <span class=\"token comment\"># 在恢复工具里面有 (this is the rom from the LSI recovery ROM thread linked above)</span></code></pre></div><h3 id=\"写回sasa-2\">写回SASa</h3> <div class=\"saber-highlight\" data-lang=\"bash\"><pre class=\"saber-highlight-code language-bash\"><code class=\"language-bash\">megaoem -AdpSetSASA 50030480195exxxx -a0</code></pre></div><h2 id=\"最后的最后\">最后的最后</h2> <p>大家记得一定手里要有多几块U盘，来回刷系统测试真的是搞心态。还有就是少碰HBA：）真的兔子洞</p> <h3 id=\"所有用到的固件工具文件\">所有用到的固件/工具文件</h3> <p><a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/HomeofNever/Blog/tree/master/pages/_assets/file/lsi-9266-8i-to-it-mode\">https://github.com/HomeofNever/Blog/tree/master/pages/_assets/file/lsi-9266-8i-to-it-mode</a></p> <h3 id=\"其他相关资料\">其他相关资料</h3> <blockquote><p><a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://forums.serverbuilds.net/t/flashing-sas2208-to-it-mode-when-sas2flsh-does-not-detect-it/2357\">https://forums.serverbuilds.net/t/flashing-sas2208-to-it-mode-when-sas2flsh-does-not-detect-it/2357</a></p></blockquote> <h3 id=\"用到的资源下载链接\">用到的资源下载链接</h3> <blockquote><p><a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://forums.laptopvideo2go.com/topic/29059-sas2008-lsi92409211-firmware-files/\">https://forums.laptopvideo2go.com/topic/29059-sas2008-lsi92409211-firmware-files/</a></p></blockquote>",
             "url": "https://blog.never.pet/2022/06/22/lsi-9266-8i-to-it-mode",
             "title": "给 LSI 9266-8i 刷 IT Mode",
             "summary": "这个故事的经历以失败暂告一段落，但是着里面的过程我觉得还是值得记录一下。估计以后也用得上 --- ZFS还是一定要IT Mode，没办法。如果你想尝试一下的话不妨接着往下看，我稍微把工具都整理了一下\n",
-            "date_modified": "2022-06-22T09:58:26.917Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2022-06-22T00:00:00.000Z"
         },
         {
@@ -24,7 +33,7 @@
             "url": "https://blog.never.pet/2022/03/26/p440ar-ctrl-benchmark",
             "title": "P440ar Array Controller 直通评测",
             "summary": "最近到了一批HPE DL560 G9的机器，默认带的是P440ar的卡。但是目前我们都是用的ZFS，所以一般来说我们都会把卡刷成IT Mode直通给系统。\n",
-            "date_modified": "2022-06-22T09:58:26.917Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2022-03-26T00:00:00.000Z"
         },
         {
@@ -33,7 +42,7 @@
             "url": "https://blog.never.pet/2022/03/10/cisco-ucs-experience",
             "title": "老IPMI折腾记",
             "summary": "最近入手了一个很老的Cisco UCS C240 M3S机器，遇到了不少麻烦，记录的同时吐槽一下\n",
-            "date_modified": "2022-06-22T09:58:26.913Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2022-03-10T00:00:00.000Z"
         },
         {
@@ -42,7 +51,7 @@
             "url": "https://blog.never.pet/2021/01/08/tweet-to-telegram",
             "title": "用 Github Action 拯救 Twitter 与 Telegram 的转发",
             "summary": "如果你想直接看成品: https://github.com/NeverBehave/Tweet2Telegram\n",
-            "date_modified": "2022-06-22T09:58:26.917Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2021-01-08T00:00:00.000Z"
         },
         {
@@ -51,7 +60,7 @@
             "url": "https://blog.never.pet/2021/01/04/2020-summary",
             "title": "The end of 2020 年终总结",
             "summary": "^背景音乐\n",
-            "date_modified": "2022-06-22T09:58:26.913Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2021-01-04T02:00:00.000Z"
         },
         {
@@ -60,7 +69,7 @@
             "url": "https://blog.never.pet/2021/01/01/2020-red-pack-writeup",
             "title": "年度总结红包WriteUp -- Berd.moe",
             "summary": "在Leonn的博客频道看到这个, https://blog.berd.moe/archives/2020-review/\n",
-            "date_modified": "2022-06-22T09:58:26.913Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2021-01-01T12:00:01.000Z"
         },
         {
@@ -69,7 +78,7 @@
             "url": "https://blog.never.pet/2020/05/25/customize-telegram-twitter-ifttt-connection",
             "title": "用 webhook 拯救 ifttt 上 Twitter 与 Telegram 的同步",
             "summary": "这大概是我最近最后一篇更新了, 马上要上班了, Orz\n",
-            "date_modified": "2022-06-22T09:58:26.917Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2020-05-25T00:00:00.000Z"
         },
         {
@@ -78,7 +87,7 @@
             "url": "https://blog.never.pet/2020/05/23/bye-dbd",
             "title": "Bye, deadbydaylight.wiki",
             "summary": "在清理Google Analysis的时候, 发现了这个帐号的记录\n",
-            "date_modified": "2022-06-22T09:58:26.913Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2020-05-23T00:00:00.000Z"
         },
         {
@@ -87,7 +96,7 @@
             "url": "https://blog.never.pet/2020/05/21/keep-your-google-voice-with-sao",
             "title": "Google Voice 自动应答和保号",
             "summary": "偶然打开某个骚群, 发现有人抱怨自己的 Google Voice 被回收了, 并讨论如何保号\n",
-            "date_modified": "2022-06-22T09:58:26.917Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2020-05-21T00:00:00.000Z"
         },
         {
@@ -96,7 +105,7 @@
             "url": "https://blog.never.pet/2020/05/21/switch-from-lambda-to-fission",
             "title": "从AWS lambda迁移到Fission",
             "summary": "我开始用aws lambda的时间大约是它还只有node v8运行时的时候, 主要其免费的额度确实相当的诱人, 加上学生赠与的免费credit, 香的一批\n",
-            "date_modified": "2022-06-22T09:58:26.917Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2020-05-21T00:00:00.000Z"
         },
         {
@@ -123,7 +132,7 @@
             "url": "https://blog.never.pet/2019/05/31/nano-pi-neo2-first-experience",
             "title": "Nano Pi NEO2 体验小记",
             "summary": "H5似乎已经停止生产了, Nano PI Neo2 也似乎没有了\n",
-            "date_modified": "2022-06-22T09:58:26.917Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2019-05-31T03:42:00.000Z"
         },
         {
@@ -132,7 +141,7 @@
             "url": "https://blog.never.pet/2019/03/27/space-and-s-p-a-c-e",
             "title": "空格与 空 格",
             "summary": "相关项目：kongebot\n机器人 @kongebot\n",
-            "date_modified": "2022-06-22T09:58:26.917Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2019-03-27T06:08:00.000Z"
         },
         {
@@ -141,7 +150,7 @@
             "url": "https://blog.never.pet/2019/03/27/ripe-probe-hosting",
             "title": "RIPE Probe Hosting",
             "summary": "先上图（低清警告）\n",
-            "date_modified": "2022-06-22T09:58:26.917Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2019-03-27T03:47:00.000Z"
         },
         {
@@ -150,7 +159,7 @@
             "url": "https://blog.never.pet/2019/03/20/my-thought-about-cloud-game-before",
             "title": "云游戏：生不逢时",
             "summary": "谨此文怀念我接触的第一个国内在线串流游戏平台：云游戏\n",
-            "date_modified": "2022-06-22T09:58:26.917Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2019-03-20T03:42:00.000Z"
         },
         {
@@ -159,7 +168,7 @@
             "url": "https://blog.never.pet/2019/03/08/telegram-web-hosting",
             "title": "Telegram Web 搭建",
             "summary": "Telegram 是个好东西，他有个Web客户端，也是个好东西\n",
-            "date_modified": "2022-06-22T09:58:26.917Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2019-03-07T18:10:00.000Z"
         },
         {
@@ -168,7 +177,7 @@
             "url": "https://blog.never.pet/2019/02/08/tasker-messenger",
             "title": "华为短信机.jpg",
             "summary": "到国外以后，国内带来的两张手机卡突然有一张没地方放了。刚好老母过来的时候让她赶紧把手里的华为P9给换了水果，顺便还注册了美区ID。既然有台这个机器……这就折腾一下吧\n",
-            "date_modified": "2022-06-22T09:58:26.917Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2019-02-08T04:28:00.000Z"
         },
         {
@@ -177,7 +186,7 @@
             "url": "https://blog.never.pet/2018/12/31/2018-2019",
             "title": "一张图总结2018",
             "summary": "时区： UTC-4\n",
-            "date_modified": "2022-06-22T09:58:26.913Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2018-12-31T09:47:00.000Z"
         },
         {
@@ -186,7 +195,7 @@
             "url": "https://blog.never.pet/2018/12/15/how-to-feed-a-robot",
             "title": "如何科学的给机器人投食",
             "summary": "机器人在这里特指爬虫，本文特指一些通过扫默认目录尝试窥探 phpmyadmin 一类管理面板的玩意\n",
-            "date_modified": "2022-06-22T09:58:26.917Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2018-12-15T04:54:00.000Z"
         },
         {
@@ -204,7 +213,7 @@
             "url": "https://blog.never.pet/2018/10/11/moving-my-blog-1",
             "title": "再一次迁移博客",
             "summary": "在考量了typecho，用github issue等一类博客的利弊只有，我换掉了博客目前用[Mweb]的博客并做了重定向\n",
-            "date_modified": "2022-06-22T09:58:26.917Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2018-10-11T09:21:40.000Z"
         },
         {
@@ -213,7 +222,7 @@
             "url": "https://blog.never.pet/2018/09/11/use-telegram-for-image-cdn",
             "title": "Telegram 图床（视频）计划",
             "summary": "那破链接会变，输了\n",
-            "date_modified": "2022-06-22T09:58:26.917Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2018-09-11T05:28:00.000Z"
         },
         {
@@ -222,7 +231,7 @@
             "url": "https://blog.never.pet/2018/09/11/build-a-rediretcor-with-ss-redir",
             "title": "利用ss-redir做国内中转节点",
             "summary": "大部分搬运内容，实测可用\n",
-            "date_modified": "2022-06-22T09:58:26.913Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2018-09-10T17:15:00.000Z"
         },
         {
@@ -231,7 +240,7 @@
             "url": "https://blog.never.pet/2018/07/27/rancher-v1.6-loadbalancer",
             "title": "Rancher v1.6 负载均衡折腾小记",
             "summary": "包含了两个内容，一个是加日志，另外一个是H2\n",
-            "date_modified": "2022-06-22T09:58:26.917Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2018-07-26T23:28:00.000Z"
         },
         {
@@ -240,7 +249,7 @@
             "url": "https://blog.never.pet/2018/07/26/build-your-own-gdgdocs",
             "title": "GDGDOCS 项目自建",
             "summary": "今天做了一份调查问卷，要把结果分享给别人，于是就关联到一个Spreadsheet，结果GDGDOCS不再支持form以外的反代了。那……就自己做一个咯\n",
-            "date_modified": "2022-06-22T09:58:26.913Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2018-07-26T03:59:00.000Z"
         },
         {
@@ -249,7 +258,7 @@
             "url": "https://blog.never.pet/2018/06/20/proxmox-rpcbind-ddos",
             "title": "Proxmox rpcbind 的小问题",
             "summary": "最近收到一封Abuse说机器有被利用DDOS的问题，原文部分内容是这样的：\n",
-            "date_modified": "2022-06-22T09:58:26.917Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2018-06-20T03:57:00.000Z"
         },
         {
@@ -258,7 +267,7 @@
             "url": "https://blog.never.pet/2018/06/18/about-CNBlackListR-project",
             "title": "关于 CNBlackListR 项目的交接",
             "summary": "因为打算逐渐远离一段时间的中文圈，目前就是在清理中文圈的羁绊。毕竟我也耗不起这时间，在各种猜忌周旋的同时处理那些头疼的垃圾死🐎Spammer。高中生也没有生产力，希望能够理解。\n",
-            "date_modified": "2022-06-22T09:58:26.913Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2018-06-17T23:38:00.000Z"
         },
         {
@@ -267,17 +276,8 @@
             "url": "https://blog.never.pet/2018/06/15/proxmox-nat",
             "title": "Proxmox 开 NAT 小鸡",
             "summary": "参考：https://cyberpersons.com/2016/07/27/setup-nat-proxmox/\n",
-            "date_modified": "2022-06-22T09:58:26.917Z",
+            "date_modified": "2022-07-05T05:45:14.637Z",
             "date_published": "2018-06-15T02:19:00.000Z"
-        },
-        {
-            "id": "https://blog.never.pet/2018/05/21/my-really-silly-article",
-            "content_html": "<blockquote><p>作者按：这个版本相比与公众号发布的版本有所不同。\n<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://mp.weixin.qq.com/s/gWLiH1XvWYHYBFwWHmis0A\">https://mp.weixin.qq.com/s/gWLiH1XvWYHYBFwWHmis0A</a></p></blockquote> <p>到了我写学生故事啦，但是拖延的我依然是顶到了头才开始动手。估摸着是大晚上的时候人才能安静下来，有点心思做事情罢了。</p> <p>之前的学生故事都有别样的特点，从梦境般的虚幻到干脆直爽的虚伪，散发着耀眼的光芒。要是早点知道这公众号上的一篇文章还能让我见到“路边的花儿争相绽放，树上的鸟儿婉转争鸣”的景象，我就选择早点写完早点完事。省的想入非非要弄出“别具一格”的学生故事。</p> <p>首先，那就真实且直接一点吧。</p> <blockquote><p>转学并重读高一，RPI在HFI录取的最低标化学生；GPA低于学校平均，也是惨不忍睹。能和之前的各位一起发学生故事真的也是蛮荣幸的呢XD</p></blockquote> <p>而无知的我在当时却是没意识到这一切是有多么严重，到现在也差不多：）</p> <p>接下来的阅读大约会占据你宝贵生命中的5分钟，没有兴趣还请左上角。如果你看到这里还有兴趣继续了解一下我的话，我接下来有几个小片段和你分享一下。</p> <p><strong>但是请记住一个前提</strong>：作为你生命中的一名过客，我没有任何想要让你从这些碎片中得出结论的企图，我也不希望你能够接受这些结论。这些，只是我在一个晚上，尝试从我已经工作了18年的大脑里面提取出来一些“如果人生重来应该就体验不到了”的玩意。</p> <h3 id=\"我是怎么样的人呢？\">我是怎么样的人呢？</h3> <blockquote><p>在幼儿园的时候，人们就在问：你的理想是什么啊？</p></blockquote> <p>这个故事很老套了。但是仔细想想，在当时年少无知的时候，你说了什么呢？</p> <p>我是那个回答不出来，但是也不肯迁就随便选一个的顽童。也许是没达到他们的预期吧，我反正是没拿到小红花的那个。</p> <blockquote><p>直到六年级，我才第一次进了学校旁边的一家7-11便利店。</p></blockquote> <p>那个时候的同学，了解到的社会远远比我丰富吧。当时最流行的是掌机，PSP。斗罗大陆是比较火的网络小说。然而这部小说的名字我是在初三的时候才真正了解到并开始看的。想到这里，我可算是真的小白吧（笑）。</p> <hr> <p>不客观的说，我是个勤奋的人——至少这句话在我感兴趣的领域是对的。但是至于对什么感兴趣，什么时候感兴趣，就是另外一回事了。</p> <blockquote><p>其实就是逃避。</p></blockquote> <p>是啊，标化考试真的是难受，GPA每次考试都要维持上升的水平也不是简单的事情。喜欢的科目固然是好一点，但是总有些不擅长的，而且觉得没什么兴趣的。</p> <p>最最重要的是，我还知道，这些东西很大程度上决定了我的未来。</p> <p>而我，“刚刚好”就是对他们不感兴趣。</p> <p>似乎是从某个阶段开始，我就慢慢的失去的了一些，在以前拥有的那种，专注，或者说，无瑕。混进来了一些原本不属于我自己的，且又牵制住自我的东西。</p> <h3 id=\"为了什么呢？\">为了什么呢？</h3> <p>我在逃什么呢？大约就是那种“为了中华之崛起而读书“的“使命感”吧。</p> <p>自从高中开始，父母的“立志”话语就没有少过。从这个时候我开始知道，作为独生子女的我，父母的身体日渐衰退。我什么时候可以撑起这个家呢？</p> <p>自从高中开始，我知道我要准备出国留学。国际学校，算一算，一年15-16万，一天就是400元，还不算生活费；到后面大学的费用，每一笔开销都是父母用血和青春打拼来的。我怎么才能对得起呢？</p> <p>自从高中开始，每一次标化考试，都是要花真金白银，每一个数字，都要先乘个7才是真实的开销。坐在考场4个小时，就是自己半个月的生活费。我对得起我每次的考试吗？</p> <p>自从高中开始，我了解了我的同学的背景：优秀的GPA，无数竞赛，活动，夏校，标化，AP，想要去的大学排名，交换生计划；每一次的作业，考试，都是暗流涌动。如果我出了一点差错，我对得起我现在所在的学校，以及未来十分优秀的校友们吗？</p> <blockquote><p>初心，破碎了。</p></blockquote> <p>我不知道这一切怎么发生的，但是就是这迅雷不及掩耳之势，我就被一群铺天盖地的责问淹没。我没法做到视而不见，闭耳不闻。</p> <p>因为，这就是</p> <p><strong>残酷无情的现实</strong></p> <h3 id=\"无知和迷茫，前进的动力和坚强的后盾\">无知和迷茫，前进的动力和坚强的后盾</h3> <p>我喜欢编程，也许这是唯一我在我周围的同学里面有点名气的原因。</p> <p>然而高中生的我又能有什么作为呢？生产力对于我这个高中生来说大约就是一个概念罢了。</p> <p>大约就是那个“读书里面最会搞电脑”的罢了。</p> <p>大约就是那个“因为考了5次10次还是这个鬼样子”而逃避的失败者罢了。</p> <p>在知道失败的后果的时候，越想挣脱，事情有的时候只会变得更糟，越来越不想做，事情越来越糟。</p> <p>不需要知道为了什么而做什么的时候，做事情有的时候却会很顺利。只需要知道，要做这件事，OK，做就好了。</p> <p>一开始编程，什么都不懂。直接上来啃现成项目，钻研一晚上也看不懂两行；到处瞎问问题。慢慢的学会了提问的智慧，读手册；从要这么写慢慢理解为什么这样写；提出一些小改动；第一次修改被合并；认识了不少朋友；开始了自己的项目；越来越多的人在一起，为一个目标而前进。</p> <p>一开始做翻译，从一开始连英文语序都不变到开始说人话；学会了怎么打轴，听译，压制视频；学到要提前了解翻译面向的人群来针对性的改动措辞；制作工作流；学会如何安排很多人一起来制作一个百科；如何制定合理的模版和规则；看到自己的名字最后放在贡献列表上面，视频和词条被点赞和评论；成功接手了一个落地项目。</p> <p>回头看来，自己似乎真的做了不少，甚至吃的苦不少于去补习班读标化：翻译基本上都会被负责人打回去问你是不是中国人会说话吗；写个项目不知不觉一天过去可能就读了个文档。到头来做的事情基本上也没有多少人知道。</p> <p>甚至这一切，对于我一个高中生，有什么意义呢？写不进活动列表，算不上什么成就，又没有物质报酬；为了挂个名字就要做这么多事情怎么算都不合算。</p> <p>无知的我，对此毫不疲倦，应该就是逃避失败的现实的表现吧。</p> <p>但是真的要有什么意义吗？倔强地坚持着</p> <hr> <blockquote><p>很多时候，人们知道很多道理，知道他们的未来，知道什么应该是潮流，应该怎么做才能达到自己的目的。但是，也许，我是说也许，<strong>我们是因为知道的太多，而错过了太多。</strong></p></blockquote> <p>你知道没有够高的成绩，你上不了好的大学；你知道你上不了好的大学，你的校友估计也不怎么样；你知道你的学校和校友对你以后的生涯的帮助；你知道如果你没有好的职业生涯，你的人生可能就是平庸的过一辈子，就算你有再大的志向，亦是如此。</p> <blockquote><p>不要走弯路，他们说，要有计划。</p></blockquote> <p>虽然人们说，一次考试，一所学校不决定着一切；人们也在说，其实这很重要。</p> <p>虽然人们说，要按照自己的方向发展，活出不一样；人们也在说，一个人的出处，基本上决定了未来的高度。</p> <p>人们说，一个人70%是父母基因决定，另外30%是环境。先天已经决定了很多，但是环境也很重要。（来自“我目前学的”心理学，有疑问可以自行搜索准确性）</p> <p>很多时候，很迷茫，他们到底在说什么？明明很知道结果的样子，却硬是要画个圆饼，告诉你，其实你是有希望的。</p> <h3 id=\"或者说，我们都在逃避现实？\">或者说，我们都在逃避现实？</h3> <p>我不相信神的存在。但是我承认，这个世界是有规则的。</p> <p>“善有善报，恶有恶报”：虽然说是“公正世界谬误”中算是比较著名的一种，真的要说他是假的，也不是很容易。</p> <p>可能只是从你所能触及的时间范围内，事情的发展并没有以你能够察觉的速度趋近于“公正“这个目标而已。</p> <p>甚至，可能对于你所了解到的”公正“，对于整个世界而言，并不是。</p> <p>是怎么样的力量才能做到这一步呢？我暂时想不到。</p> <p>但是对于我来说，事实就是，每个人都很渺小，<strong>我并不重要</strong>；反过来说，开心就好。</p> <p>同时，对于一些人来说，比如亲人，血缘关系的人，我是很重要。但是这些对于我来说，尤其是当了解到这<strong>意味着什么的时候</strong>，就是束缚。</p> <p>当要为自己的行为，羁绊而负责的时候，能做的，就越少。</p> <p>如果现在的我如果要做到这一步，首先要衣食无忧，但是做到这一点我要花费时间去追求物质，去工作，越多羁绊就此牵制我的思想。</p> <p><strong>所以我只是想在这里，纪念曾经无忧无虑的自我。</strong></p> <p>那才是真正的自己吧，不为了什么而去了解，去发掘，去真正地探索自己的内心，发现喜欢的东西。</p> <p>而每个人却只能在自己无知，懵懂的时候经历这一切。</p> <p>在已经做好准备的时候被剥夺，被束缚。</p> <p>这大概就是最残酷的惩罚了吧。</p> <blockquote><p>珍惜的东西永远是失去的，再也难以追回的东西。</p></blockquote> <hr> <p>所谓说勇敢地面对着残酷的事实前进，不如说是为了追求能够把自己关进自己的象牙塔而做出的努力。</p> <p>地球上75亿人，有多少人成了大事？人外有人，天外有天，凭什么觉得自己就是能做大事的那个呢？现实无情的责问着</p> <p>而无知告诉我，这并不是需要知道的。</p> <blockquote><p>做一个对社会有用的人，而不用管到底对自己有什么好处。想到的能就要做。不要让曾经的话如流水般滑走，不留痕迹。为什么总是考虑是否可行呢？就算不行，概念可以有的吧。</p></blockquote> <p>而迷茫告诉我，这远远不是尽头。到了那一步了，就会有新的迷茫跟着你，一直陪伴着你。</p> <p>我不知道我还能留下他们两个多久，但是我会一直珍惜着他们给我带来的一切。</p> <p>谢谢你们。</p> <h3 id=\"尾声\">尾声</h3> <p>如果你很认真地看到了这里，很感谢你的付出。毕竟我自认为并没有拿出与你时间价值等价的材料，思路也不是很清晰。</p> <p>但是还请让我任性一把吧，虽然这次任性可能带来的结果就是在朋友圈被指指点点，甚至在一两年后的校友聚会上被调侃。想到这里，<strong>还请大家不要过多转发；点赞，或是收藏</strong>（真的，不虚伪的！）。</p> <p>不过到时候还是希望校友的我们能再见面呢。（<s>我是不是太高看自己了，一定是的了</s>）</p> <p>感谢目前我的同学，老师们；我的父母；还有我所有的朋友们。</p> <p>虽然很俗气，但是现在看着这篇文章的你，万有引力是不是也在我们之间交织呢？</p> <p>感谢目前有的，或是曾经存在过的交集。</p> <blockquote><p>珍惜让我学会感恩，活在当下。</p></blockquote> <hr> <p>可能是害怕了失去，或者说面对着难以预知的未来心存敬畏。</p> <p>虽然嘴上说着不重要的话，但是依然有着一颗想要成功的心。</p> <p>在这里，祝福大家能够在自己的道路上，一直地走下去。</p> <p>站在属于自己的高峰上，互相招手。</p> <p>头顶，虚空或仍遥不可及。</p> <p>笑容却就此绽放。</p>",
-            "url": "https://blog.never.pet/2018/05/21/my-really-silly-article",
-            "title": "学生事故 | 学会无知，保持迷茫",
-            "summary": "作者按：这个版本相比与公众号发布的版本有所不同。\nhttps://mp.weixin.qq.com/s/gWLiH1XvWYHYBFwWHmis0A\n",
-            "date_modified": "2022-06-22T09:58:26.917Z",
-            "date_published": "2018-05-21T02:08:00.000Z"
         }
     ]
 }
