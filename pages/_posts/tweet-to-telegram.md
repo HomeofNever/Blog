@@ -9,7 +9,16 @@ categories:
     - 技术
 layout: post
 date: 2021-01-08
+updated: 2023-09-18
 description: 自动获取点赞推文图片/视频, 转发到Telegram频道, 咳咳
+---
+
+## 2023更新
+
+仓库被Github Ban啦！应该是Github Action滥用的问题。但是我也已经从推特转走了，平时都在Mastodon。再见，小蓝鸟！
+
+---
+--原文分割线--
 ---
 
 > 如果你想直接看成品: https://github.com/NeverBehave/Tweet2Telegram
