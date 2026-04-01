@@ -1,0 +1,15 @@
+---
+layout: layouts/page.njk
+title: Tags
+permalink: /tags/
+---
+
+<ul class="flex flex-wrap gap-3">
+  {% for tag in collections | getTagList %}
+    <li>
+      <a href="/tags/{{ tag | tagSlug }}/" class="bg-gray-100 text-gray-700 px-3 py-1 rounded hover:bg-gray-200">
+        {{ tag }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>

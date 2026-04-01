@@ -1,0 +1,40 @@
+---
+layout: layouts/page.njk
+title: 友情链接
+description: wow, these ARE my friends
+permalink: /friends/
+---
+
+<p>这里应该是一些一起玩的小伙伴们，他们都超级棒的!!1</p>
+<p>不妨也去溜达溜达 XD</p>
+
+<div class="overflow-x-auto">
+  <table class="w-full text-center">
+    <thead>
+      <tr>
+        <th>Avatar</th>
+        <th>Site</th>
+        <th>Slogan</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for name, value in friends %}
+        <tr>
+          <td>
+            {% if value.img %}
+              <img src="{{ value.img }}" width="200" alt="{{ name }}" loading="lazy">
+            {% else %}
+              头
+            {% endif %}
+          </td>
+          <td><a href="{{ value.link }}">{{ name }}</a></td>
+          <td>{{ value.slogan }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<h2>交换友链</h2>
+<p>交换链接请移步<a href="https://github.com/HomeofNever/Friends">这个仓库</a>, 阅读说明后发起 pr 提交你的信息</p>
+<p>等你哦w</p>

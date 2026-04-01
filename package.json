@@ -1,33 +1,24 @@
 {
-  "private": true,
+  "name": "Blog",
+  "type": "module",
+  "packageManager": "yarn@4.13.0",
   "scripts": {
-    "dev": "saber",
-    "build": "saber build && node scripts/index.js"
+    "dev": "eleventy --serve",
+    "build": "eleventy"
   },
   "devDependencies": {
-    "raw-loader": "^4.0.2",
-    "saber": "latest",
-    "saber-plugin-feed": "^0.4.3",
-    "saber-plugin-query-posts": "^0.4.5",
-    "saber-theme-minima": "latest",
-    "vue-telegram-embed": "^1.0.1",
-    "vue-tweet-embed": "^2.4.0",
-    "webpack": "^4.42.1"
-  },
-  "dependencies": {
-    "axios": "^0.19.2",
-    "dayjs": "^1.8.28",
-    "global": "^4.4.0",
-    "markdown-it-attrs": "^3.0.2",
-    "markdown-it-cjk-breaks": "^1.1.3",
-    "markdown-it-footnote": "^3.0.2",
-    "markdown-it-implicit-figures": "^0.10.0",
-    "prismjs": "^1.23.0",
-    "saber-highlight-css": "^0.1.2",
-    "saber-plugin-ga-lite": "^0.4.0",
-    "saber-plugin-image": "^0.2.2",
-    "saber-plugin-jsdelivr-cdn": "^0.1.0",
-    "saber-plugin-prismjs": "^0.2.4",
-    "saber-plugin-sitemap": "^0.4.1"
+    "@11ty/eleventy": "3",
+    "@11ty/eleventy-plugin-rss": "^3.0.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
+    "@tailwindcss/postcss": "^4.2.2",
+    "@tailwindcss/typography": "^0.5.19",
+    "cssnano": "^7.1.4",
+    "markdown-it": "^14.1.1",
+    "markdown-it-attrs": "^4.3.1",
+    "markdown-it-cjk-breaks": "^2.0.0",
+    "markdown-it-footnote": "^4.0.0",
+    "markdown-it-implicit-figures": "^0.12.0",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.2"
   }
 }
