@@ -1,0 +1,18 @@
+---json
+{
+  "permalink": "/_redirects",
+  "eleventyExcludeFromCollections": true
+}
+---
+# Legacy redirects (from previous blog migrations)
+{% for rule in legacyRedirects %}
+{{ rule }}
+{% endfor %}
+
+# Old URL scheme redirects (/:year/:month/:day/:slug → /posts/:slug/)
+{% for post in collections.posts %}
+/{{ post.date | dateToPath }}/{{ post.fileSlug }}  /posts/{{ post.fileSlug }}/  301
+{% endfor %}
+
+# Feed redirects
+/feed/atom.xml  /feed.xml  301
