@@ -17,7 +17,7 @@ permalink: /about/
 
 设定图做出来了
 
-<!-- TODO: Tweet embed, Phase 2 -->
+{% tweet "1162786240371937280" %}
 
 
 ### 2018.12.03

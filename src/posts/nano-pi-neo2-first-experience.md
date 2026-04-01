@@ -57,7 +57,7 @@ Zerotier 黑箱子实在不好debug...
 
 淘宝店铺最低的是99，当我看上了准备买的时候，发现商家是广州的，一问是不是在岗顶的新赛格，还真的是，于是直接上门买了，省下10块钱邮费，嘻嘻
 
-<!-- TODO: embed migration Phase 2 -->
+{% telegram "ButNothingHappened", "2956" %}
 
 ## 跑！
 
@@ -81,7 +81,7 @@ NanoPI的卡槽是有弹簧的，这个比树莓派体验好上不少
 
 ### 开机
 
-<!-- TODO: embed migration Phase 2 -->
+{% telegram "ButNothingHappened", "2958" %}
 
 （见上图）开机直接飙到46度，是有点小难受，早知道就配上散热片了，开久了亚克力板还是有点烫的。因为是监控机要求长时间开着，这个算是有点失策。
 
