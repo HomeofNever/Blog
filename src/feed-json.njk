@@ -1,0 +1,25 @@
+---json
+{
+  "permalink": "/feed/index.json",
+  "eleventyExcludeFromCollections": true
+}
+---
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "{{ site.title }}",
+  "home_page_url": "{{ site.url }}/",
+  "feed_url": "{{ site.url }}/feed/index.json",
+  "description": "{{ site.description }}",
+  "authors": [{ "name": "{{ site.author }}" }],
+  "items": [
+    {% set feedPosts = collections.posts | reverse %}
+    {% for post in feedPosts %}{% if loop.index0 < 20 %}{% if loop.index0 > 0 %},{% endif %}
+    {
+      "id": "{{ site.url }}{{ post.url }}",
+      "url": "{{ site.url }}{{ post.url }}",
+      "title": "{{ post.data.title }}",
+      "content_html": {{ post.templateContent | dump | safe }},
+      "date_published": "{{ post.date | dateToRfc3339 }}"
+    }{% endif %}{% endfor %}
+  ]
+}
