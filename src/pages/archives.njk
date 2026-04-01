@@ -1,0 +1,14 @@
+---
+layout: layouts/page.njk
+title: Archives
+permalink: /archives/
+---
+
+<ul class="space-y-2">
+  {% for post in collections.posts | reverse %}
+    <li>
+      <time datetime="{{ post.date | isoDate }}" class="text-sm text-gray-500">{{ post.date | readableDate }}</time>
+      — <a href="{{ post.url }}" class="hover:underline">{{ post.data.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
