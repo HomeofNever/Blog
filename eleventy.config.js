@@ -69,6 +69,22 @@ export default function (eleventyConfig) {
     return `${year}/${month}/${day}`;
   });
 
+  // --- Tag filters ---
+  eleventyConfig.addFilter("getTagList", (collections) => {
+    const tags = new Set();
+    for (const name in collections) {
+      if (name === "posts" || name === "all") continue;
+      tags.add(name);
+    }
+    return [...tags].sort();
+  });
+
+  eleventyConfig.addFilter("tagSlug", (tag) => {
+    // Handle CJK and mixed-script tags that slugify strips to empty
+    const ascii = tag.toLowerCase().replace(/[^\w\s-]/g, "").replace(/\s+/g, "-").trim();
+    return ascii || encodeURIComponent(tag);
+  });
+
   // --- Category slug filter ---
   eleventyConfig.addFilter("categorySlug", (category) => {
     const map = JSON.parse(

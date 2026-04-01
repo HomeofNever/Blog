@@ -2,7 +2,7 @@
 title: 关于 CNBlackListR 项目的交接
 tags: 
     - Spam
-    - Telegram
+    - telegram
     - 总结
 categories:
     - 随笔

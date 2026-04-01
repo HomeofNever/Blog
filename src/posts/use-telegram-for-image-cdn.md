@@ -1,7 +1,7 @@
 ---
 title: Telegram 图床（视频）计划
 tags: 
-    - Telegram
+    - telegram
     - 图床
 categories:
     - 技术
