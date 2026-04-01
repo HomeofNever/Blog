@@ -1,0 +1,15 @@
+{
+  "title": "Never迷の小窝",
+  "url": "https://blog.never.pet",
+  "author": "NeverBehave",
+  "email": "i@never.pet",
+  "description": "迷の生物的迷の小窝",
+  "twitter": "_NeverBehave_",
+  "icon": "/static/icons/android-chrome-512x512.png",
+  "nav": [
+    { "text": "Home", "link": "/" },
+    { "text": "About", "link": "/about/" },
+    { "text": "Social", "link": "https://never.pet" },
+    { "text": "Friends", "link": "/friends/" }
+  ]
+}
