@@ -51,6 +51,49 @@ package.json                  # Dependencies and scripts
 
 ---
 
+## Chunk 0: Development Environment
+
+### Task 0: Set up distrobox development container
+
+**Files:**
+- Create: `distrobox.ini`
+
+The distrobox container mirrors the CI environment (Ubuntu 24.04 + Node 22) so builds behave identically locally and in GitHub Actions.
+
+- [ ] **Step 1: Create distrobox container**
+
+```bash
+distrobox assemble create
+```
+
+This reads `distrobox.ini` from the repo root and creates a `blog-dev` container with Ubuntu 24.04 + Node 22.
+
+- [ ] **Step 2: Enter the container**
+
+```bash
+distrobox enter blog-dev
+```
+
+- [ ] **Step 3: Verify Node.js version**
+
+```bash
+node --version
+# Expected: v22.x.x
+npm --version
+# Expected: 10.x.x or higher
+```
+
+- [ ] **Step 4: Commit distrobox config**
+
+```bash
+git add distrobox.ini
+git commit -m "feat: add distrobox dev environment (Ubuntu 24.04 + Node 22)"
+```
+
+All subsequent tasks should be run inside the `blog-dev` distrobox container.
+
+---
+
 ## Chunk 1: Project Scaffolding
 
 ### Task 1: Initialize project and install dependencies
