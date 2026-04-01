@@ -1,6 +1,36 @@
 ---
 layout: layouts/base.njk
-title: Home
+pagination:
+  data: collections.posts
+  size: 12
+  reverse: true
+  alias: pagedPosts
+permalink: "{% if pagination.pageNumber == 0 %}/{% else %}/page/{{ pagination.pageNumber + 1 }}/{% endif %}"
 ---
-<h1 class="text-3xl font-bold mb-4">{{ site.title }}</h1>
-<p>Site is building.</p>
+
+<h1 class="text-3xl font-bold mb-8">{{ site.title }}</h1>
+
+<ul class="space-y-6">
+  {% for post in pagedPosts %}
+    <li>
+      <div class="text-sm text-gray-500">
+        <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+      </div>
+      <a href="{{ post.url }}" class="text-xl font-semibold hover:underline">{{ post.data.title }}</a>
+      {% if post.data.description %}
+        <p class="text-gray-600 mt-1">{{ post.data.description }}</p>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+
+{% if pagination.pages.length > 1 %}
+  <nav class="mt-8 flex gap-4 text-sm">
+    {% if pagination.href.previous %}
+      <a href="{{ pagination.href.previous }}" class="border border-gray-200 px-3 py-1 hover:bg-gray-50">&laquo; Newer</a>
+    {% endif %}
+    {% if pagination.href.next %}
+      <a href="{{ pagination.href.next }}" class="border border-gray-200 px-3 py-1 hover:bg-gray-50">Older &raquo;</a>
+    {% endif %}
+  </nav>
+{% endif %}
