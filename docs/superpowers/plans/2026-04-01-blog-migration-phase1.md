@@ -79,8 +79,8 @@ distrobox enter blog-dev
 ```bash
 node --version
 # Expected: v22.x.x
-npm --version
-# Expected: 10.x.x or higher
+yarn --version
+# Expected: 4.x.x or higher
 ```
 
 - [ ] **Step 4: Commit distrobox config**
@@ -114,10 +114,10 @@ git checkout -b migration/eleventy
 
 Run:
 ```bash
-npm init -y
-npm install --save-dev @11ty/eleventy@3 @tailwindcss/postcss tailwindcss postcss cssnano
-npm install --save-dev @11ty/eleventy-plugin-rss @11ty/eleventy-plugin-syntaxhighlight
-npm install --save-dev markdown-it-cjk-breaks markdown-it-implicit-figures markdown-it-footnote markdown-it-attrs
+yarn init -2
+yarn add --dev @11ty/eleventy@3 @tailwindcss/postcss tailwindcss postcss cssnano
+yarn add --dev @11ty/eleventy-plugin-rss @11ty/eleventy-plugin-syntaxhighlight
+yarn add --dev markdown-it-cjk-breaks markdown-it-implicit-figures markdown-it-footnote markdown-it-attrs
 ```
 
 - [ ] **Step 3: Update package.json scripts**
@@ -127,8 +127,8 @@ Replace the scripts section in `package.json`:
 ```json
 {
   "scripts": {
-    "dev": "npx @11ty/eleventy --serve",
-    "build": "npx @11ty/eleventy"
+    "dev": "eleventy --serve",
+    "build": "eleventy"
   },
   "type": "module"
 }
@@ -277,13 +277,13 @@ Create `src/_data/categories.json`:
 
 - [ ] **Step 8: Verify the build runs (empty site)**
 
-Run: `npm run build`
+Run: `yarn build`
 Expected: Build succeeds, `_site/` directory created with `css/main.css`.
 
 - [ ] **Step 9: Commit scaffolding**
 
 ```bash
-git add package.json package-lock.json eleventy.config.js src/css/main.css src/_data/site.json src/_data/categories.json
+git add package.json yarn.lock .yarnrc.yml eleventy.config.js src/css/main.css src/_data/site.json src/_data/categories.json
 git commit -m "feat: initialize 11ty v3 project with Tailwind CSS and markdown plugins"
 ```
 
@@ -374,7 +374,7 @@ title: Home
 
 - [ ] **Step 5: Verify build and layout**
 
-Run: `npm run dev`
+Run: `yarn dev`
 Expected: Site serves at localhost:8080 with header, footer, styled page.
 
 - [ ] **Step 6: Commit layouts**
@@ -454,7 +454,7 @@ layout: layouts/base.njk
 
 Run:
 ```bash
-npm install --save-dev @tailwindcss/typography
+yarn add --dev @tailwindcss/typography
 ```
 
 Update `src/css/main.css`:
@@ -466,7 +466,7 @@ Update `src/css/main.css`:
 - [ ] **Step 4: Commit post and page layouts**
 
 ```bash
-git add src/_includes/layouts/post.njk src/_includes/layouts/page.njk src/css/main.css package.json package-lock.json
+git add src/_includes/layouts/post.njk src/_includes/layouts/page.njk src/css/main.css package.json yarn.lock .yarnrc.yml
 git commit -m "feat: add post and page layouts with typography plugin"
 ```
 
@@ -557,12 +557,12 @@ For each of the 32 files in `src/posts/`, the following changes are needed:
 
 - [ ] **Step 4: Verify posts build**
 
-Run: `npm run build`
+Run: `yarn build`
 Expected: All 32 posts build to `_site/posts/<slug>/index.html`
 
 - [ ] **Step 5: Spot-check a few posts in browser**
 
-Run: `npm run dev`
+Run: `yarn dev`
 Check:
 - A post with code blocks (syntax highlighting works)
 - A post with Chinese content (CJK breaks work)
@@ -683,7 +683,7 @@ permalink: /archives/
 
 - [ ] **Step 5: Verify pages build and render**
 
-Run: `npm run dev`
+Run: `yarn dev`
 Check: `/about/`, `/friends/`, `/archives/` all render correctly.
 
 - [ ] **Step 6: Commit static pages**
@@ -719,7 +719,7 @@ The `_redirects` file from `static/` is NOT copied — it will be auto-generated
 
 - [ ] **Step 3: Verify assets are accessible**
 
-Run: `npm run dev`
+Run: `yarn dev`
 Check: `/static/favicon.ico` and an image from `/assets/` load correctly in browser.
 
 - [ ] **Step 4: Commit assets**
@@ -760,7 +760,7 @@ Create `src/drafts/drafts.json`:
 
 - [ ] **Step 3: Verify drafts are excluded from build output**
 
-Run: `npm run build`
+Run: `yarn build`
 Expected: No files generated for drafts in `_site/`. Drafts should NOT appear in collections or any page listing.
 
 - [ ] **Step 4: Commit drafts**
@@ -824,7 +824,7 @@ permalink: "{% if pagination.pageNumber == 0 %}/{% else %}/page/{{ pagination.pa
 
 - [ ] **Step 2: Verify pagination**
 
-Run: `npm run dev`
+Run: `yarn dev`
 Expected: Homepage shows first 12 posts (newest first). If >12 posts, pagination links appear. `/page/2/` shows the next batch.
 
 - [ ] **Step 3: Commit homepage**
@@ -912,7 +912,7 @@ eleventyConfig.addFilter("getTagList", (collections) => {
 
 - [ ] **Step 4: Verify tag pages**
 
-Run: `npm run dev`
+Run: `yarn dev`
 Check: `/tags/` lists all tags. Each tag links to `/tags/<tag>/` showing posts with that tag.
 
 - [ ] **Step 5: Commit tag pages**
@@ -1001,7 +1001,7 @@ Create `src/feed-json.njk`:
 
 - [ ] **Step 3: Verify feeds**
 
-Run: `npm run build`
+Run: `yarn build`
 Check: `_site/feed.xml` is valid XML. `_site/feed/index.json` is valid JSON.
 
 - [ ] **Step 4: Commit feeds**
@@ -1044,7 +1044,7 @@ Create `src/sitemap.njk`:
 
 - [ ] **Step 2: Verify sitemap**
 
-Run: `npm run build`
+Run: `yarn build`
 Check: `_site/sitemap.xml` exists and contains URLs for all posts and pages.
 
 - [ ] **Step 3: Commit sitemap**
@@ -1135,7 +1135,7 @@ Note: The `dateToPath` filter is already defined in `eleventy.config.js` (Task 1
 
 - [ ] **Step 3: Verify redirects file**
 
-Run: `npm run build`
+Run: `yarn build`
 Check: `_site/_redirects` contains both legacy rules (with rewritten targets) and new redirect rules for all 32 posts.
 
 - [ ] **Step 4: Commit redirects**
@@ -1176,10 +1176,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-          cache: "npm"
 
-      - run: npm ci
-      - run: npm run build
+      - name: Enable Corepack and install dependencies
+        run: |
+          corepack enable
+          yarn install --immutable
+
+      - run: yarn build
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
@@ -1215,7 +1218,7 @@ git commit -m "feat: add Cloudflare Pages deployment workflow"
 
 - [ ] **Step 1: Full build test**
 
-Run: `npm run build`
+Run: `yarn build`
 Expected: Clean build, no errors. Check `_site/` directory structure:
 - `_site/posts/<slug>/index.html` for each post
 - `_site/about/index.html`
@@ -1231,7 +1234,7 @@ Expected: Clean build, no errors. Check `_site/` directory structure:
 
 - [ ] **Step 2: Local dev server smoke test**
 
-Run: `npm run dev`
+Run: `yarn dev`
 Walk through:
 1. Homepage — paginated post list, pagination links if >12 posts
 2. A post — title, date, tags, content, code highlighting
