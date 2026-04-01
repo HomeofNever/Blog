@@ -80,9 +80,9 @@ export default function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("tagSlug", (tag) => {
-    // Handle CJK and mixed-script tags that slugify strips to empty
+    // Slugify for ASCII tags; keep raw Unicode for CJK tags
     const ascii = tag.toLowerCase().replace(/[^\w\s-]/g, "").replace(/\s+/g, "-").trim();
-    return ascii || encodeURIComponent(tag);
+    return ascii || tag;
   });
 
   // --- Category slug filter ---
