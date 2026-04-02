@@ -4,3 +4,10 @@ node_modules
 public
 _site/
 .yarn/install-state.gz
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
