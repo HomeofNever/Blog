@@ -3,6 +3,7 @@ import markdownItCjkBreaks from "markdown-it-cjk-breaks";
 import markdownItImplicitFigures from "markdown-it-implicit-figures";
 import markdownItFootnote from "markdown-it-footnote";
 import markdownItAttrs from "markdown-it-attrs";
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginRss from "@11ty/eleventy-plugin-rss";
 import fs from "fs";
@@ -15,6 +16,15 @@ export default function (eleventyConfig) {
   // --- Plugins ---
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(pluginRss);
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+    formats: ["webp", "auto"],
+    widths: ["auto"],
+    failOnError: false,
+    defaultAttributes: {
+      loading: "lazy",
+      decoding: "async",
+    },
+  });
 
   // --- Markdown ---
   const md = markdownIt({ html: true, linkify: true })
@@ -40,7 +50,7 @@ export default function (eleventyConfig) {
   });
 
   // --- Passthrough copy ---
-  eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("src/assets/file");
   eleventyConfig.addPassthroughCopy("src/static");
 
   // --- Tailwind CSS ---
