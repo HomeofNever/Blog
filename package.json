@@ -4,7 +4,9 @@
   "packageManager": "yarn@4.13.0",
   "scripts": {
     "dev": "eleventy --serve",
-    "build": "eleventy"
+    "build": "eleventy",
+    "deploy": "yarn run build && wrangler deploy",
+    "preview": "yarn run build && wrangler dev"
   },
   "devDependencies": {
     "@11ty/eleventy": "3",
@@ -19,6 +21,7 @@
     "markdown-it-footnote": "^4.0.0",
     "markdown-it-implicit-figures": "^0.12.0",
     "postcss": "^8.5.8",
-    "tailwindcss": "^4.2.2"
+    "tailwindcss": "^4.2.2",
+    "wrangler": "^4.79.0"
   }
 }
