@@ -39,7 +39,7 @@ https://www.h404bi.com/blog/2019/04/recent-changes-of-my-site
 
 ---
 
-![Github Sponsor](../assets/media/..//assets/media/moving-my-blog-2/sponsor.png)
+![Github Sponsor](/assets/media/moving-my-blog-2/sponsor.png)
 
 整体体验还行, 顺便试试看新开的`Amex`卡
 
