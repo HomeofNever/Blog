@@ -59,7 +59,10 @@ eleventy.config.js      # Eleventy configuration
 ## Development
 
 ```bash
-# Using distrobox (recommended)
+# First-time setup (creates the dev container from distrobox.ini)
+distrobox assemble create
+
+# Enter the dev container
 distrobox enter blog-dev
 
 # Install dependencies
