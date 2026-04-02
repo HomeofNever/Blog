@@ -31,4 +31,24 @@ layout: layouts/base.njk
   <div class="prose prose-lg max-w-none">
     {{ content | safe }}
   </div>
+
+  <hr class="my-12">
+
+  <section class="giscus-comments" aria-label="评论">
+    <script src="https://giscus.app/client.js"
+      data-repo="homeofnever/blog"
+      data-repo-id="MDEwOlJlcG9zaXRvcnkxNTI2NjcxNzQ="
+      data-category="Comments"
+      data-category-id="DIC_kwDOCRmEJs4C51bD"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="light"
+      data-lang="zh-CN"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </section>
 </article>

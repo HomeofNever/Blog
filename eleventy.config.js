@@ -25,6 +25,20 @@ export default function (eleventyConfig) {
 
   eleventyConfig.setLibrary("md", md);
 
+  // --- Shortcodes ---
+  eleventyConfig.addShortcode("youtube", (id) => {
+    return `<div class="aspect-video my-4"><iframe src="https://www.youtube-nocookie.com/embed/${id}" title="YouTube video" frameborder="0" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full"></iframe></div>`;
+  });
+
+  eleventyConfig.addShortcode("tweet", (id, conversation) => {
+    const convoAttr = conversation === "none" ? ' data-conversation="none"' : "";
+    return `<blockquote class="twitter-tweet"${convoAttr}><a href="https://twitter.com/i/status/${id}">Tweet</a></blockquote>`;
+  });
+
+  eleventyConfig.addShortcode("telegram", (channel, msgid) => {
+    return `<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="${channel}/${msgid}" data-width="100%"></script>`;
+  });
+
   // --- Passthrough copy ---
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/static");

@@ -15,5 +15,8 @@
     {{ content | safe }}
   </main>
   {% include "footer.njk" %}
+  {% if "twitter-tweet" in content %}
+    <script async src="https://platform.twitter.com/widgets.js"></script>
+  {% endif %}
 </body>
 </html>

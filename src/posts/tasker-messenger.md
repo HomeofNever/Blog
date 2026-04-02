@@ -92,7 +92,7 @@ WVDEVID
 
 其实是有的：
 
-<!-- TODO: embed migration Phase 2 -->
+{% telegram "ButNothingHappened", "2823" %}
 
 研究了一下`SIM`模块，发现……真的贵：至少国外的价格不便宜，~~想要找人从国内带开发板~~，于是就先这样了
 
