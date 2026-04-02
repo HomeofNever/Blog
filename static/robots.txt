@@ -1,4 +1,0 @@
-Sitemap: https://www.h404bi.com/sitemap.xml
-
-User-agent: *
-Disallow: /drafts
