@@ -51,6 +51,7 @@ export default function (eleventyConfig) {
 
   // --- Passthrough copy ---
   eleventyConfig.addPassthroughCopy("src/assets/file");
+  eleventyConfig.addPassthroughCopy("src/assets/media");
   eleventyConfig.addPassthroughCopy("src/static");
 
   // --- Tailwind CSS ---
