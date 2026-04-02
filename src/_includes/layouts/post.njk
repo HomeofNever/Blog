@@ -28,6 +28,12 @@ layout: layouts/base.njk
     {% endif %}
   </header>
 
+  {% set latestDate = updated if updated else date %}
+  <div id="stale-warning" class="my-6 p-4 border-l-4 border-yellow-400 bg-yellow-50 text-yellow-900 text-sm hidden">
+    <strong>注意:</strong> 这篇文章已经有相当一段时间没有更新了（已过去 <span id="stale-days"></span> 天）。<br>文章中任何有时效性的信息应当在仔细审阅后再使用。如果有任何更新建议，请留言。
+  </div>
+  <script>!function(){var d=Math.floor((Date.now()-new Date("{{ latestDate | isoDate }}"))/(864e5));if(d>180){document.getElementById("stale-days").textContent=d;document.getElementById("stale-warning").classList.remove("hidden")}}();</script>
+
   <div class="prose prose-lg max-w-none">
     {{ content | safe }}
   </div>
