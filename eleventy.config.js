@@ -53,6 +53,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/file");
   eleventyConfig.addPassthroughCopy("src/assets/media");
   eleventyConfig.addPassthroughCopy("src/static");
+  eleventyConfig.addPassthroughCopy({ "src/static/robots.txt": "robots.txt" });
 
   // Keep informal notes separate from the regular post collection.
   eleventyConfig.addCollection("ramblings", (collectionApi) => {
@@ -90,6 +91,10 @@ export default function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("currentYear", () => new Date().getFullYear());
+
+  eleventyConfig.addFilter("absoluteUrl", (url, base) => {
+    return new URL(url, base).href;
+  });
 
   eleventyConfig.addFilter("newestUpdatedDate", (items = []) => {
     if (!items.length) return new Date();

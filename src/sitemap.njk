@@ -9,8 +9,9 @@
   {% for page in collections.all %}
     {% if page.url and not page.data.eleventyExcludeFromCollections %}
     <url>
-      <loc>{{ site.url }}{{ page.url }}</loc>
-      <lastmod>{{ page.date | isoDate }}</lastmod>
+      <loc>{{ page.url | absoluteUrl(site.url) | escape }}</loc>
+      {% set lastmod = page.data.updated or page.data.date %}
+      {% if lastmod %}<lastmod>{{ lastmod | isoDate }}</lastmod>{% endif %}
     </url>
     {% endif %}
   {% endfor %}
