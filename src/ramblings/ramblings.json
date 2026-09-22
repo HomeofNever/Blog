@@ -1,0 +1,7 @@
+{
+  "layout": "layouts/rambling.njk",
+  "permalink": "/ramblings/{{ page.fileSlug }}/",
+  "section": "ramblings",
+  "feedUrl": "/ramblings/feed.xml",
+  "feedTitle": "碎碎念"
+}

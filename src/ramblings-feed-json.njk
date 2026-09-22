@@ -1,0 +1,26 @@
+---json
+{
+  "permalink": "/ramblings/feed/index.json",
+  "eleventyExcludeFromCollections": true
+}
+---
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "{{ site.title }} — 碎碎念",
+  "home_page_url": "{{ site.url }}/ramblings/",
+  "feed_url": "{{ site.url }}/ramblings/feed/index.json",
+  "description": "零散的笔记、小小的想法，还有没写完的念头。",
+  "authors": [{ "name": "{{ site.author }}" }],
+  "items": [
+    {% set feedRamblings = collections.ramblings | reverse %}
+    {% for rambling in feedRamblings %}{% if loop.index0 < 20 %}{% if loop.index0 > 0 %},{% endif %}
+    {
+      "id": "{{ site.url }}{{ rambling.url }}",
+      "url": "{{ site.url }}{{ rambling.url }}",
+      "title": {{ rambling.data.title | dump | safe }},
+      "content_html": {{ rambling.templateContent | htmlToAbsoluteUrls(site.url + rambling.url) | dump | safe }},
+      "date_published": "{{ rambling.date | dateToRfc3339 }}"{% if rambling.data.updated %},
+      "date_modified": "{{ rambling.data.updated | dateToRfc3339 }}"{% endif %}
+    }{% endif %}{% endfor %}
+  ]
+}

@@ -1,0 +1,52 @@
+---
+layout: layouts/base.njk
+title: 碎碎念
+description: 零散的笔记、小小的想法，还有没写完的念头。
+section: ramblings
+feedUrl: /ramblings/feed.xml
+feedTitle: 碎碎念
+pagination:
+  data: collections.ramblings
+  size: 12
+  reverse: true
+  alias: pagedRamblings
+  generatePageOnEmptyData: true
+permalink: "{% if pagination.pageNumber == 0 %}/ramblings/{% else %}/ramblings/page/{{ pagination.pageNumber + 1 }}/{% endif %}"
+---
+
+<h1 class="text-3xl font-bold mb-3">碎碎念</h1>
+<p class="text-gray-600 mb-8">
+  零散的笔记、小小的想法，还有没写完的念头。
+</p>
+
+{% if pagedRamblings.length %}
+  <ul class="space-y-6">
+    {% for rambling in pagedRamblings %}
+      <li>
+        <div class="text-sm text-gray-500">
+          <time datetime="{{ rambling.date | isoDate }}">{{ rambling.date | readableDate }}</time>
+          {% if rambling.data.updated %}
+            &middot; Updated: <time datetime="{{ rambling.data.updated | isoDate }}">{{ rambling.data.updated | readableDate }}</time>
+          {% endif %}
+        </div>
+        <a href="{{ rambling.url }}" class="text-xl font-semibold hover:underline">{{ rambling.data.title }}</a>
+        {% if rambling.data.description %}
+          <p class="text-gray-600 mt-1">{{ rambling.data.description }}</p>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p class="text-gray-500">这里暂时还没有碎碎念。</p>
+{% endif %}
+
+{% if pagination.pages.length > 1 %}
+  <nav class="mt-8 flex gap-4 text-sm" aria-label="碎碎念分页">
+    {% if pagination.href.previous %}
+      <a href="{{ pagination.href.previous }}" class="border border-gray-200 px-3 py-1 hover:bg-gray-50">&laquo; 更新的</a>
+    {% endif %}
+    {% if pagination.href.next %}
+      <a href="{{ pagination.href.next }}" class="border border-gray-200 px-3 py-1 hover:bg-gray-50">更早的 &raquo;</a>
+    {% endif %}
+  </nav>
+{% endif %}

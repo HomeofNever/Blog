@@ -1,0 +1,52 @@
+---
+layout: layouts/base.njk
+---
+<article class="rambling">
+  <header class="mb-8">
+    <a href="/ramblings/" class="inline-block mb-3 text-xs font-semibold tracking-wider text-gray-500 hover:text-gray-800 hover:underline">碎碎念</a>
+    <h1 class="text-4xl font-bold leading-tight mb-2">{{ title }}</h1>
+    <div class="text-sm text-gray-500">
+      <time datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>
+      {% if updated %}
+        &middot; Updated: <time datetime="{{ updated | isoDate }}">{{ updated | readableDate }}</time>
+      {% endif %}
+    </div>
+  </header>
+
+  <aside class="my-6 p-4 border-l-4 border-gray-300 bg-gray-50 text-gray-700 text-sm">
+    你看到的是一篇碎碎念，都是随手记下，所以可能不完整，但也可能会在未来整理重写。
+    大多数情况下这就是终点了，谁知道呢？
+  </aside>
+
+  <div class="prose prose-lg max-w-none">
+    {{ content | safe }}
+  </div>
+
+  {% if supersededBy %}
+    <aside class="mt-10 p-4 border border-gray-200 bg-gray-50 text-sm">
+      这些笔记后来整理成了正式文章：<a href="{{ supersededBy }}" class="underline">{{ supersededBy }}</a>。
+    </aside>
+  {% endif %}
+
+  {% if comments != false %}
+    <hr class="my-12">
+
+    <section class="giscus-comments" aria-label="评论">
+      <script src="https://giscus.app/client.js"
+        data-repo="homeofnever/blog"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkxNTI2NjcxNzQ="
+        data-category="Comments"
+        data-category-id="DIC_kwDOCRmEJs4C51bD"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+      </script>
+    </section>
+  {% endif %}
+</article>
