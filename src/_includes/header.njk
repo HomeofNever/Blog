@@ -3,7 +3,7 @@
     <a href="/" class="text-2xl font-light tracking-tight text-gray-700 hover:no-underline">
       {{ site.title }}
     </a>
-    <nav class="flex gap-4">
+    <nav class="flex flex-wrap justify-end gap-x-4 gap-y-1">
       {% for item in site.nav %}
         <a href="{{ item.link }}" class="text-gray-800 hover:text-gray-600 hover:underline"
           {% if item.link.startsWith("http") %}target="_blank" rel="noopener"{% endif %}>

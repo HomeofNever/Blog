@@ -7,9 +7,10 @@
   "twitter": "_NeverBehave_",
   "icon": "/static/icons/android-chrome-512x512.png",
   "nav": [
-    { "text": "Home", "link": "/" },
-    { "text": "About", "link": "/about/" },
-    { "text": "Social", "link": "https://never.pet" },
-    { "text": "Friends", "link": "/friends/" }
+    { "text": "首页", "link": "/" },
+    { "text": "关于", "link": "/about/" },
+    { "text": "碎碎念", "link": "/ramblings/" },
+    { "text": "社交", "link": "https://never.pet" },
+    { "text": "友链", "link": "/friends/" }
   ]
 }

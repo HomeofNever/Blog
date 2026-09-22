@@ -54,6 +54,11 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/media");
   eleventyConfig.addPassthroughCopy("src/static");
 
+  // Keep informal notes separate from the regular post collection.
+  eleventyConfig.addCollection("ramblings", (collectionApi) => {
+    return collectionApi.getFilteredByGlob("src/ramblings/*.md");
+  });
+
   // --- Tailwind CSS ---
   eleventyConfig.on("eleventy.before", async () => {
     const inputFile = path.resolve("src/css/main.css");
@@ -86,6 +91,16 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addFilter("currentYear", () => new Date().getFullYear());
 
+  eleventyConfig.addFilter("newestUpdatedDate", (items = []) => {
+    if (!items.length) return new Date();
+
+    return new Date(
+      Math.max(
+        ...items.map((item) => new Date(item.data.updated || item.date).getTime())
+      )
+    );
+  });
+
   eleventyConfig.addFilter("dateToPath", (dateObj) => {
     const d = new Date(dateObj);
     const year = d.getUTCFullYear();
@@ -98,7 +113,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("getTagList", (collections) => {
     const tags = new Set();
     for (const name in collections) {
-      if (name === "posts" || name === "all") continue;
+      if (name === "posts" || name === "ramblings" || name === "all") continue;
       tags.add(name);
     }
     return [...tags].sort();

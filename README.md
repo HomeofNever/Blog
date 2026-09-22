@@ -37,10 +37,12 @@ src/
 │   ├── layouts/
 │   │   ├── base.njk    # Base HTML (head, OG tags, Twitter Cards)
 │   │   ├── post.njk    # Blog post layout (tags, giscus comments)
+│   │   ├── rambling.njk  # Informal note layout
 │   │   └── page.njk    # Static page layout
 │   ├── header.njk
 │   └── footer.njk
 ├── posts/              # Blog posts (markdown)
+├── ramblings/          # Public, informal and evolving notes
 ├── pages/              # Static pages (about, friends, archives)
 ├── drafts/             # Draft posts (excluded from build)
 ├── assets/             # Images and files (passthrough copy)
@@ -49,12 +51,30 @@ src/
 ├── index.njk           # Homepage with pagination
 ├── feed.njk            # Atom feed
 ├── feed-json.njk       # JSON feed
+├── ramblings.njk       # Ramblings index
+├── ramblings-feed.njk  # Ramblings Atom feed
+├── ramblings-feed-json.njk  # Ramblings JSON feed
 ├── sitemap.njk         # Sitemap
 ├── tags.njk            # Tag listing page
 ├── tag-page.njk        # Individual tag page template
 └── redirects.njk       # _redirects generator
 eleventy.config.js      # Eleventy configuration
 ```
+
+## Ramblings
+
+Ramblings are public, lightly edited notes kept separate from polished blog posts. Add a Markdown file to `src/ramblings/` with at least a title and date:
+
+```yaml
+---
+title: Notes from ASC 2026
+date: 2026-09-21
+updated: 2026-09-24
+description: Hotel selection, transportation, and miscellaneous conference notes.
+---
+```
+
+Store related media under `src/assets/media/<slug>/` and reference it as `/assets/media/<slug>/<filename>`. Use `comments: false` to disable comments for a note. If it later becomes a polished post, keep the original rambling in place and set `supersededBy: /posts/<slug>/`.
 
 ## Development
 

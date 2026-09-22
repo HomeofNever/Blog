@@ -1,8 +1,10 @@
 node_modules
+.DS_Store
 *.log
 .saber
 public
 _site/
+.cache/
 .yarn/install-state.gz
 
 # wrangler files

@@ -1,0 +1,31 @@
+---json
+{
+  "permalink": "/ramblings/feed.xml",
+  "eleventyExcludeFromCollections": true
+}
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.title }} — 碎碎念</title>
+  <subtitle>零散的笔记、小小的想法，还有没写完的念头。</subtitle>
+  <link href="{{ site.url }}/ramblings/feed.xml" rel="self"/>
+  <link href="{{ site.url }}/ramblings/"/>
+  <updated>{{ collections.ramblings | newestUpdatedDate | dateToRfc3339 }}</updated>
+  <id>{{ site.url }}/ramblings/</id>
+  <author>
+    <name>{{ site.author }}</name>
+    <email>{{ site.email }}</email>
+  </author>
+  {% for rambling in collections.ramblings | reverse %}
+  {% if loop.index0 < 20 %}
+  <entry>
+    <title>{{ rambling.data.title }}</title>
+    <link href="{{ site.url }}{{ rambling.url }}"/>
+    <published>{{ rambling.date | dateToRfc3339 }}</published>
+    <updated>{{ (rambling.data.updated or rambling.date) | dateToRfc3339 }}</updated>
+    <id>{{ site.url }}{{ rambling.url }}</id>
+    <content type="html">{{ rambling.templateContent | htmlToAbsoluteUrls(site.url + rambling.url) }}</content>
+  </entry>
+  {% endif %}
+  {% endfor %}
+</feed>
