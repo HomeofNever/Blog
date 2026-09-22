@@ -8,6 +8,7 @@ tags:
 categories:
     - 技术
 date: 2022-07-04
+updated: 2026-09-22
 description: Nix天生和JS一棒子包管理八字不合，在经过一系列斗争之后，我屈服了。搞个macos好了，毕竟现在大家适配不都是mac，实在是不想和工具打架了。 
 ---
 
@@ -55,14 +56,36 @@ killall ScreenSaverEngine
 sudo defaults write /Library/Preferences/com.apple.screensaver loginWindowIdleTime 0
 ```
 
+### Caffeine
+
+如果不在意机器一直保持已登录、不会自动锁屏，还有一个更省事的办法：[Caffeine](https://www.caffeine-app.net/en/)。它可以阻止Mac自动休眠、调暗屏幕或者启动屏幕保护程序，也能设置为登录后自动启动并保持激活。这就是我现在采用的方案。
+
+### SSH Key和Secure Enclave
+
+[Secretive](https://github.com/maxgoedjen/secretive)可以把SSH私钥放进Mac的Secure Enclave。这里需要说明一下：Secure Enclave是Apple提供的硬件安全机制，但Secretive本身并不是Apple官方工具。
+
+这个方案在普通桌面Mac上很不错，但我不推荐用在headless Mac上。问题不只是Secretive的后台进程，而是它使用了Apple为Secure Enclave密钥提供的访问控制。Secretive会用`kSecAttrAccessibleWhenUnlockedThisDeviceOnly`保存密钥；按照[Apple的说明](https://developer.apple.com/documentation/security/ksecattraccessiblewhenunlockedthisdeviceonly)，这种密钥只有在设备处于解锁状态时才能访问，并不适合需要在后台持续工作的场景。
+
+在我的headless环境里，屏幕长时间没有活动、机器进入锁定或者相关的受保护状态后，无论从SSH还是本机终端调用密钥都可能看到`errSecInteractionNotAllowed`之类的报错。晃一下鼠标、让机器恢复活动后Secretive才会重新工作，完全违背了headless的初衷。严格来说，Apple公开文档规定的是“设备解锁”状态，并没有说单纯没有鼠标输入就一定会禁用密钥；实际触发时间还会受到屏幕保护和自动锁定设置的影响。
+
+这套方案也不能正常配合`age`使用。Secretive的Secure Enclave私钥按设计无法导出，只能通过SSH agent调用；而[`age`明确不支持SSH agent中的密钥](https://github.com/FiloSottile/age#ssh-keys)，只支持直接读取RSA或者Ed25519 SSH私钥文件。对于这台机器，我最后还是选择了普通的Ed25519 SSH密钥文件：少一点硬件隔离，但SSH、`age`、自动化和远程使用都可靠得多。
+
 ### 重启
 
-这是另外一波头疼的问题，如果你开启了`filevault`，那么重启以后必须要用键盘解开硬盘才能启动VNC这些服务。所以……这怎么搞啊艹，那就关了咯。
+这是另外一波头疼的问题。以前如果开启了`FileVault`，重启以后必须先用键盘解锁硬盘，VNC这些服务才能启动。所以……这怎么搞啊艹，那就关了咯。
 
-如果真的开了但是又要重启的话：
+如果真的开了但是又要重启，当时可以使用：
 
 > https://apple.stackexchange.com/questions/225818/how-to-perform-filevault-authenticated-restart-when-updating-osx-from-appstore
 
 ```
 sudo fdesetup authrestart
 ```
+
+不过从macOS Tahoe开始，已经可以通过SSH远程解锁FileVault了，因此现在应该不再需要为了无头重启而专门使用上面的命令。话虽如此，我还是推荐准备一个KVM作为备用入口：远程网络或者SSH真出问题的时候，至少还有办法救场。
+
+## 2026 更新
+
+我现在已经换成了一台M4 Mac mini。旧的Mac大概每一两个月就会遇到一次PCIe问题，问题出在板载网卡上。对于一台需要长期远程使用的机器来说，这种偶发故障还是有点烦。
+
+目前这台Mac mini主要用来跑Codex。我会从手机连接，IP出口是机房IP；实际使用下来没有什么问题，机房IP完全不是问题，一切都很正常。毕竟你真的要让AI有用，怎么可能不在远程主机上直接安装使用……
