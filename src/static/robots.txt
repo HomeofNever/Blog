@@ -1,4 +1,4 @@
-Sitemap: https://www.h404bi.com/sitemap.xml
-
 User-agent: *
-Disallow: /drafts
+Allow: /
+
+Sitemap: https://blog.never.pet/sitemap.xml
